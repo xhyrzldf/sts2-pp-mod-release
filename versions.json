@@ -9,7 +9,7 @@
         "Deferred Rewind defeat uploads — if player has Rewind game-over rewind but exits without using it, the defeat data is now correctly uploaded instead of being silently dropped."
       ],
       "updated_at": "2026-04-07",
-      "download_cn": "",
+      "download_cn": "https://gitee.com/forNoName/sts2-pp-mod-release/releases/download/DamageMeter-v1.13.3/DamageMeter_v1.13.3.zip",
       "download_intl": "",
       "page": "",
       "filename": "DamageMeter_v1.13.3.zip",
@@ -17,7 +17,8 @@
       "changelog_en": "v1.13.3: fix analytics data loss when Rewind game-over rewind available but player exits without rewinding",
       "changelog_detail_en": [
         "Deferred Rewind defeat uploads — if player has Rewind game-over rewind but exits without using it, the defeat data is now correctly uploaded instead of being silently dropped."
-      ]
+      ],
+      "sha256": "143825f4b81d4ecb6c8f5a62ea3c82a7c166fd0a79c44ab0262e68d11bfd0b70"
     },
     "SpeedX": {
       "latest": "0.10.5",
@@ -29,11 +30,12 @@
         "同时在视口尺寸变化、SpeedX 文本宽度变化、Rewind 文本宽度变化时都会重新定位，因此战斗中文案更新时也能保持更紧凑的贴边效果。"
       ],
       "updated_at": "2026-04-01",
-      "download_cn": "",
+      "download_cn": "https://gitee.com/forNoName/sts2-pp-mod-release/releases/download/SpeedX-v0.10.5/SpeedX_v0.10.5.zip",
       "download_intl": "",
       "page": "",
       "filename": "SpeedX_v0.10.5.zip",
-      "channel": "stable"
+      "channel": "stable",
+      "sha256": "4495c45a2eb443f1a2f1050954bda5f80ca3630cf78259e2ae0d8e84f6f980d0"
     },
     "RemoveMultiplayerPlayerLimit": {
       "latest": "0.0.5",
@@ -44,11 +46,12 @@
         "多人联机 API 无破坏性变更，Harmony patches 全部兼容"
       ],
       "updated_at": "2026-03-14",
-      "download_cn": "",
+      "download_cn": "https://gitee.com/forNoName/sts2-pp-mod-release/releases/download/RemoveMultiplayerPlayerLimit-v0.0.5/RemoveMultiplayerPlayerLimit_v0.0.5.zip",
       "download_intl": "",
       "page": "",
       "channel": "stable",
-      "filename": "RemoveMultiplayerPlayerLimit_v0.0.5.zip"
+      "filename": "RemoveMultiplayerPlayerLimit_v0.0.5.zip",
+      "sha256": "74f1d5c4a662521ed2a47f8400e93179bc83252ce55a4af8d2a2cc353249c292"
     },
     "Rewind": {
       "latest": "0.25.5",
@@ -59,11 +62,12 @@
         "兼容 cardsIn / cards 两种参数名的 sts2.dll 构建"
       ],
       "updated_at": "2026-04-06",
-      "download_cn": "",
+      "download_cn": "https://gitee.com/forNoName/sts2-pp-mod-release/releases/download/Rewind-v0.25.5/Rewind_v0.25.5.zip",
       "download_intl": "",
       "page": "",
       "filename": "Rewind_v0.25.5.zip",
-      "channel": "stable"
+      "channel": "stable",
+      "sha256": "8abc2ca6f25d64e66f3cfea0fb34b259ea97d8dbca3492e6fc052670a9361a03"
     },
     "ModConfig": {
       "latest": "0.2.1",
@@ -82,11 +86,12 @@
         "加固 ColorPicker 默认值规范化，防止非 string 类型污染数据"
       ],
       "updated_at": "2026-03-25",
-      "download_cn": "",
+      "download_cn": "https://gitee.com/forNoName/sts2-pp-mod-release/releases/download/ModConfig-v0.2.1/ModConfig_v0.2.1.zip",
       "download_intl": "",
       "page": "",
       "filename": "ModConfig_v0.2.1.zip",
-      "channel": "stable"
+      "channel": "stable",
+      "sha256": "18c7d7319eb21720b189ca592d27d4df024743ac36324adc5a84e36a0c751b7e"
     },
     "QuickLink": {
       "latest": "0.9.3",
@@ -98,11 +103,12 @@
         "修复 QuickLink 在 v0.102.0 上因 Harmony 提示 Parameter \"coord\" not found 而初始化失败的问题。"
       ],
       "updated_at": "2026-04-03",
-      "download_cn": "",
+      "download_cn": "https://gitee.com/forNoName/sts2-pp-mod-release/releases/download/QuickLink-v0.9.3/QuickLink_v0.9.3.zip",
       "download_intl": "",
       "page": "",
       "filename": "QuickLink_v0.9.3.zip",
-      "channel": "stable"
+      "channel": "stable",
+      "sha256": "4fed87ef2d80c6cb69cfa7f400e2e0bbc7f1e81c3c9e46ecbe628bafcd6d43e0"
     }
   }
 }
