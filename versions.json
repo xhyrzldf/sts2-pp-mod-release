@@ -1,0 +1,108 @@
+{
+  "schema_version": 1,
+  "mods": {
+    "DamageMeter": {
+      "latest": "1.13.3",
+      "name": "Skada: Damage Meter",
+      "changelog": "v1.13.3: fix analytics data loss when Rewind game-over rewind available but player exits without rewinding",
+      "changelog_detail": [
+        "Deferred Rewind defeat uploads — if player has Rewind game-over rewind but exits without using it, the defeat data is now correctly uploaded instead of being silently dropped."
+      ],
+      "updated_at": "2026-04-07",
+      "download_cn": "",
+      "download_intl": "",
+      "page": "",
+      "filename": "DamageMeter_v1.13.3.zip",
+      "channel": "stable",
+      "changelog_en": "v1.13.3: fix analytics data loss when Rewind game-over rewind available but player exits without rewinding",
+      "changelog_detail_en": [
+        "Deferred Rewind defeat uploads — if player has Rewind game-over rewind but exits without using it, the defeat data is now correctly uploaded instead of being silently dropped."
+      ]
+    },
+    "SpeedX": {
+      "latest": "0.10.5",
+      "name": "SpeedX",
+      "changelog": "让 Rewind 统计块贴近 SpeedX 实际渲染文字而不是固定状态栏盒子",
+      "changelog_detail": [
+        "这次定位到剩余大间距的根因是布局问题：Rewind 统计块之前仍然是贴着 SpeedX 那个固定 360 宽状态栏容器的左边，而不是贴着实际显示出来的黄色状态文字。",
+        "现在保留主 SpeedX 状态栏右侧锚点不变，但会改用 SpeedX 实际渲染文字的宽度来计算 Rewind 统计块的 X 坐标，让两块信息视觉上更像一个整体。",
+        "同时在视口尺寸变化、SpeedX 文本宽度变化、Rewind 文本宽度变化时都会重新定位，因此战斗中文案更新时也能保持更紧凑的贴边效果。"
+      ],
+      "updated_at": "2026-04-01",
+      "download_cn": "",
+      "download_intl": "",
+      "page": "",
+      "filename": "SpeedX_v0.10.5.zip",
+      "channel": "stable"
+    },
+    "RemoveMultiplayerPlayerLimit": {
+      "latest": "0.0.5",
+      "name": "Remove Multiplayer Player Limit",
+      "changelog": "适配 v0.99 beta 新 mod 结构",
+      "changelog_detail": [
+        "新增 v0.99 格式 manifest（外部 JSON + id + affects_gameplay）",
+        "多人联机 API 无破坏性变更，Harmony patches 全部兼容"
+      ],
+      "updated_at": "2026-03-14",
+      "download_cn": "",
+      "download_intl": "",
+      "page": "",
+      "channel": "stable",
+      "filename": "RemoveMultiplayerPlayerLimit_v0.0.5.zip"
+    },
+    "Rewind": {
+      "latest": "0.25.5",
+      "name": "Rewind",
+      "changelog": "修复个别用户 sts2.dll 参数名不一致导致 Rewind 初始化崩溃",
+      "changelog_detail": [
+        "DrawPileSelectionPatch 改用 [HarmonyArgument(1)] 按位置绑定参数，不再依赖游戏方法的参数名",
+        "兼容 cardsIn / cards 两种参数名的 sts2.dll 构建"
+      ],
+      "updated_at": "2026-04-06",
+      "download_cn": "",
+      "download_intl": "",
+      "page": "",
+      "filename": "Rewind_v0.25.5.zip",
+      "channel": "stable"
+    },
+    "ModConfig": {
+      "latest": "0.2.1",
+      "name": "ModConfig",
+      "changelog": "新增 Button/ColorPicker 控件 + 输入校验 + 崩溃修复 + Linux 字体兼容",
+      "changelog_detail": [
+        "新增 Button 控件：动作按钮，点击触发回调，不存储值",
+        "新增 ColorPicker 控件：颜色选择器，存储为 hex 字符串",
+        "新增 Validator 字段：TextInput 输入校验，非法输入红框提示",
+        "修复设置面板 NSettingsPanel 崩溃（Sequence contains no elements）",
+        "修复 RefreshSize 断开信号报错",
+        "修复 mod_manifest.json 缺少 id 字段导致的加载报错",
+        "修复 Linux 下字体渲染异常（继承游戏主题字体）",
+        "折叠状态持久化：重新打开设置页时记住展开/折叠状态",
+        "加固 Validator 异常隔离，第三方校验抛异常不再中断保存",
+        "加固 ColorPicker 默认值规范化，防止非 string 类型污染数据"
+      ],
+      "updated_at": "2026-03-25",
+      "download_cn": "",
+      "download_intl": "",
+      "page": "",
+      "filename": "ModConfig_v0.2.1.zip",
+      "channel": "stable"
+    },
+    "QuickLink": {
+      "latest": "0.9.3",
+      "name": "QuickLink",
+      "changelog": "兼容 v0.99 与 v0.102 的地图节点进入 patch 签名",
+      "changelog_detail": [
+        "从 RunManager.EnterMapPointInternal 的时序 Prefix 中移除旧版 coord 参数，让 Harmony 同时兼容 v0.99 与 v0.102 两套签名。",
+        "让检查点时序探针在 beta 分支继续生效，同时不破坏正式版 v0.99 的兼容性。",
+        "修复 QuickLink 在 v0.102.0 上因 Harmony 提示 Parameter \"coord\" not found 而初始化失败的问题。"
+      ],
+      "updated_at": "2026-04-03",
+      "download_cn": "",
+      "download_intl": "",
+      "page": "",
+      "filename": "QuickLink_v0.9.3.zip",
+      "channel": "stable"
+    }
+  }
+}
