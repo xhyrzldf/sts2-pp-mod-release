@@ -2,23 +2,29 @@
   "schema_version": 1,
   "mods": {
     "DamageMeter": {
-      "latest": "1.13.3",
+      "latest": "1.14.0",
       "name": "Skada: Damage Meter",
-      "changelog": "v1.13.3: fix analytics data loss when Rewind game-over rewind available but player exits without rewinding",
+      "changelog": "修复自定义模式识别和数据上传地址迁移",
       "changelog_detail": [
-        "Deferred Rewind defeat uploads — if player has Rewind game-over rewind but exits without using it, the defeat data is now correctly uploaded instead of being silently dropped."
+        "修复 GameMode 枚举映射错位（遗漏 None=0）",
+        "新增修饰器列表上传（精准识别自定义模式）",
+        "v0.99 RunHistory.GameMode 回退检测",
+        "自动迁移过期域名到正式 IP"
       ],
-      "updated_at": "2026-04-07",
+      "updated_at": "2026-04-09",
       "download_cn": "https://gitee.com/forNoName/sts2-pp-mod-release/releases/download/DamageMeter-v1.13.3/DamageMeter_v1.13.3.zip",
-      "download_intl": "https://github.com/xhyrzldf/sts2-pp-mod-release/releases/download/DamageMeter-v1.13.3/DamageMeter_v1.13.3.zip",
+      "download_intl": "https://github.com/xhyrzldf/sts2-pp-mod-release/releases/download/DamageMeter-v1.14.0/DamageMeter_v1.14.0.zip",
       "page": "",
-      "filename": "DamageMeter_v1.13.3.zip",
+      "filename": "DamageMeter_v1.14.0.zip",
       "channel": "stable",
-      "changelog_en": "v1.13.3: fix analytics data loss when Rewind game-over rewind available but player exits without rewinding",
+      "changelog_en": "Fix custom mode detection and analytics URL migration",
       "changelog_detail_en": [
-        "Deferred Rewind defeat uploads — if player has Rewind game-over rewind but exits without using it, the defeat data is now correctly uploaded instead of being silently dropped."
+        "Fix GameMode enum mapping (forgot None=0)",
+        "Add modifiers upload for precise custom mode detection",
+        "RunHistory.GameMode fallback for v0.99",
+        "Auto-migrate expired domain URLs to production IP"
       ],
-      "sha256": "143825f4b81d4ecb6c8f5a62ea3c82a7c166fd0a79c44ab0262e68d11bfd0b70"
+      "sha256": "82ec7a8b2e9f6f5c0cc139550864c187f608056236a3f80307d2bdebaa9a3ad4"
     },
     "SpeedX": {
       "latest": "0.10.5",
