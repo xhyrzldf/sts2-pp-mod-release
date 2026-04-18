@@ -100,12 +100,12 @@
         "重新导出 PCK，内嵌 manifest 与外部 <Mod>.json 保持一致"
       ],
       "updated_at": "2026-04-19",
-      "download_cn": "https://gitee.com/forNoName/sts2-pp-mod-release/releases/download/ModConfig-v0.2.1/ModConfig_v0.2.1.zip",
-      "download_intl": "https://github.com/xhyrzldf/sts2-pp-mod-release/releases/download/ModConfig-v0.2.1/ModConfig_v0.2.1.zip",
+      "download_cn": "https://gitee.com/forNoName/sts2-pp-mod-release/releases/download/ModConfig-v0.2.2/ModConfig_v0.2.2.zip",
+      "download_intl": "https://github.com/xhyrzldf/sts2-pp-mod-release/releases/download/ModConfig-v0.2.2/ModConfig_v0.2.2.zip",
       "page": "",
       "filename": "ModConfig_v0.2.2.zip",
       "channel": "stable",
-      "sha256": "18c7d7319eb21720b189ca592d27d4df024743ac36324adc5a84e36a0c751b7e",
+      "sha256": "4af6b8c7c682dfee4ecd44fa482266bdfd9b0e4494faafccd004c9953858411a",
       "changelog_en": "Unified PPDEV family cover art and display name format",
       "changelog_detail_en": [
         "Refresh mod_image.png with the new PPDEV family cover art (compressed PNG, 854x480, ~400KB)",
