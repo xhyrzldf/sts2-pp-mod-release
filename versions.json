@@ -100,21 +100,21 @@
       "sha256": "18c7d7319eb21720b189ca592d27d4df024743ac36324adc5a84e36a0c751b7e"
     },
     "QuickLink": {
-      "latest": "0.9.3",
+      "latest": "0.9.4",
       "name": "QuickLink",
-      "changelog": "兼容 v0.99 与 v0.102 的地图节点进入 patch 签名",
+      "changelog": "适配 v0.103.2 Steam listen socket 延迟关闭导致的联机回退失败问题",
       "changelog_detail": [
-        "从 RunManager.EnterMapPointInternal 的时序 Prefix 中移除旧版 coord 参数，让 Harmony 同时兼容 v0.99 与 v0.102 两套签名。",
-        "让检查点时序探针在 beta 分支继续生效，同时不破坏正式版 v0.99 的兼容性。",
-        "修复 QuickLink 在 v0.102.0 上因 Harmony 提示 Parameter \"coord\" not found 而初始化失败的问题。"
+        "v0.103.2 把 SteamHost.StopHost 的优雅断开路径改成了延迟 1000ms 关闭 listen socket。QuickLink 的快速回退流程在断开后约 730ms 就重新开 host，此时旧 listen socket 还挂着，导致 Steam P2P 路由被污染，客机 JoinFlow 所有重试都以 MiscTimeout 超时。",
+        "在快速回退 autohost 路径里、调用 StartSteamHost 之前插入 1100ms 等待，让旧 listen socket 有时间彻底关闭。",
+        "修复 v0.103.2 下房主触发战斗重置后客机无法重连的问题（主机卡角色选择、客机卡\"正在重置战斗\"黑屏）。"
       ],
-      "updated_at": "2026-04-03",
-      "download_cn": "https://gitee.com/forNoName/sts2-pp-mod-release/releases/download/QuickLink-v0.9.3/QuickLink_v0.9.3.zip",
-      "download_intl": "https://github.com/xhyrzldf/sts2-pp-mod-release/releases/download/QuickLink-v0.9.3/QuickLink_v0.9.3.zip",
+      "updated_at": "2026-04-18",
+      "download_cn": "https://gitee.com/forNoName/sts2-pp-mod-release/releases/download/QuickLink-v0.9.4/QuickLink_v0.9.4.zip",
+      "download_intl": "https://github.com/xhyrzldf/sts2-pp-mod-release/releases/download/QuickLink-v0.9.4/QuickLink_v0.9.4.zip",
       "page": "",
-      "filename": "QuickLink_v0.9.3.zip",
+      "filename": "QuickLink_v0.9.4.zip",
       "channel": "stable",
-      "sha256": "4fed87ef2d80c6cb69cfa7f400e2e0bbc7f1e81c3c9e46ecbe628bafcd6d43e0"
+      "sha256": "3945f354f2210d7a63c03d6f066fc7362eefa54e0dd80c77a9eb8bf327bca769"
     }
   }
 }
