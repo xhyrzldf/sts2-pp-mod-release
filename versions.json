@@ -13,8 +13,8 @@
         ".csproj 的 CopyMod 目标对齐其他家族模组，build 时自动部署 <Mod>.json 并清理 legacy mod_manifest.json"
       ],
       "updated_at": "2026-04-19",
-      "download_cn": "https://gitee.com/forNoName/sts2-pp-mod-release/releases/download/DamageMeter-v1.13.3/DamageMeter_v1.13.3.zip",
-      "download_intl": "https://github.com/xhyrzldf/sts2-pp-mod-release/releases/download/DamageMeter-v1.14.0/DamageMeter_v1.14.0.zip",
+      "download_cn": "https://gitee.com/forNoName/sts2-pp-mod-release/releases/download/DamageMeter-v1.14.1/DamageMeter_v1.14.1.zip",
+      "download_intl": "https://github.com/xhyrzldf/sts2-pp-mod-release/releases/download/DamageMeter-v1.14.1/DamageMeter_v1.14.1.zip",
       "page": "",
       "filename": "DamageMeter_v1.14.1.zip",
       "channel": "stable",
@@ -26,7 +26,7 @@
         "Fix a pre-existing compile error by pruning the dead ModManager.LoadedMods fallback in EnumerateLoadedMods (that API was removed in game v0.103)",
         "Align the .csproj CopyMod target with the other family mods so <Mod>.json auto-deploys on build and any legacy mod_manifest.json is auto-removed from the game folder"
       ],
-      "sha256": "82ec7a8b2e9f6f5c0cc139550864c187f608056236a3f80307d2bdebaa9a3ad4"
+      "sha256": "d99bcb41a0725687156fe4d437321b044448c9d4fd0312117c053e2593ae3927"
     },
     "SpeedX": {
       "latest": "0.10.6",
