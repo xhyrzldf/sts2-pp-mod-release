@@ -123,12 +123,12 @@
         "重新导出 PCK，内嵌 manifest 与外部 <Mod>.json 保持一致"
       ],
       "updated_at": "2026-04-19",
-      "download_cn": "https://gitee.com/forNoName/sts2-pp-mod-release/releases/download/QuickLink-v0.9.4/QuickLink_v0.9.4.zip",
-      "download_intl": "https://github.com/xhyrzldf/sts2-pp-mod-release/releases/download/QuickLink-v0.9.4/QuickLink_v0.9.4.zip",
+      "download_cn": "https://gitee.com/forNoName/sts2-pp-mod-release/releases/download/QuickLink-v0.9.5/QuickLink_v0.9.5.zip",
+      "download_intl": "https://github.com/xhyrzldf/sts2-pp-mod-release/releases/download/QuickLink-v0.9.5/QuickLink_v0.9.5.zip",
       "page": "",
       "filename": "QuickLink_v0.9.5.zip",
       "channel": "stable",
-      "sha256": "3945f354f2210d7a63c03d6f066fc7362eefa54e0dd80c77a9eb8bf327bca769",
+      "sha256": "cd2d4f5e72229b55471cdcb364044c9ad840e4401a8c13ef3fef595fa54f94e1",
       "changelog_en": "Unified PPDEV family cover art and display name format",
       "changelog_detail_en": [
         "Refresh mod_image.png with the new PPDEV family cover art (compressed PNG, 854x480, ~400KB)",
