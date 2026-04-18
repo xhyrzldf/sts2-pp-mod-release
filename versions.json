@@ -38,12 +38,12 @@
         "重新导出 PCK，内嵌 manifest 与外部 <Mod>.json 保持一致"
       ],
       "updated_at": "2026-04-19",
-      "download_cn": "https://gitee.com/forNoName/sts2-pp-mod-release/releases/download/SpeedX-v0.10.5/SpeedX_v0.10.5.zip",
-      "download_intl": "https://github.com/xhyrzldf/sts2-pp-mod-release/releases/download/SpeedX-v0.10.5/SpeedX_v0.10.5.zip",
+      "download_cn": "https://gitee.com/forNoName/sts2-pp-mod-release/releases/download/SpeedX-v0.10.6/SpeedX_v0.10.6.zip",
+      "download_intl": "https://github.com/xhyrzldf/sts2-pp-mod-release/releases/download/SpeedX-v0.10.6/SpeedX_v0.10.6.zip",
       "page": "",
       "filename": "SpeedX_v0.10.6.zip",
       "channel": "stable",
-      "sha256": "4495c45a2eb443f1a2f1050954bda5f80ca3630cf78259e2ae0d8e84f6f980d0",
+      "sha256": "ae07c1396b77091b2f85b80a1b50c6e9de31e802905cc9c05306c2624ef1f862",
       "changelog_en": "Unified PPDEV family cover art and display name format",
       "changelog_detail_en": [
         "Refresh mod_image.png with the new PPDEV family cover art (compressed PNG, 854x480, ~400KB)",
