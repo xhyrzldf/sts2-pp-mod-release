@@ -60,20 +60,29 @@
       "sha256": "74f1d5c4a662521ed2a47f8400e93179bc83252ce55a4af8d2a2cc353249c292"
     },
     "Rewind": {
-      "latest": "0.25.5",
+      "latest": "0.26.1",
       "name": "Rewind",
-      "changelog": "修复个别用户 sts2.dll 参数名不一致导致 Rewind 初始化崩溃",
+      "changelog": "新增回退反撤销 + 修复战斗节点 Redo 必须重打的问题",
       "changelog_detail": [
-        "DrawPileSelectionPatch 改用 [HarmonyArgument(1)] 按位置绑定参数，不再依赖游戏方法的参数名",
-        "兼容 cardsIn / cards 两种参数名的 sts2.dll 构建"
+        "移除历史面板「各层起点」分组；观众常误点整局起点损失进度。",
+        "默认最近节点条数 10 → 15。",
+        "新增「恢复刚撤销 ↪」：回退后一键回到回退前状态，战斗节点可选战斗前/战斗后。",
+        "快捷键 Redo 智能默认：有战斗后快照就走战斗后，免得重打。"
       ],
-      "updated_at": "2026-04-06",
-      "download_cn": "https://gitee.com/forNoName/sts2-pp-mod-release/releases/download/Rewind-v0.25.5/Rewind_v0.25.5.zip",
-      "download_intl": "https://github.com/xhyrzldf/sts2-pp-mod-release/releases/download/Rewind-v0.25.5/Rewind_v0.25.5.zip",
+      "updated_at": "2026-04-18",
+      "download_cn": "https://gitee.com/forNoName/sts2-pp-mod-release/releases/download/Rewind-v0.26.1/Rewind_v0.26.1.zip",
+      "download_intl": "https://github.com/xhyrzldf/sts2-pp-mod-release/releases/download/Rewind-v0.26.1/Rewind_v0.26.1.zip",
       "page": "",
-      "filename": "Rewind_v0.25.5.zip",
+      "filename": "Rewind_v0.26.1.zip",
       "channel": "stable",
-      "sha256": "8abc2ca6f25d64e66f3cfea0fb34b259ea97d8dbca3492e6fc052670a9361a03"
+      "changelog_en": "add rollback-redo buffer + fix redo forcing re-fight on combat nodes",
+      "changelog_detail_en": [
+        "Remove 'Act Starts' section from history panel (viewers misclicked into run-start).",
+        "Default recent-history limit 10 → 15.",
+        "New 'Restore Last Rollback' button/hotkey: one click back to pre-rollback state. Combat nodes offer Before/After choice.",
+        "Redo hotkey smart-defaults to After when a resolved save exists."
+      ],
+      "sha256": "9e6bef4a5c527b938f2541f4929abf1697cb667cdbb5c5b8ea526c7cec95cba1"
     },
     "ModConfig": {
       "latest": "0.2.1",
