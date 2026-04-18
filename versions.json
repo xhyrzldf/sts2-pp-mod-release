@@ -2,46 +2,54 @@
   "schema_version": 1,
   "mods": {
     "DamageMeter": {
-      "latest": "1.14.0",
-      "name": "Skada: Damage Meter",
-      "changelog": "修复自定义模式识别和数据上传地址迁移",
+      "latest": "1.14.1",
+      "name": "皮皮统计: Skada",
+      "changelog": "统一 PPDEV 家族封面与「中文: 英文」显示名格式",
       "changelog_detail": [
-        "修复 GameMode 枚举映射错位（遗漏 None=0）",
-        "新增修饰器列表上传（精准识别自定义模式）",
-        "v0.99 RunHistory.GameMode 回退检测",
-        "自动迁移过期域名到正式 IP"
+        "更新 mod_image.png 为新的 PPDEV 家族封面（压缩 PNG，854x480，约 400KB）",
+        "主 manifest 与 legacy manifest 的显示名统一为「皮皮统计: Skada」格式",
+        "重新导出 PCK，内嵌 manifest 与外部 <Mod>.json 保持一致",
+        "修复 v0.103 移除 ModManager.LoadedMods API 导致的预存编译错误（删除 EnumerateLoadedMods 的死代码 fallback 分支）",
+        ".csproj 的 CopyMod 目标对齐其他家族模组，build 时自动部署 <Mod>.json 并清理 legacy mod_manifest.json"
       ],
-      "updated_at": "2026-04-09",
+      "updated_at": "2026-04-19",
       "download_cn": "https://gitee.com/forNoName/sts2-pp-mod-release/releases/download/DamageMeter-v1.13.3/DamageMeter_v1.13.3.zip",
       "download_intl": "https://github.com/xhyrzldf/sts2-pp-mod-release/releases/download/DamageMeter-v1.14.0/DamageMeter_v1.14.0.zip",
       "page": "",
-      "filename": "DamageMeter_v1.14.0.zip",
+      "filename": "DamageMeter_v1.14.1.zip",
       "channel": "stable",
-      "changelog_en": "Fix custom mode detection and analytics URL migration",
+      "changelog_en": "Unified PPDEV family cover art and display name format",
       "changelog_detail_en": [
-        "Fix GameMode enum mapping (forgot None=0)",
-        "Add modifiers upload for precise custom mode detection",
-        "RunHistory.GameMode fallback for v0.99",
-        "Auto-migrate expired domain URLs to production IP"
+        "Refresh mod_image.png with the new PPDEV family cover art (compressed PNG, 854x480, ~400KB)",
+        "Unify the display name format across the family: prefix the mod's Chinese name before the Latin identifier, separated by a colon and a space",
+        "Re-export the PCK so the embedded manifest matches the external <Mod>.json",
+        "Fix a pre-existing compile error by pruning the dead ModManager.LoadedMods fallback in EnumerateLoadedMods (that API was removed in game v0.103)",
+        "Align the .csproj CopyMod target with the other family mods so <Mod>.json auto-deploys on build and any legacy mod_manifest.json is auto-removed from the game folder"
       ],
       "sha256": "82ec7a8b2e9f6f5c0cc139550864c187f608056236a3f80307d2bdebaa9a3ad4"
     },
     "SpeedX": {
-      "latest": "0.10.5",
-      "name": "SpeedX",
-      "changelog": "让 Rewind 统计块贴近 SpeedX 实际渲染文字而不是固定状态栏盒子",
+      "latest": "0.10.6",
+      "name": "皮皮极速: SpeedX",
+      "changelog": "统一 PPDEV 家族封面与「中文: 英文」显示名格式",
       "changelog_detail": [
-        "这次定位到剩余大间距的根因是布局问题：Rewind 统计块之前仍然是贴着 SpeedX 那个固定 360 宽状态栏容器的左边，而不是贴着实际显示出来的黄色状态文字。",
-        "现在保留主 SpeedX 状态栏右侧锚点不变，但会改用 SpeedX 实际渲染文字的宽度来计算 Rewind 统计块的 X 坐标，让两块信息视觉上更像一个整体。",
-        "同时在视口尺寸变化、SpeedX 文本宽度变化、Rewind 文本宽度变化时都会重新定位，因此战斗中文案更新时也能保持更紧凑的贴边效果。"
+        "更新 mod_image.png 为新的 PPDEV 家族封面（压缩 PNG，854x480，约 400KB）",
+        "主 manifest 与 legacy manifest 的显示名统一为「皮皮极速: SpeedX」格式",
+        "重新导出 PCK，内嵌 manifest 与外部 <Mod>.json 保持一致"
       ],
-      "updated_at": "2026-04-01",
+      "updated_at": "2026-04-19",
       "download_cn": "https://gitee.com/forNoName/sts2-pp-mod-release/releases/download/SpeedX-v0.10.5/SpeedX_v0.10.5.zip",
       "download_intl": "https://github.com/xhyrzldf/sts2-pp-mod-release/releases/download/SpeedX-v0.10.5/SpeedX_v0.10.5.zip",
       "page": "",
-      "filename": "SpeedX_v0.10.5.zip",
+      "filename": "SpeedX_v0.10.6.zip",
       "channel": "stable",
-      "sha256": "4495c45a2eb443f1a2f1050954bda5f80ca3630cf78259e2ae0d8e84f6f980d0"
+      "sha256": "4495c45a2eb443f1a2f1050954bda5f80ca3630cf78259e2ae0d8e84f6f980d0",
+      "changelog_en": "Unified PPDEV family cover art and display name format",
+      "changelog_detail_en": [
+        "Refresh mod_image.png with the new PPDEV family cover art (compressed PNG, 854x480, ~400KB)",
+        "Unify the display name format across the family: prefix the mod's Chinese name before the Latin identifier, separated by a colon and a space",
+        "Re-export the PCK so the embedded manifest matches the external <Mod>.json"
+      ]
     },
     "RemoveMultiplayerPlayerLimit": {
       "latest": "0.0.5",
@@ -60,70 +68,74 @@
       "sha256": "74f1d5c4a662521ed2a47f8400e93179bc83252ce55a4af8d2a2cc353249c292"
     },
     "Rewind": {
-      "latest": "0.26.1",
-      "name": "Rewind",
-      "changelog": "新增回退反撤销 + 修复战斗节点 Redo 必须重打的问题",
+      "latest": "0.26.2",
+      "name": "皮皮倒带: Rewind",
+      "changelog": "统一 PPDEV 家族封面与「中文: 英文」显示名格式",
       "changelog_detail": [
-        "移除历史面板「各层起点」分组；观众常误点整局起点损失进度。",
-        "默认最近节点条数 10 → 15。",
-        "新增「恢复刚撤销 ↪」：回退后一键回到回退前状态，战斗节点可选战斗前/战斗后。",
-        "快捷键 Redo 智能默认：有战斗后快照就走战斗后，免得重打。"
+        "更新 mod_image.png 为新的 PPDEV 家族封面（压缩 PNG，854x480，约 400KB）",
+        "主 manifest 与 legacy manifest 的显示名统一为「皮皮倒带: Rewind」格式",
+        "重新导出 PCK，内嵌 manifest 与外部 <Mod>.json 保持一致"
       ],
-      "updated_at": "2026-04-18",
-      "download_cn": "https://gitee.com/forNoName/sts2-pp-mod-release/releases/download/Rewind-v0.26.1/Rewind_v0.26.1.zip",
-      "download_intl": "https://github.com/xhyrzldf/sts2-pp-mod-release/releases/download/Rewind-v0.26.1/Rewind_v0.26.1.zip",
+      "updated_at": "2026-04-19",
+      "download_cn": "https://gitee.com/forNoName/sts2-pp-mod-release/releases/download/Rewind-v0.26.2/Rewind_v0.26.2.zip",
+      "download_intl": "https://github.com/xhyrzldf/sts2-pp-mod-release/releases/download/Rewind-v0.26.2/Rewind_v0.26.2.zip",
       "page": "",
-      "filename": "Rewind_v0.26.1.zip",
+      "filename": "Rewind_v0.26.2.zip",
       "channel": "stable",
-      "changelog_en": "add rollback-redo buffer + fix redo forcing re-fight on combat nodes",
+      "changelog_en": "Unified PPDEV family cover art and display name format",
       "changelog_detail_en": [
-        "Remove 'Act Starts' section from history panel (viewers misclicked into run-start).",
-        "Default recent-history limit 10 → 15.",
-        "New 'Restore Last Rollback' button/hotkey: one click back to pre-rollback state. Combat nodes offer Before/After choice.",
-        "Redo hotkey smart-defaults to After when a resolved save exists."
+        "Refresh mod_image.png with the new PPDEV family cover art (compressed PNG, 854x480, ~400KB)",
+        "Unify the display name format across the family: prefix the mod's Chinese name before the Latin identifier, separated by a colon and a space",
+        "Re-export the PCK so the embedded manifest matches the external <Mod>.json"
       ],
-      "sha256": "9e6bef4a5c527b938f2541f4929abf1697cb667cdbb5c5b8ea526c7cec95cba1"
+      "sha256": "5d967b5dd1ce12e70b8522dfca88bc5ff6c49d5ac3f36ed880a814494b6b15b2"
     },
     "ModConfig": {
-      "latest": "0.2.1",
-      "name": "ModConfig",
-      "changelog": "新增 Button/ColorPicker 控件 + 输入校验 + 崩溃修复 + Linux 字体兼容",
+      "latest": "0.2.2",
+      "name": "皮皮配置: ModConfig",
+      "changelog": "统一 PPDEV 家族封面与「中文: 英文」显示名格式",
       "changelog_detail": [
-        "新增 Button 控件：动作按钮，点击触发回调，不存储值",
-        "新增 ColorPicker 控件：颜色选择器，存储为 hex 字符串",
-        "新增 Validator 字段：TextInput 输入校验，非法输入红框提示",
-        "修复设置面板 NSettingsPanel 崩溃（Sequence contains no elements）",
-        "修复 RefreshSize 断开信号报错",
-        "修复 mod_manifest.json 缺少 id 字段导致的加载报错",
-        "修复 Linux 下字体渲染异常（继承游戏主题字体）",
-        "折叠状态持久化：重新打开设置页时记住展开/折叠状态",
-        "加固 Validator 异常隔离，第三方校验抛异常不再中断保存",
-        "加固 ColorPicker 默认值规范化，防止非 string 类型污染数据"
+        "更新 mod_image.png 为新的 PPDEV 家族封面（压缩 PNG，854x480，约 400KB）",
+        "主 manifest 与 legacy manifest 的显示名统一为「皮皮配置: ModConfig」格式",
+        "重新导出 PCK，内嵌 manifest 与外部 <Mod>.json 保持一致"
       ],
-      "updated_at": "2026-03-25",
+      "updated_at": "2026-04-19",
       "download_cn": "https://gitee.com/forNoName/sts2-pp-mod-release/releases/download/ModConfig-v0.2.1/ModConfig_v0.2.1.zip",
       "download_intl": "https://github.com/xhyrzldf/sts2-pp-mod-release/releases/download/ModConfig-v0.2.1/ModConfig_v0.2.1.zip",
       "page": "",
-      "filename": "ModConfig_v0.2.1.zip",
+      "filename": "ModConfig_v0.2.2.zip",
       "channel": "stable",
-      "sha256": "18c7d7319eb21720b189ca592d27d4df024743ac36324adc5a84e36a0c751b7e"
+      "sha256": "18c7d7319eb21720b189ca592d27d4df024743ac36324adc5a84e36a0c751b7e",
+      "changelog_en": "Unified PPDEV family cover art and display name format",
+      "changelog_detail_en": [
+        "Refresh mod_image.png with the new PPDEV family cover art (compressed PNG, 854x480, ~400KB)",
+        "Unify the display name format across the family: prefix the mod's Chinese name before the Latin identifier, separated by a colon and a space",
+        "Re-export the PCK so the embedded manifest matches the external <Mod>.json"
+      ]
     },
     "QuickLink": {
-      "latest": "0.9.4",
-      "name": "QuickLink",
-      "changelog": "适配 v0.103.2 Steam listen socket 延迟关闭导致的联机回退失败问题",
+      "latest": "0.9.5",
+      "name": "皮皮快连: QuickLink",
+      "changelog": "统一 PPDEV 家族封面与「中文: 英文」显示名格式",
       "changelog_detail": [
-        "v0.103.2 把 SteamHost.StopHost 的优雅断开路径改成了延迟 1000ms 关闭 listen socket。QuickLink 的快速回退流程在断开后约 730ms 就重新开 host，此时旧 listen socket 还挂着，导致 Steam P2P 路由被污染，客机 JoinFlow 所有重试都以 MiscTimeout 超时。",
-        "在快速回退 autohost 路径里、调用 StartSteamHost 之前插入 1100ms 等待，让旧 listen socket 有时间彻底关闭。",
-        "修复 v0.103.2 下房主触发战斗重置后客机无法重连的问题（主机卡角色选择、客机卡\"正在重置战斗\"黑屏）。"
+        "更新 mod_image.png 为新的 PPDEV 家族封面（压缩 PNG，854x480，约 400KB）",
+        "主 manifest 与 legacy manifest 的显示名统一为「皮皮快连: QuickLink」格式",
+        "重新导出 PCK，内嵌 manifest 与外部 <Mod>.json 保持一致"
       ],
-      "updated_at": "2026-04-18",
+      "updated_at": "2026-04-19",
       "download_cn": "https://gitee.com/forNoName/sts2-pp-mod-release/releases/download/QuickLink-v0.9.4/QuickLink_v0.9.4.zip",
       "download_intl": "https://github.com/xhyrzldf/sts2-pp-mod-release/releases/download/QuickLink-v0.9.4/QuickLink_v0.9.4.zip",
       "page": "",
-      "filename": "QuickLink_v0.9.4.zip",
+      "filename": "QuickLink_v0.9.5.zip",
       "channel": "stable",
-      "sha256": "3945f354f2210d7a63c03d6f066fc7362eefa54e0dd80c77a9eb8bf327bca769"
+      "sha256": "3945f354f2210d7a63c03d6f066fc7362eefa54e0dd80c77a9eb8bf327bca769",
+      "changelog_en": "Unified PPDEV family cover art and display name format",
+      "changelog_detail_en": [
+        "Refresh mod_image.png with the new PPDEV family cover art (compressed PNG, 854x480, ~400KB)",
+        "Unify the display name format across the family: prefix the mod's Chinese name before the Latin identifier, separated by a colon and a space",
+        "Re-export the PCK so the embedded manifest matches the external <Mod>.json"
+      ]
     }
-  }
+  },
+  "updated_at": "2026-04-19"
 }
