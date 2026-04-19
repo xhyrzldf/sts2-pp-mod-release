@@ -96,12 +96,12 @@
         "本版重新打包的 zip 只含 <Mod>.json + DLL + PCK，不含 mod_manifest.json。没有代码变更。从上一版更新过来时，ModManager 会删掉玩家目录里残留的 mod_manifest.json，重复条目消失。"
       ],
       "updated_at": "2026-04-19",
-      "download_cn": "",
-      "download_intl": "",
+      "download_cn": "https://gitee.com/forNoName/sts2-pp-mod-release/releases/download/ModConfig-v0.2.3/ModConfig_v0.2.3.zip",
+      "download_intl": "https://github.com/xhyrzldf/sts2-pp-mod-release/releases/download/ModConfig-v0.2.3/ModConfig_v0.2.3.zip",
       "page": "",
       "filename": "ModConfig_v0.2.3.zip",
       "channel": "stable",
-      "sha256": "",
+      "sha256": "dab047d5cea9163e4fdce73b05aed8fd4790c5210d327bcd6f620415db7b9d06",
       "changelog_en": "repackage release zip without legacy mod_manifest.json to fix duplicate mod entry in game menu",
       "changelog_detail_en": [
         "Game v0.99+ introduced <ModId>.json as the sole external root manifest. The mod loader still scans for legacy mod_manifest.json - so when a deployed folder contains both, the loader registers them as two separate mod entries and the game menu shows a duplicate red 'already loaded' row for that mod.",
