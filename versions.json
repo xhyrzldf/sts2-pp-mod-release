@@ -68,27 +68,27 @@
       "sha256": "74f1d5c4a662521ed2a47f8400e93179bc83252ce55a4af8d2a2cc353249c292"
     },
     "Rewind": {
-      "latest": "0.26.2",
+      "latest": "0.26.3",
       "name": "皮皮倒带: Rewind",
-      "changelog": "统一 PPDEV 家族封面与「中文: 英文」显示名格式",
+      "changelog": "修 v0.103.2 下倒带到第 1 回合遇到赌博筹码时的长黑屏",
       "changelog_detail": [
-        "更新 mod_image.png 为新的 PPDEV 家族封面（压缩 PNG，854x480，约 400KB）",
-        "主 manifest 与 legacy manifest 的显示名统一为「皮皮倒带: Rewind」格式",
-        "重新导出 PCK，内嵌 manifest 与外部 <Mod>.json 保持一致"
+        "根因：v0.103.2 重排了 CombatManager.SetupPlayerTurn 的时序，CombatManager.TurnStarted 现在在 GamblingChip / ChoicesParadox / ToolsOfTheTradePower 等 turn-start hook 的 GenericHookGameAction 入队之前就 invoke。Rewind 的 OnTurnStarted 因此把 turn 1 的 targetEventIndex 记成 0，但倒带重建时 GamblingChip hook 会重新入队并写入 1 条 HookAction event，settle 循环里 IsPendingChoiceBoundaryReached 严格比较 effectiveReplayEventCount == targetEventIndex 永远不成立，900 帧（60fps 下 15 秒）超时抛异常；catch 分支看起来「倒带成功」只是因为 LoadRun 本身已经把游戏拉回 turn 1。",
+        "修复：边界判定从 == 放宽成 >=。所有 targetEventIndex 都来自 _history（只记 turn 起点），replay 循环也被 eventsToReplayCount 钳在 targetEventIndex 以内，任何多出来的 event 只可能是目标回合的 turn-start auto hook —— 这正是我们希望 land 在的「回合起点已 setup 完，等玩家选牌」状态。",
+        "效果：带赌博筹码时倒带到第 1 回合不再卡 15 秒黑屏，恢复正常的约 2 秒淡入淡出；顺带修复老路径 catch 分支恢复内部状态但游戏状态已经是 turn 1 带来的隐藏 history drift。"
       ],
       "updated_at": "2026-04-19",
-      "download_cn": "https://gitee.com/forNoName/sts2-pp-mod-release/releases/download/Rewind-v0.26.2/Rewind_v0.26.2.zip",
-      "download_intl": "https://github.com/xhyrzldf/sts2-pp-mod-release/releases/download/Rewind-v0.26.2/Rewind_v0.26.2.zip",
+      "download_cn": "https://gitee.com/forNoName/sts2-pp-mod-release/releases/download/Rewind-v0.26.3/Rewind_v0.26.3.zip",
+      "download_intl": "https://github.com/xhyrzldf/sts2-pp-mod-release/releases/download/Rewind-v0.26.3/Rewind_v0.26.3.zip",
       "page": "",
-      "filename": "Rewind_v0.26.2.zip",
+      "filename": "Rewind_v0.26.3.zip",
       "channel": "stable",
-      "changelog_en": "Unified PPDEV family cover art and display name format",
+      "changelog_en": "fix multi-second black screen when rewinding to turn 1 with GamblingChip under v0.103.2",
       "changelog_detail_en": [
-        "Refresh mod_image.png with the new PPDEV family cover art (compressed PNG, 854x480, ~400KB)",
-        "Unify the display name format across the family: prefix the mod's Chinese name before the Latin identifier, separated by a colon and a space",
-        "Re-export the PCK so the embedded manifest matches the external <Mod>.json"
+        "Root cause: v0.103.2 reorders CombatManager.SetupPlayerTurn so CombatManager.TurnStarted now fires BEFORE turn-start hooks (GamblingChip, ChoicesParadox, ToolsOfTheTradePower, ...) enqueue their GenericHookGameAction. Rewind's OnTurnStarted therefore captures targetEventIndex=0 for turn 1, but the rebuild re-enqueues the GamblingChip hook and live replay jumps to 1 event before we reach the settle loop, so IsPendingChoiceBoundaryReached's strict effectiveReplayEventCount == targetEventIndex check can never hold, the settle loop times out after 900 frames (15s at 60fps), the rewind throws, and the catch branch only looks like 'it worked' because LoadRun already moved the game to turn 1.",
+        "Fix: relax the boundary check to effectiveReplayEventCount >= targetEventIndex. Targets always come from _history (turn-start only) and the replay loop is capped at targetEventIndex, so any overshoot can only be from auto-fired turn-start hooks at the target turn, which is exactly what we want to land on.",
+        "Effect: rewind to turn 1 with GamblingChip now succeeds cleanly (~2s overlay fade) instead of timing out; also silently fixes hidden state drift when the old catch branch restored internal bookkeeping that no longer matched the live game state."
       ],
-      "sha256": "5d967b5dd1ce12e70b8522dfca88bc5ff6c49d5ac3f36ed880a814494b6b15b2"
+      "sha256": "34d30899c20af417098e426fc686889b8a23a325f2b5cc549434a5574002dc58"
     },
     "ModConfig": {
       "latest": "0.2.2",
