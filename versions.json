@@ -2,53 +2,49 @@
   "schema_version": 1,
   "mods": {
     "DamageMeter": {
-      "latest": "1.14.1",
+      "latest": "1.14.2",
       "name": "皮皮统计: Skada",
-      "changelog": "统一 PPDEV 家族封面与「中文: 英文」显示名格式",
+      "changelog": "重新打包发布 zip，移除 legacy mod_manifest.json 修复游戏菜单里的重复模组条目",
       "changelog_detail": [
-        "更新 mod_image.png 为新的 PPDEV 家族封面（压缩 PNG，854x480，约 400KB）",
-        "主 manifest 与 legacy manifest 的显示名统一为「皮皮统计: Skada」格式",
-        "重新导出 PCK，内嵌 manifest 与外部 <Mod>.json 保持一致",
-        "修复 v0.103 移除 ModManager.LoadedMods API 导致的预存编译错误（删除 EnumerateLoadedMods 的死代码 fallback 分支）",
-        ".csproj 的 CopyMod 目标对齐其他家族模组，build 时自动部署 <Mod>.json 并清理 legacy mod_manifest.json"
+        "游戏 v0.99+ 起 <ModId>.json 是唯一的外部 root manifest，但 mod loader 依然会扫描 legacy mod_manifest.json —— 同目录两份 manifest 会被 loader 各自注册为独立模组条目，游戏菜单里就出现同名的红色「已加载」坏条目。",
+        "上一版发布 zip 里同时带了两份 manifest。虽然 ModManager.ps1 安装/更新时会调用 Remove-LegacyExternalManifest 清理玩家目录，但 zip 里还带着 mod_manifest.json，紧跟的 Copy-Item 又把它复制回来，等于白清理。",
+        "本版重新打包的 zip 只含 <Mod>.json + DLL + PCK，不含 mod_manifest.json。没有代码变更。从上一版更新过来时，ModManager 会删掉玩家目录里残留的 mod_manifest.json，重复条目消失。"
       ],
       "updated_at": "2026-04-19",
-      "download_cn": "https://gitee.com/forNoName/sts2-pp-mod-release/releases/download/DamageMeter-v1.14.1/DamageMeter_v1.14.1.zip",
-      "download_intl": "https://github.com/xhyrzldf/sts2-pp-mod-release/releases/download/DamageMeter-v1.14.1/DamageMeter_v1.14.1.zip",
+      "download_cn": "",
+      "download_intl": "",
       "page": "",
-      "filename": "DamageMeter_v1.14.1.zip",
+      "filename": "DamageMeter_v1.14.2.zip",
       "channel": "stable",
-      "changelog_en": "Unified PPDEV family cover art and display name format",
+      "changelog_en": "repackage release zip without legacy mod_manifest.json to fix duplicate mod entry in game menu",
       "changelog_detail_en": [
-        "Refresh mod_image.png with the new PPDEV family cover art (compressed PNG, 854x480, ~400KB)",
-        "Unify the display name format across the family: prefix the mod's Chinese name before the Latin identifier, separated by a colon and a space",
-        "Re-export the PCK so the embedded manifest matches the external <Mod>.json",
-        "Fix a pre-existing compile error by pruning the dead ModManager.LoadedMods fallback in EnumerateLoadedMods (that API was removed in game v0.103)",
-        "Align the .csproj CopyMod target with the other family mods so <Mod>.json auto-deploys on build and any legacy mod_manifest.json is auto-removed from the game folder"
+        "Game v0.99+ introduced <ModId>.json as the sole external root manifest. The mod loader still scans for legacy mod_manifest.json - so when a deployed folder contains both, the loader registers them as two separate mod entries and the game menu shows a duplicate red 'already loaded' row for that mod.",
+        "Releases up to and including the previous version shipped both manifests in the zip. Even though ModManager.ps1's install/update path calls Remove-LegacyExternalManifest to clean the target directory, the cleanup was undone because the zip still contained mod_manifest.json and the subsequent Copy-Item step re-deposited it.",
+        "This release ships a repackaged zip that contains only <Mod>.json + DLL + PCK. No code changes. Updating from the previous version will trigger ModManager to remove the old mod_manifest.json from the player's game folder and the duplicate entry disappears."
       ],
-      "sha256": "d99bcb41a0725687156fe4d437321b044448c9d4fd0312117c053e2593ae3927"
+      "sha256": ""
     },
     "SpeedX": {
-      "latest": "0.10.6",
+      "latest": "0.10.7",
       "name": "皮皮极速: SpeedX",
-      "changelog": "统一 PPDEV 家族封面与「中文: 英文」显示名格式",
+      "changelog": "重新打包发布 zip，移除 legacy mod_manifest.json 修复游戏菜单里的重复模组条目",
       "changelog_detail": [
-        "更新 mod_image.png 为新的 PPDEV 家族封面（压缩 PNG，854x480，约 400KB）",
-        "主 manifest 与 legacy manifest 的显示名统一为「皮皮极速: SpeedX」格式",
-        "重新导出 PCK，内嵌 manifest 与外部 <Mod>.json 保持一致"
+        "游戏 v0.99+ 起 <ModId>.json 是唯一的外部 root manifest，但 mod loader 依然会扫描 legacy mod_manifest.json —— 同目录两份 manifest 会被 loader 各自注册为独立模组条目，游戏菜单里就出现同名的红色「已加载」坏条目。",
+        "上一版发布 zip 里同时带了两份 manifest。虽然 ModManager.ps1 安装/更新时会调用 Remove-LegacyExternalManifest 清理玩家目录，但 zip 里还带着 mod_manifest.json，紧跟的 Copy-Item 又把它复制回来，等于白清理。",
+        "本版重新打包的 zip 只含 <Mod>.json + DLL + PCK，不含 mod_manifest.json。没有代码变更。从上一版更新过来时，ModManager 会删掉玩家目录里残留的 mod_manifest.json，重复条目消失。"
       ],
       "updated_at": "2026-04-19",
-      "download_cn": "https://gitee.com/forNoName/sts2-pp-mod-release/releases/download/SpeedX-v0.10.6/SpeedX_v0.10.6.zip",
-      "download_intl": "https://github.com/xhyrzldf/sts2-pp-mod-release/releases/download/SpeedX-v0.10.6/SpeedX_v0.10.6.zip",
+      "download_cn": "",
+      "download_intl": "",
       "page": "",
-      "filename": "SpeedX_v0.10.6.zip",
+      "filename": "SpeedX_v0.10.7.zip",
       "channel": "stable",
-      "sha256": "ae07c1396b77091b2f85b80a1b50c6e9de31e802905cc9c05306c2624ef1f862",
-      "changelog_en": "Unified PPDEV family cover art and display name format",
+      "sha256": "",
+      "changelog_en": "repackage release zip without legacy mod_manifest.json to fix duplicate mod entry in game menu",
       "changelog_detail_en": [
-        "Refresh mod_image.png with the new PPDEV family cover art (compressed PNG, 854x480, ~400KB)",
-        "Unify the display name format across the family: prefix the mod's Chinese name before the Latin identifier, separated by a colon and a space",
-        "Re-export the PCK so the embedded manifest matches the external <Mod>.json"
+        "Game v0.99+ introduced <ModId>.json as the sole external root manifest. The mod loader still scans for legacy mod_manifest.json - so when a deployed folder contains both, the loader registers them as two separate mod entries and the game menu shows a duplicate red 'already loaded' row for that mod.",
+        "Releases up to and including the previous version shipped both manifests in the zip. Even though ModManager.ps1's install/update path calls Remove-LegacyExternalManifest to clean the target directory, the cleanup was undone because the zip still contained mod_manifest.json and the subsequent Copy-Item step re-deposited it.",
+        "This release ships a repackaged zip that contains only <Mod>.json + DLL + PCK. No code changes. Updating from the previous version will trigger ModManager to remove the old mod_manifest.json from the player's game folder and the duplicate entry disappears."
       ]
     },
     "RemoveMultiplayerPlayerLimit": {
@@ -68,72 +64,72 @@
       "sha256": "74f1d5c4a662521ed2a47f8400e93179bc83252ce55a4af8d2a2cc353249c292"
     },
     "Rewind": {
-      "latest": "0.26.3",
+      "latest": "0.26.4",
       "name": "皮皮倒带: Rewind",
-      "changelog": "修 v0.103.2 下倒带到第 1 回合遇到赌博筹码时的长黑屏",
+      "changelog": "重新打包发布 zip，移除 legacy mod_manifest.json 修复游戏菜单里的重复模组条目",
       "changelog_detail": [
-        "根因：v0.103.2 重排了 CombatManager.SetupPlayerTurn 的时序，CombatManager.TurnStarted 现在在 GamblingChip / ChoicesParadox / ToolsOfTheTradePower 等 turn-start hook 的 GenericHookGameAction 入队之前就 invoke。Rewind 的 OnTurnStarted 因此把 turn 1 的 targetEventIndex 记成 0，但倒带重建时 GamblingChip hook 会重新入队并写入 1 条 HookAction event，settle 循环里 IsPendingChoiceBoundaryReached 严格比较 effectiveReplayEventCount == targetEventIndex 永远不成立，900 帧（60fps 下 15 秒）超时抛异常；catch 分支看起来「倒带成功」只是因为 LoadRun 本身已经把游戏拉回 turn 1。",
-        "修复：边界判定从 == 放宽成 >=。所有 targetEventIndex 都来自 _history（只记 turn 起点），replay 循环也被 eventsToReplayCount 钳在 targetEventIndex 以内，任何多出来的 event 只可能是目标回合的 turn-start auto hook —— 这正是我们希望 land 在的「回合起点已 setup 完，等玩家选牌」状态。",
-        "效果：带赌博筹码时倒带到第 1 回合不再卡 15 秒黑屏，恢复正常的约 2 秒淡入淡出；顺带修复老路径 catch 分支恢复内部状态但游戏状态已经是 turn 1 带来的隐藏 history drift。"
+        "游戏 v0.99+ 起 <ModId>.json 是唯一的外部 root manifest，但 mod loader 依然会扫描 legacy mod_manifest.json —— 同目录两份 manifest 会被 loader 各自注册为独立模组条目，游戏菜单里就出现同名的红色「已加载」坏条目。",
+        "上一版发布 zip 里同时带了两份 manifest。虽然 ModManager.ps1 安装/更新时会调用 Remove-LegacyExternalManifest 清理玩家目录，但 zip 里还带着 mod_manifest.json，紧跟的 Copy-Item 又把它复制回来，等于白清理。",
+        "本版重新打包的 zip 只含 <Mod>.json + DLL + PCK，不含 mod_manifest.json。没有代码变更。从上一版更新过来时，ModManager 会删掉玩家目录里残留的 mod_manifest.json，重复条目消失。"
       ],
       "updated_at": "2026-04-19",
-      "download_cn": "https://gitee.com/forNoName/sts2-pp-mod-release/releases/download/Rewind-v0.26.3/Rewind_v0.26.3.zip",
-      "download_intl": "https://github.com/xhyrzldf/sts2-pp-mod-release/releases/download/Rewind-v0.26.3/Rewind_v0.26.3.zip",
+      "download_cn": "https://gitee.com/forNoName/sts2-pp-mod-release/releases/download/Rewind-v0.26.4/Rewind_v0.26.4.zip",
+      "download_intl": "https://github.com/xhyrzldf/sts2-pp-mod-release/releases/download/Rewind-v0.26.4/Rewind_v0.26.4.zip",
       "page": "",
-      "filename": "Rewind_v0.26.3.zip",
+      "filename": "Rewind_v0.26.4.zip",
       "channel": "stable",
-      "changelog_en": "fix multi-second black screen when rewinding to turn 1 with GamblingChip under v0.103.2",
+      "changelog_en": "repackage release zip without legacy mod_manifest.json to fix duplicate mod entry in game menu",
       "changelog_detail_en": [
-        "Root cause: v0.103.2 reorders CombatManager.SetupPlayerTurn so CombatManager.TurnStarted now fires BEFORE turn-start hooks (GamblingChip, ChoicesParadox, ToolsOfTheTradePower, ...) enqueue their GenericHookGameAction. Rewind's OnTurnStarted therefore captures targetEventIndex=0 for turn 1, but the rebuild re-enqueues the GamblingChip hook and live replay jumps to 1 event before we reach the settle loop, so IsPendingChoiceBoundaryReached's strict effectiveReplayEventCount == targetEventIndex check can never hold, the settle loop times out after 900 frames (15s at 60fps), the rewind throws, and the catch branch only looks like 'it worked' because LoadRun already moved the game to turn 1.",
-        "Fix: relax the boundary check to effectiveReplayEventCount >= targetEventIndex. Targets always come from _history (turn-start only) and the replay loop is capped at targetEventIndex, so any overshoot can only be from auto-fired turn-start hooks at the target turn, which is exactly what we want to land on.",
-        "Effect: rewind to turn 1 with GamblingChip now succeeds cleanly (~2s overlay fade) instead of timing out; also silently fixes hidden state drift when the old catch branch restored internal bookkeeping that no longer matched the live game state."
+        "Game v0.99+ introduced <ModId>.json as the sole external root manifest. The mod loader still scans for legacy mod_manifest.json - so when a deployed folder contains both, the loader registers them as two separate mod entries and the game menu shows a duplicate red 'already loaded' row for that mod.",
+        "Releases up to and including the previous version shipped both manifests in the zip. Even though ModManager.ps1's install/update path calls Remove-LegacyExternalManifest to clean the target directory, the cleanup was undone because the zip still contained mod_manifest.json and the subsequent Copy-Item step re-deposited it.",
+        "This release ships a repackaged zip that contains only <Mod>.json + DLL + PCK. No code changes. Updating from the previous version will trigger ModManager to remove the old mod_manifest.json from the player's game folder and the duplicate entry disappears."
       ],
-      "sha256": "34d30899c20af417098e426fc686889b8a23a325f2b5cc549434a5574002dc58"
+      "sha256": "0cad5dbabe9a8292d07fb4ef5fed0da3eaef3fd6c0a594da82f3f48790b54897"
     },
     "ModConfig": {
-      "latest": "0.2.2",
+      "latest": "0.2.3",
       "name": "皮皮配置: ModConfig",
-      "changelog": "统一 PPDEV 家族封面与「中文: 英文」显示名格式",
+      "changelog": "重新打包发布 zip，移除 legacy mod_manifest.json 修复游戏菜单里的重复模组条目",
       "changelog_detail": [
-        "更新 mod_image.png 为新的 PPDEV 家族封面（压缩 PNG，854x480，约 400KB）",
-        "主 manifest 与 legacy manifest 的显示名统一为「皮皮配置: ModConfig」格式",
-        "重新导出 PCK，内嵌 manifest 与外部 <Mod>.json 保持一致"
+        "游戏 v0.99+ 起 <ModId>.json 是唯一的外部 root manifest，但 mod loader 依然会扫描 legacy mod_manifest.json —— 同目录两份 manifest 会被 loader 各自注册为独立模组条目，游戏菜单里就出现同名的红色「已加载」坏条目。",
+        "上一版发布 zip 里同时带了两份 manifest。虽然 ModManager.ps1 安装/更新时会调用 Remove-LegacyExternalManifest 清理玩家目录，但 zip 里还带着 mod_manifest.json，紧跟的 Copy-Item 又把它复制回来，等于白清理。",
+        "本版重新打包的 zip 只含 <Mod>.json + DLL + PCK，不含 mod_manifest.json。没有代码变更。从上一版更新过来时，ModManager 会删掉玩家目录里残留的 mod_manifest.json，重复条目消失。"
       ],
       "updated_at": "2026-04-19",
-      "download_cn": "https://gitee.com/forNoName/sts2-pp-mod-release/releases/download/ModConfig-v0.2.2/ModConfig_v0.2.2.zip",
-      "download_intl": "https://github.com/xhyrzldf/sts2-pp-mod-release/releases/download/ModConfig-v0.2.2/ModConfig_v0.2.2.zip",
+      "download_cn": "",
+      "download_intl": "",
       "page": "",
-      "filename": "ModConfig_v0.2.2.zip",
+      "filename": "ModConfig_v0.2.3.zip",
       "channel": "stable",
-      "sha256": "4af6b8c7c682dfee4ecd44fa482266bdfd9b0e4494faafccd004c9953858411a",
-      "changelog_en": "Unified PPDEV family cover art and display name format",
+      "sha256": "",
+      "changelog_en": "repackage release zip without legacy mod_manifest.json to fix duplicate mod entry in game menu",
       "changelog_detail_en": [
-        "Refresh mod_image.png with the new PPDEV family cover art (compressed PNG, 854x480, ~400KB)",
-        "Unify the display name format across the family: prefix the mod's Chinese name before the Latin identifier, separated by a colon and a space",
-        "Re-export the PCK so the embedded manifest matches the external <Mod>.json"
+        "Game v0.99+ introduced <ModId>.json as the sole external root manifest. The mod loader still scans for legacy mod_manifest.json - so when a deployed folder contains both, the loader registers them as two separate mod entries and the game menu shows a duplicate red 'already loaded' row for that mod.",
+        "Releases up to and including the previous version shipped both manifests in the zip. Even though ModManager.ps1's install/update path calls Remove-LegacyExternalManifest to clean the target directory, the cleanup was undone because the zip still contained mod_manifest.json and the subsequent Copy-Item step re-deposited it.",
+        "This release ships a repackaged zip that contains only <Mod>.json + DLL + PCK. No code changes. Updating from the previous version will trigger ModManager to remove the old mod_manifest.json from the player's game folder and the duplicate entry disappears."
       ]
     },
     "QuickLink": {
-      "latest": "0.9.5",
+      "latest": "0.9.6",
       "name": "皮皮快连: QuickLink",
-      "changelog": "统一 PPDEV 家族封面与「中文: 英文」显示名格式",
+      "changelog": "重新打包发布 zip，移除 legacy mod_manifest.json 修复游戏菜单里的重复模组条目",
       "changelog_detail": [
-        "更新 mod_image.png 为新的 PPDEV 家族封面（压缩 PNG，854x480，约 400KB）",
-        "主 manifest 与 legacy manifest 的显示名统一为「皮皮快连: QuickLink」格式",
-        "重新导出 PCK，内嵌 manifest 与外部 <Mod>.json 保持一致"
+        "游戏 v0.99+ 起 <ModId>.json 是唯一的外部 root manifest，但 mod loader 依然会扫描 legacy mod_manifest.json —— 同目录两份 manifest 会被 loader 各自注册为独立模组条目，游戏菜单里就出现同名的红色「已加载」坏条目。",
+        "上一版发布 zip 里同时带了两份 manifest。虽然 ModManager.ps1 安装/更新时会调用 Remove-LegacyExternalManifest 清理玩家目录，但 zip 里还带着 mod_manifest.json，紧跟的 Copy-Item 又把它复制回来，等于白清理。",
+        "本版重新打包的 zip 只含 <Mod>.json + DLL + PCK，不含 mod_manifest.json。没有代码变更。从上一版更新过来时，ModManager 会删掉玩家目录里残留的 mod_manifest.json，重复条目消失。"
       ],
       "updated_at": "2026-04-19",
-      "download_cn": "https://gitee.com/forNoName/sts2-pp-mod-release/releases/download/QuickLink-v0.9.5/QuickLink_v0.9.5.zip",
-      "download_intl": "https://github.com/xhyrzldf/sts2-pp-mod-release/releases/download/QuickLink-v0.9.5/QuickLink_v0.9.5.zip",
+      "download_cn": "",
+      "download_intl": "",
       "page": "",
-      "filename": "QuickLink_v0.9.5.zip",
+      "filename": "QuickLink_v0.9.6.zip",
       "channel": "stable",
-      "sha256": "cd2d4f5e72229b55471cdcb364044c9ad840e4401a8c13ef3fef595fa54f94e1",
-      "changelog_en": "Unified PPDEV family cover art and display name format",
+      "sha256": "",
+      "changelog_en": "repackage release zip without legacy mod_manifest.json to fix duplicate mod entry in game menu",
       "changelog_detail_en": [
-        "Refresh mod_image.png with the new PPDEV family cover art (compressed PNG, 854x480, ~400KB)",
-        "Unify the display name format across the family: prefix the mod's Chinese name before the Latin identifier, separated by a colon and a space",
-        "Re-export the PCK so the embedded manifest matches the external <Mod>.json"
+        "Game v0.99+ introduced <ModId>.json as the sole external root manifest. The mod loader still scans for legacy mod_manifest.json - so when a deployed folder contains both, the loader registers them as two separate mod entries and the game menu shows a duplicate red 'already loaded' row for that mod.",
+        "Releases up to and including the previous version shipped both manifests in the zip. Even though ModManager.ps1's install/update path calls Remove-LegacyExternalManifest to clean the target directory, the cleanup was undone because the zip still contained mod_manifest.json and the subsequent Copy-Item step re-deposited it.",
+        "This release ships a repackaged zip that contains only <Mod>.json + DLL + PCK. No code changes. Updating from the previous version will trigger ModManager to remove the old mod_manifest.json from the player's game folder and the duplicate entry disappears."
       ]
     }
   },
