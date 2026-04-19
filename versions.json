@@ -34,12 +34,12 @@
         "本版重新打包的 zip 只含 <Mod>.json + DLL + PCK，不含 mod_manifest.json。没有代码变更。从上一版更新过来时，ModManager 会删掉玩家目录里残留的 mod_manifest.json，重复条目消失。"
       ],
       "updated_at": "2026-04-19",
-      "download_cn": "",
-      "download_intl": "",
+      "download_cn": "https://gitee.com/forNoName/sts2-pp-mod-release/releases/download/SpeedX-v0.10.7/SpeedX_v0.10.7.zip",
+      "download_intl": "https://github.com/xhyrzldf/sts2-pp-mod-release/releases/download/SpeedX-v0.10.7/SpeedX_v0.10.7.zip",
       "page": "",
       "filename": "SpeedX_v0.10.7.zip",
       "channel": "stable",
-      "sha256": "",
+      "sha256": "6f3e6f6dbb3566861fc5e746283814bfd45a6b74af504a2e6d842da93ade2b67",
       "changelog_en": "repackage release zip without legacy mod_manifest.json to fix duplicate mod entry in game menu",
       "changelog_detail_en": [
         "Game v0.99+ introduced <ModId>.json as the sole external root manifest. The mod loader still scans for legacy mod_manifest.json - so when a deployed folder contains both, the loader registers them as two separate mod entries and the game menu shows a duplicate red 'already loaded' row for that mod.",
