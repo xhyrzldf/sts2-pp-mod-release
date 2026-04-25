@@ -25,26 +25,26 @@
       "sha256": "03f40a1b3f2ce85e0f891b4be07e61721c5170d7dd58699a84037af8e68b04b1"
     },
     "SpeedX": {
-      "latest": "0.10.7",
+      "latest": "0.10.9",
       "name": "皮皮极速: SpeedX",
-      "changelog": "重新打包发布 zip，移除 legacy mod_manifest.json 修复游戏菜单里的重复模组条目",
+      "changelog": "共享 STS2 v0.103/v0.104 兼容层",
       "changelog_detail": [
-        "游戏 v0.99+ 起 <ModId>.json 是唯一的外部 root manifest，但 mod loader 依然会扫描 legacy mod_manifest.json —— 同目录两份 manifest 会被 loader 各自注册为独立模组条目，游戏菜单里就出现同名的红色「已加载」坏条目。",
-        "上一版发布 zip 里同时带了两份 manifest。虽然 ModManager.ps1 安装/更新时会调用 Remove-LegacyExternalManifest 清理玩家目录，但 zip 里还带着 mod_manifest.json，紧跟的 Copy-Item 又把它复制回来，等于白清理。",
-        "本版重新打包的 zip 只含 <Mod>.json + DLL + PCK，不含 mod_manifest.json。没有代码变更。从上一版更新过来时，ModManager 会删掉玩家目录里残留的 mod_manifest.json，重复条目消失。"
+        "将跨版本 CombatState/Hook 反射兜底迁移到所有目标模组共用的 Sts2Compat 兼容层。",
+        "改为使用旧版兼容的 STS2 引用路径编译，避免 DLL 绑定到当前 Steam 分支。",
+        "新增 IL 静态兼容检查，提前发现 v0.103.2 与 v0.104.0 签名不同的直接调用。"
       ],
-      "updated_at": "2026-04-19",
-      "download_cn": "https://gitee.com/forNoName/sts2-pp-mod-release/releases/download/SpeedX-v0.10.7/SpeedX_v0.10.7.zip",
-      "download_intl": "https://github.com/xhyrzldf/sts2-pp-mod-release/releases/download/SpeedX-v0.10.7/SpeedX_v0.10.7.zip",
+      "updated_at": "2026-04-25",
+      "download_cn": "https://gitee.com/forNoName/sts2-pp-mod-release/releases/download/SpeedX-v0.10.9/SpeedX_v0.10.9.zip",
+      "download_intl": "https://github.com/xhyrzldf/sts2-pp-mod-release/releases/download/SpeedX-v0.10.9/SpeedX_v0.10.9.zip",
       "page": "",
-      "filename": "SpeedX_v0.10.7.zip",
+      "filename": "SpeedX_v0.10.9.zip",
       "channel": "stable",
-      "sha256": "6f3e6f6dbb3566861fc5e746283814bfd45a6b74af504a2e6d842da93ade2b67",
-      "changelog_en": "repackage release zip without legacy mod_manifest.json to fix duplicate mod entry in game menu",
+      "sha256": "a5fd278e48e8bbc1b85fdc23a15ae53204c919cb687186e06707781ccb6e3804",
+      "changelog_en": "Share STS2 v0.103/v0.104 compatibility layer",
       "changelog_detail_en": [
-        "Game v0.99+ introduced <ModId>.json as the sole external root manifest. The mod loader still scans for legacy mod_manifest.json - so when a deployed folder contains both, the loader registers them as two separate mod entries and the game menu shows a duplicate red 'already loaded' row for that mod.",
-        "Releases up to and including the previous version shipped both manifests in the zip. Even though ModManager.ps1's install/update path calls Remove-LegacyExternalManifest to clean the target directory, the cleanup was undone because the zip still contained mod_manifest.json and the subsequent Copy-Item step re-deposited it.",
-        "This release ships a repackaged zip that contains only <Mod>.json + DLL + PCK. No code changes. Updating from the previous version will trigger ModManager to remove the old mod_manifest.json from the player's game folder and the duplicate entry disappears."
+        "Moved cross-version CombatState/Hook reflection into the shared Sts2Compat facade used by all target mods.",
+        "Compiled against the legacy-compatible STS2 reference path so the DLL no longer depends on the currently installed Steam branch.",
+        "Added static IL compatibility checking to catch direct calls to APIs that differ between v0.103.2 and v0.104.0."
       ]
     },
     "RemoveMultiplayerPlayerLimit": {
@@ -64,27 +64,27 @@
       "sha256": "74f1d5c4a662521ed2a47f8400e93179bc83252ce55a4af8d2a2cc353249c292"
     },
     "Rewind": {
-      "latest": "0.26.4",
+      "latest": "0.26.7",
       "name": "皮皮倒带: Rewind",
-      "changelog": "重新打包发布 zip，移除 legacy mod_manifest.json 修复游戏菜单里的重复模组条目",
+      "changelog": "共享 STS2 v0.103/v0.104 兼容层",
       "changelog_detail": [
-        "游戏 v0.99+ 起 <ModId>.json 是唯一的外部 root manifest，但 mod loader 依然会扫描 legacy mod_manifest.json —— 同目录两份 manifest 会被 loader 各自注册为独立模组条目，游戏菜单里就出现同名的红色「已加载」坏条目。",
-        "上一版发布 zip 里同时带了两份 manifest。虽然 ModManager.ps1 安装/更新时会调用 Remove-LegacyExternalManifest 清理玩家目录，但 zip 里还带着 mod_manifest.json，紧跟的 Copy-Item 又把它复制回来，等于白清理。",
-        "本版重新打包的 zip 只含 <Mod>.json + DLL + PCK，不含 mod_manifest.json。没有代码变更。从上一版更新过来时，ModManager 会删掉玩家目录里残留的 mod_manifest.json，重复条目消失。"
+        "将倒带使用的 CombatState、Hook.AfterCardChangedPiles、战斗出牌阶段、读档重建等兼容封装迁移到共享 Sts2Compat。",
+        "继续保持 PowerCmd.Apply 诊断补丁与 RunSaveManager.SaveRun 补丁在 v0.103.2/v0.104.0 双版本下的重载安全。",
+        "新增 IL 静态兼容检查，防止后续再次直接绑定到 ICombatState 扩宽后的 API。"
       ],
-      "updated_at": "2026-04-19",
-      "download_cn": "https://gitee.com/forNoName/sts2-pp-mod-release/releases/download/Rewind-v0.26.4/Rewind_v0.26.4.zip",
-      "download_intl": "https://github.com/xhyrzldf/sts2-pp-mod-release/releases/download/Rewind-v0.26.4/Rewind_v0.26.4.zip",
+      "updated_at": "2026-04-25",
+      "download_cn": "https://gitee.com/forNoName/sts2-pp-mod-release/releases/download/Rewind-v0.26.7/Rewind_v0.26.7.zip",
+      "download_intl": "https://github.com/xhyrzldf/sts2-pp-mod-release/releases/download/Rewind-v0.26.7/Rewind_v0.26.7.zip",
       "page": "",
-      "filename": "Rewind_v0.26.4.zip",
+      "filename": "Rewind_v0.26.7.zip",
       "channel": "stable",
-      "changelog_en": "repackage release zip without legacy mod_manifest.json to fix duplicate mod entry in game menu",
+      "changelog_en": "Share STS2 v0.103/v0.104 compatibility layer",
       "changelog_detail_en": [
-        "Game v0.99+ introduced <ModId>.json as the sole external root manifest. The mod loader still scans for legacy mod_manifest.json - so when a deployed folder contains both, the loader registers them as two separate mod entries and the game menu shows a duplicate red 'already loaded' row for that mod.",
-        "Releases up to and including the previous version shipped both manifests in the zip. Even though ModManager.ps1's install/update path calls Remove-LegacyExternalManifest to clean the target directory, the cleanup was undone because the zip still contained mod_manifest.json and the subsequent Copy-Item step re-deposited it.",
-        "This release ships a repackaged zip that contains only <Mod>.json + DLL + PCK. No code changes. Updating from the previous version will trigger ModManager to remove the old mod_manifest.json from the player's game folder and the duplicate entry disappears."
+        "Moved Rewind's CombatState, Hook.AfterCardChangedPiles, play-phase, and saved-run setup shims into the shared Sts2Compat facade.",
+        "Kept PowerCmd.Apply diagnostics and RunSaveManager.SaveRun patches overload-safe across v0.103.2 and v0.104.0.",
+        "Added static IL compatibility checking to prevent future direct bindings to widened ICombatState APIs."
       ],
-      "sha256": "0cad5dbabe9a8292d07fb4ef5fed0da3eaef3fd6c0a594da82f3f48790b54897"
+      "sha256": "2ed555aec1cdcbd9c2c83e1dcb3c1021815788006e5d7a5275501d9ed14277c9"
     },
     "ModConfig": {
       "latest": "0.2.3",
@@ -110,28 +110,28 @@
       ]
     },
     "QuickLink": {
-      "latest": "0.9.6",
+      "latest": "0.9.7",
       "name": "皮皮快连: QuickLink",
-      "changelog": "重新打包发布 zip，移除 legacy mod_manifest.json 修复游戏菜单里的重复模组条目",
+      "changelog": "使用固定 STS2 兼容编译基线",
       "changelog_detail": [
-        "游戏 v0.99+ 起 <ModId>.json 是唯一的外部 root manifest，但 mod loader 依然会扫描 legacy mod_manifest.json —— 同目录两份 manifest 会被 loader 各自注册为独立模组条目，游戏菜单里就出现同名的红色「已加载」坏条目。",
-        "上一版发布 zip 里同时带了两份 manifest。虽然 ModManager.ps1 安装/更新时会调用 Remove-LegacyExternalManifest 清理玩家目录，但 zip 里还带着 mod_manifest.json，紧跟的 Copy-Item 又把它复制回来，等于白清理。",
-        "本版重新打包的 zip 只含 <Mod>.json + DLL + PCK，不含 mod_manifest.json。没有代码变更。从上一版更新过来时，ModManager 会删掉玩家目录里残留的 mod_manifest.json，重复条目消失。"
+        "项目改用共享的 STS2 兼容编译属性，并源码链接 Sts2Compat 兼容层。",
+        "检查点保存补丁继续显式绑定 SaveRun(AbstractRoom)，避免 v0.104 新增重载导致 Harmony 歧义。",
+        "将 QuickLink 纳入 IL 静态兼容检查，方便后续 STS2 beta 更新时提前发现问题。"
       ],
-      "updated_at": "2026-04-19",
-      "download_cn": "https://gitee.com/forNoName/sts2-pp-mod-release/releases/download/QuickLink-v0.9.6/QuickLink_v0.9.6.zip",
-      "download_intl": "https://github.com/xhyrzldf/sts2-pp-mod-release/releases/download/QuickLink-v0.9.6/QuickLink_v0.9.6.zip",
+      "updated_at": "2026-04-25",
+      "download_cn": "https://gitee.com/forNoName/sts2-pp-mod-release/releases/download/QuickLink-v0.9.7/QuickLink_v0.9.7.zip",
+      "download_intl": "https://github.com/xhyrzldf/sts2-pp-mod-release/releases/download/QuickLink-v0.9.7/QuickLink_v0.9.7.zip",
       "page": "",
-      "filename": "QuickLink_v0.9.6.zip",
+      "filename": "QuickLink_v0.9.7.zip",
       "channel": "stable",
-      "sha256": "698f3ff0a566c193a15f6b51c19d1ef3c194e511b05f18fbc47b22b5a0f3a2eb",
-      "changelog_en": "repackage release zip without legacy mod_manifest.json to fix duplicate mod entry in game menu",
+      "sha256": "267505f4e7a8b2fddfd8c38c120bb5515c71578147549e237bf538af7694000a",
+      "changelog_en": "Use fixed STS2 compatibility build baseline",
       "changelog_detail_en": [
-        "Game v0.99+ introduced <ModId>.json as the sole external root manifest. The mod loader still scans for legacy mod_manifest.json - so when a deployed folder contains both, the loader registers them as two separate mod entries and the game menu shows a duplicate red 'already loaded' row for that mod.",
-        "Releases up to and including the previous version shipped both manifests in the zip. Even though ModManager.ps1's install/update path calls Remove-LegacyExternalManifest to clean the target directory, the cleanup was undone because the zip still contained mod_manifest.json and the subsequent Copy-Item step re-deposited it.",
-        "This release ships a repackaged zip that contains only <Mod>.json + DLL + PCK. No code changes. Updating from the previous version will trigger ModManager to remove the old mod_manifest.json from the player's game folder and the duplicate entry disappears."
+        "Switched the project to the shared STS2 compatibility build properties and source-linked Sts2Compat facade.",
+        "Kept the checkpoint save Harmony patch explicitly bound to SaveRun(AbstractRoom) to avoid v0.104 overload ambiguity.",
+        "Included QuickLink in the static IL compatibility checker for future STS2 beta updates."
       ]
     }
   },
-  "updated_at": "2026-04-19"
+  "updated_at": "2026-04-25"
 }
