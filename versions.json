@@ -25,30 +25,34 @@
       "sha256": "03f40a1b3f2ce85e0f891b4be07e61721c5170d7dd58699a84037af8e68b04b1"
     },
     "SpeedX": {
-      "latest": "0.11.4",
+      "latest": "0.11.6",
       "name": "皮皮极速: SpeedX",
-      "changelog": "伤害预览与自动结束安全阈值配置更新",
+      "changelog": "伤害预览支持鼠标指向与AOE多目标",
       "changelog_detail": [
-        "新增独立的“伤害预览”开关（默认开启），开启自动索敌后悬停攻击牌即可在敌人原生血条上预览将造成的护甲/生命变化。",
-        "伤害预览会尽量走游戏自身动态伤害计算路径，纳入力量、虚弱、易伤、钢笔尖、无形等常见增减伤，并叠加毒与 Doom/诅咒结算后的斩杀判断。",
-        "预览血条改为复用原生血条前景节点与文字显示，支持预计生命/护甲文字高亮，更贴近游戏本体风格。",
-        "ModConfig 新增伤害预览配色自定义，可调整普通伤害、直接斩杀、毒斩杀、Doom 斩杀以及文字预览颜色。",
-        "ModConfig 新增自动结束回合的死亡保护预留生命滑条，默认 2 点生命，玩家可按自己的风险偏好调整。"
+        "伤害预览现在与自动索敌解耦，关闭自动选择目标后仍可单独使用预览功能。",
+        "多个敌人时，单目标攻击牌在手动指向某个敌人期间会预览该目标的预计护甲/生命变化。",
+        "全体敌人攻击牌会在所有可命中敌人的血条上同时预览直接伤害、毒后续结算与 Doom 后续斩杀。",
+        "同时保留 v0.11.5 的图层修复：预览条处在原生血条 Mask 图层内，不再压到手牌或说明框上。",
+        "v0.11.5：修复伤害预览血条图层过高",
+        "将伤害预览条移动到游戏原生生命条的 Mask 图层中，与原本的生命、毒和 Doom 血条处在同一层级。",
+        "移除预览条额外抬高的 z-index，避免预览血条压到手牌和卡牌说明提示框上。"
       ],
-      "updated_at": "2026-04-28",
-      "download_cn": "https://gitee.com/forNoName/sts2-pp-mod-release/releases/download/SpeedX-v0.11.4/SpeedX_v0.11.4.zip",
-      "download_intl": "https://github.com/xhyrzldf/sts2-pp-mod-release/releases/download/SpeedX-v0.11.4/SpeedX_v0.11.4.zip",
+      "updated_at": "2026-04-29",
+      "download_cn": "https://gitee.com/forNoName/sts2-pp-mod-release/releases/download/SpeedX-v0.11.6/SpeedX_v0.11.6.zip",
+      "download_intl": "https://github.com/xhyrzldf/sts2-pp-mod-release/releases/download/SpeedX-v0.11.6/SpeedX_v0.11.6.zip",
       "page": "",
-      "filename": "SpeedX_v0.11.4.zip",
+      "filename": "SpeedX_v0.11.6.zip",
       "channel": "stable",
-      "sha256": "e5ef54c63e4cb8b4f8ab3791dc5c5ff2dd8d0d3659dc08752f718e1a7f07bf58",
-      "changelog_en": "Add damage preview controls and configurable auto-end HP reserve",
+      "sha256": "4d6aba7ec47e674fb58ddd244a8f0691a97a5759e369a71811b3942b1300e550",
+      "changelog_en": "Expand damage preview to manual targets and AOE attacks",
       "changelog_detail_en": [
-        "Adds an independent Damage Preview toggle, enabled by default. With Auto-Target enabled, hovering an attack card previews the predicted block/HP changes on the enemy native health bar.",
-        "The preview uses the game dynamic damage calculation path where possible, covering common modifiers such as Strength, Weak, Vulnerable, Pen Nib, and Intangible, then layers poison and Doom lethal follow-up checks.",
-        "Health-bar previews now reuse native foreground nodes and temporarily highlight predicted HP/block text, making the overlay blend with the original game UI.",
-        "Adds ModConfig color customization for normal damage, direct lethal, poison lethal, Doom lethal, and preview text colors.",
-        "Adds a ModConfig slider for the auto-end death guard HP reserve. The default remains 2 HP, and players can tune it to their preferred risk level."
+        "Damage Preview is now independent from Auto-Target; turning off Auto-Target no longer disables preview rendering.",
+        "Single-target attack cards now preview the enemy currently hovered during manual target selection when multiple enemies are present.",
+        "All-enemies attack cards now preview predicted block/HP, poison follow-up, and Doom follow-up on every hittable enemy health bar.",
+        "Keeps preview bars in the native health-bar mask layer so they no longer render above hand cards or tooltips.",
+        "v0.11.5: Keep damage preview bars on the native health-bar layer",
+        "Moves the damage preview bar segments into the same native health-bar mask layer as the original HP, poison, and Doom fills.",
+        "Removes the elevated preview z-index so hovered cards and tooltips stay above the enemy health bar just like in the base game."
       ]
     },
     "RemoveMultiplayerPlayerLimit": {
@@ -137,5 +141,5 @@
       ]
     }
   },
-  "updated_at": "2026-04-25"
+  "updated_at": "2026-04-29"
 }
