@@ -25,26 +25,30 @@
       "sha256": "03f40a1b3f2ce85e0f891b4be07e61721c5170d7dd58699a84037af8e68b04b1"
     },
     "SpeedX": {
-      "latest": "0.10.9",
+      "latest": "0.11.4",
       "name": "皮皮极速: SpeedX",
-      "changelog": "共享 STS2 v0.103/v0.104 兼容层",
+      "changelog": "伤害预览与自动结束安全阈值配置更新",
       "changelog_detail": [
-        "将跨版本 CombatState/Hook 反射兜底迁移到所有目标模组共用的 Sts2Compat 兼容层。",
-        "改为使用旧版兼容的 STS2 引用路径编译，避免 DLL 绑定到当前 Steam 分支。",
-        "新增 IL 静态兼容检查，提前发现 v0.103.2 与 v0.104.0 签名不同的直接调用。"
+        "新增独立的“伤害预览”开关（默认开启），开启自动索敌后悬停攻击牌即可在敌人原生血条上预览将造成的护甲/生命变化。",
+        "伤害预览会尽量走游戏自身动态伤害计算路径，纳入力量、虚弱、易伤、钢笔尖、无形等常见增减伤，并叠加毒与 Doom/诅咒结算后的斩杀判断。",
+        "预览血条改为复用原生血条前景节点与文字显示，支持预计生命/护甲文字高亮，更贴近游戏本体风格。",
+        "ModConfig 新增伤害预览配色自定义，可调整普通伤害、直接斩杀、毒斩杀、Doom 斩杀以及文字预览颜色。",
+        "ModConfig 新增自动结束回合的死亡保护预留生命滑条，默认 2 点生命，玩家可按自己的风险偏好调整。"
       ],
-      "updated_at": "2026-04-25",
-      "download_cn": "https://gitee.com/forNoName/sts2-pp-mod-release/releases/download/SpeedX-v0.10.9/SpeedX_v0.10.9.zip",
-      "download_intl": "https://github.com/xhyrzldf/sts2-pp-mod-release/releases/download/SpeedX-v0.10.9/SpeedX_v0.10.9.zip",
+      "updated_at": "2026-04-28",
+      "download_cn": "https://gitee.com/forNoName/sts2-pp-mod-release/releases/download/SpeedX-v0.11.4/SpeedX_v0.11.4.zip",
+      "download_intl": "https://github.com/xhyrzldf/sts2-pp-mod-release/releases/download/SpeedX-v0.11.4/SpeedX_v0.11.4.zip",
       "page": "",
-      "filename": "SpeedX_v0.10.9.zip",
+      "filename": "SpeedX_v0.11.4.zip",
       "channel": "stable",
-      "sha256": "a5fd278e48e8bbc1b85fdc23a15ae53204c919cb687186e06707781ccb6e3804",
-      "changelog_en": "Share STS2 v0.103/v0.104 compatibility layer",
+      "sha256": "e5ef54c63e4cb8b4f8ab3791dc5c5ff2dd8d0d3659dc08752f718e1a7f07bf58",
+      "changelog_en": "Add damage preview controls and configurable auto-end HP reserve",
       "changelog_detail_en": [
-        "Moved cross-version CombatState/Hook reflection into the shared Sts2Compat facade used by all target mods.",
-        "Compiled against the legacy-compatible STS2 reference path so the DLL no longer depends on the currently installed Steam branch.",
-        "Added static IL compatibility checking to catch direct calls to APIs that differ between v0.103.2 and v0.104.0."
+        "Adds an independent Damage Preview toggle, enabled by default. With Auto-Target enabled, hovering an attack card previews the predicted block/HP changes on the enemy native health bar.",
+        "The preview uses the game dynamic damage calculation path where possible, covering common modifiers such as Strength, Weak, Vulnerable, Pen Nib, and Intangible, then layers poison and Doom lethal follow-up checks.",
+        "Health-bar previews now reuse native foreground nodes and temporarily highlight predicted HP/block text, making the overlay blend with the original game UI.",
+        "Adds ModConfig color customization for normal damage, direct lethal, poison lethal, Doom lethal, and preview text colors.",
+        "Adds a ModConfig slider for the auto-end death guard HP reserve. The default remains 2 HP, and players can tune it to their preferred risk level."
       ]
     },
     "RemoveMultiplayerPlayerLimit": {
