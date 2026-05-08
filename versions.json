@@ -2,57 +2,49 @@
   "schema_version": 1,
   "mods": {
     "DamageMeter": {
-      "latest": "1.14.2",
+      "latest": "1.14.3",
       "name": "皮皮统计: Skada",
-      "changelog": "重新打包发布 zip，移除 legacy mod_manifest.json 修复游戏菜单里的重复模组条目",
+      "changelog": "兼容 STS2 v0.105.0 血量显示 API",
       "changelog_detail": [
-        "游戏 v0.99+ 起 <ModId>.json 是唯一的外部 root manifest，但 mod loader 依然会扫描 legacy mod_manifest.json —— 同目录两份 manifest 会被 loader 各自注册为独立模组条目，游戏菜单里就出现同名的红色「已加载」坏条目。",
-        "上一版发布 zip 里同时带了两份 manifest。虽然 ModManager.ps1 安装/更新时会调用 Remove-LegacyExternalManifest 清理玩家目录，但 zip 里还带着 mod_manifest.json，紧跟的 Copy-Item 又把它复制回来，等于白清理。",
-        "本版重新打包的 zip 只含 <Mod>.json + DLL + PCK，不含 mod_manifest.json。没有代码变更。从上一版更新过来时，ModManager 会删掉玩家目录里残留的 mod_manifest.json，重复条目消失。"
+        "修复 v0.105.0 将 Creature.ShowsInfiniteHp 改为 HpDisplay 后触发的 MissingMethodException，该错误会打断战斗初始化和抽牌流程。",
+        "无限血敌人识别改为反射兼容，同一 DLL 继续支持 v0.103.2 正式服与 v0.105.0 测试服。",
+        "DamageMeter 编译引用改为固定 v0.103.2 refpack，避免本机切到测试服后意外绑定当前 beta DLL。"
       ],
-      "updated_at": "2026-04-19",
-      "download_cn": "https://gitee.com/forNoName/sts2-pp-mod-release/releases/download/DamageMeter-v1.14.2/DamageMeter_v1.14.2.zip",
-      "download_intl": "https://github.com/xhyrzldf/sts2-pp-mod-release/releases/download/DamageMeter-v1.14.2/DamageMeter_v1.14.2.zip",
+      "updated_at": "2026-05-08",
+      "download_cn": "https://gitee.com/forNoName/sts2-pp-mod-release/releases/download/DamageMeter-v1.14.3/DamageMeter_v1.14.3.zip",
+      "download_intl": "https://github.com/xhyrzldf/sts2-pp-mod-release/releases/download/DamageMeter-v1.14.3/DamageMeter_v1.14.3.zip",
       "page": "",
-      "filename": "DamageMeter_v1.14.2.zip",
+      "filename": "DamageMeter_v1.14.3.zip",
       "channel": "stable",
-      "changelog_en": "repackage release zip without legacy mod_manifest.json to fix duplicate mod entry in game menu",
+      "changelog_en": "Support STS2 v0.105.0 HP display API",
       "changelog_detail_en": [
-        "Game v0.99+ introduced <ModId>.json as the sole external root manifest. The mod loader still scans for legacy mod_manifest.json - so when a deployed folder contains both, the loader registers them as two separate mod entries and the game menu shows a duplicate red 'already loaded' row for that mod.",
-        "Releases up to and including the previous version shipped both manifests in the zip. Even though ModManager.ps1's install/update path calls Remove-LegacyExternalManifest to clean the target directory, the cleanup was undone because the zip still contained mod_manifest.json and the subsequent Copy-Item step re-deposited it.",
-        "This release ships a repackaged zip that contains only <Mod>.json + DLL + PCK. No code changes. Updating from the previous version will trigger ModManager to remove the old mod_manifest.json from the player's game folder and the duplicate entry disappears."
+        "Fixes the v0.105.0 MissingMethodException caused by Creature.ShowsInfiniteHp being replaced by HpDisplay, which could interrupt combat setup and card drawing.",
+        "Uses reflection-compatible infinite-HP detection so the same build continues to work on v0.103.2 stable and v0.105.0 beta.",
+        "Pins the build reference to the v0.103.2 refpack to avoid accidentally binding DamageMeter to the currently installed beta DLL."
       ],
-      "sha256": "03f40a1b3f2ce85e0f891b4be07e61721c5170d7dd58699a84037af8e68b04b1"
+      "sha256": "0b2486b34f623b7741cfa0cf4c89a6483d545b329861b01488da03a5db138f4f"
     },
     "SpeedX": {
-      "latest": "0.11.6",
+      "latest": "0.11.7",
       "name": "皮皮极速: SpeedX",
-      "changelog": "伤害预览支持鼠标指向与AOE多目标",
+      "changelog": "修复 v0.105.0 奖励界面改动导致 SpeedX 失效",
       "changelog_detail": [
-        "伤害预览现在与自动索敌解耦，关闭自动选择目标后仍可单独使用预览功能。",
-        "多个敌人时，单目标攻击牌在手动指向某个敌人期间会预览该目标的预计护甲/生命变化。",
-        "全体敌人攻击牌会在所有可命中敌人的血条上同时预览直接伤害、毒后续结算与 Doom 后续斩杀。",
-        "同时保留 v0.11.5 的图层修复：预览条处在原生血条 Mask 图层内，不再压到手牌或说明框上。",
-        "v0.11.5：修复伤害预览血条图层过高",
-        "将伤害预览条移动到游戏原生生命条的 Mask 图层中，与原本的生命、毒和 Doom 血条处在同一层级。",
-        "移除预览条额外抬高的 z-index，避免预览血条压到手牌和卡牌说明提示框上。"
+        "修复 v0.105.0 删除 NRewardsScreen.SetRewards、把奖励按钮生成移动到 _Ready 后，SpeedX 在 Harmony PatchAll 阶段失败的问题。",
+        "自动拾取会在 v0.103.2 上继续挂 SetRewards，在 v0.105.0 上自动改挂 _Ready，从而恢复整体倍速/跳动画等补丁初始化。",
+        "继续保持 v0.103.2/v0.105.0 单 DLL 兼容构建，并通过 IL 静态兼容检查。"
       ],
-      "updated_at": "2026-04-29",
-      "download_cn": "https://gitee.com/forNoName/sts2-pp-mod-release/releases/download/SpeedX-v0.11.6/SpeedX_v0.11.6.zip",
-      "download_intl": "https://github.com/xhyrzldf/sts2-pp-mod-release/releases/download/SpeedX-v0.11.6/SpeedX_v0.11.6.zip",
+      "updated_at": "2026-05-08",
+      "download_cn": "https://gitee.com/forNoName/sts2-pp-mod-release/releases/download/SpeedX-v0.11.7/SpeedX_v0.11.7.zip",
+      "download_intl": "https://github.com/xhyrzldf/sts2-pp-mod-release/releases/download/SpeedX-v0.11.7/SpeedX_v0.11.7.zip",
       "page": "",
-      "filename": "SpeedX_v0.11.6.zip",
+      "filename": "SpeedX_v0.11.7.zip",
       "channel": "stable",
-      "sha256": "4d6aba7ec47e674fb58ddd244a8f0691a97a5759e369a71811b3942b1300e550",
-      "changelog_en": "Expand damage preview to manual targets and AOE attacks",
+      "sha256": "1166fada03cdf49a13d98eb52529bcee2b3a8582884f1b2242fab39cb95775ce",
+      "changelog_en": "Restore SpeedX on STS2 v0.105.0 rewards screen changes",
       "changelog_detail_en": [
-        "Damage Preview is now independent from Auto-Target; turning off Auto-Target no longer disables preview rendering.",
-        "Single-target attack cards now preview the enemy currently hovered during manual target selection when multiple enemies are present.",
-        "All-enemies attack cards now preview predicted block/HP, poison follow-up, and Doom follow-up on every hittable enemy health bar.",
-        "Keeps preview bars in the native health-bar mask layer so they no longer render above hand cards or tooltips.",
-        "v0.11.5: Keep damage preview bars on the native health-bar layer",
-        "Moves the damage preview bar segments into the same native health-bar mask layer as the original HP, poison, and Doom fills.",
-        "Removes the elevated preview z-index so hovered cards and tooltips stay above the enemy health bar just like in the base game."
+        "Fixes SpeedX failing during Harmony PatchAll on v0.105.0 because NRewardsScreen.SetRewards was removed and reward setup moved into _Ready.",
+        "Auto-loot now targets SetRewards on v0.103.2 or _Ready on v0.105.0, restoring global speed/skip patches after startup.",
+        "Keeps the v0.103.2/v0.105.0 single-DLL compatibility build and passes the static IL compatibility guard."
       ]
     },
     "RemoveMultiplayerPlayerLimit": {
@@ -72,27 +64,27 @@
       "sha256": "74f1d5c4a662521ed2a47f8400e93179bc83252ce55a4af8d2a2cc353249c292"
     },
     "Rewind": {
-      "latest": "0.26.7",
+      "latest": "0.26.8",
       "name": "皮皮倒带: Rewind",
-      "changelog": "共享 STS2 v0.103/v0.104 兼容层",
+      "changelog": "修复 v0.105.0 下倒带选牌器加载失败",
       "changelog_detail": [
-        "将倒带使用的 CombatState、Hook.AfterCardChangedPiles、战斗出牌阶段、读档重建等兼容封装迁移到共享 Sts2Compat。",
-        "继续保持 PowerCmd.Apply 诊断补丁与 RunSaveManager.SaveRun 补丁在 v0.103.2/v0.104.0 双版本下的重载安全。",
-        "新增 IL 静态兼容检查，防止后续再次直接绑定到 ICombatState 扩宽后的 API。"
+        "修复 v0.105.0 将 ICardSelector.GetSelectedCardReward 的返回值从 CardModel 改为 CardRewardSelection 后，Rewind 加载时报 ReflectionTypeLoadException 的问题。",
+        "新增共享的 DispatchProxy 选牌器适配层：运行时按当前游戏接口形状生成实现，同时保留 v0.103.2 兼容性。",
+        "测试服上倒带回放选牌器可重新正常安装，不再阻止模组加载。"
       ],
-      "updated_at": "2026-04-25",
-      "download_cn": "https://gitee.com/forNoName/sts2-pp-mod-release/releases/download/Rewind-v0.26.7/Rewind_v0.26.7.zip",
-      "download_intl": "https://github.com/xhyrzldf/sts2-pp-mod-release/releases/download/Rewind-v0.26.7/Rewind_v0.26.7.zip",
+      "updated_at": "2026-05-08",
+      "download_cn": "https://gitee.com/forNoName/sts2-pp-mod-release/releases/download/Rewind-v0.26.8/Rewind_v0.26.8.zip",
+      "download_intl": "https://github.com/xhyrzldf/sts2-pp-mod-release/releases/download/Rewind-v0.26.8/Rewind_v0.26.8.zip",
       "page": "",
-      "filename": "Rewind_v0.26.7.zip",
+      "filename": "Rewind_v0.26.8.zip",
       "channel": "stable",
-      "changelog_en": "Share STS2 v0.103/v0.104 compatibility layer",
+      "changelog_en": "Fix replay card selector loading on STS2 v0.105.0",
       "changelog_detail_en": [
-        "Moved Rewind's CombatState, Hook.AfterCardChangedPiles, play-phase, and saved-run setup shims into the shared Sts2Compat facade.",
-        "Kept PowerCmd.Apply diagnostics and RunSaveManager.SaveRun patches overload-safe across v0.103.2 and v0.104.0.",
-        "Added static IL compatibility checking to prevent future direct bindings to widened ICombatState APIs."
+        "Fixes Rewind failing to load on v0.105.0 after ICardSelector.GetSelectedCardReward changed from returning CardModel to returning CardRewardSelection.",
+        "Adds a shared DispatchProxy-based selector adapter that implements the runtime interface shape while preserving v0.103.2 compatibility.",
+        "Rewind can again install its replay selector without a ReflectionTypeLoadException on the beta branch."
       ],
-      "sha256": "2ed555aec1cdcbd9c2c83e1dcb3c1021815788006e5d7a5275501d9ed14277c9"
+      "sha256": "320245552b48d0950a384e34a591d6de39eea70d0ce863f067852f2f772cf13a"
     },
     "ModConfig": {
       "latest": "0.2.3",
@@ -141,5 +133,5 @@
       ]
     }
   },
-  "updated_at": "2026-04-29"
+  "updated_at": "2026-05-08"
 }
