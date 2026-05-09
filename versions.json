@@ -2,27 +2,27 @@
   "schema_version": 1,
   "mods": {
     "DamageMeter": {
-      "latest": "1.14.3",
+      "latest": "1.14.4",
       "name": "皮皮统计: Skada",
-      "changelog": "兼容 STS2 v0.105.0 血量显示 API",
+      "changelog": "兼容 v0.105 CombatState 接口变更",
       "changelog_detail": [
-        "修复 v0.105.0 将 Creature.ShowsInfiniteHp 改为 HpDisplay 后触发的 MissingMethodException，该错误会打断战斗初始化和抽牌流程。",
-        "无限血敌人识别改为反射兼容，同一 DLL 继续支持 v0.103.2 正式服与 v0.105.0 测试服。",
-        "DamageMeter 编译引用改为固定 v0.103.2 refpack，避免本机切到测试服后意外绑定当前 beta DLL。"
+        "修复 STS2 v0.105.0 将 Creature.CombatState 从 CombatState 改为 ICombatState 后，末日击杀与持续伤害归因路径可能触发的兼容问题。",
+        "DamageMeter 接入共享 Sts2Compat 运行时桥，同一 DLL 继续支持 v0.103.2 正式服与 v0.105.0 测试服。",
+        "玩家列表读取增加反射回退，助攻、中毒、末日等归因逻辑在新旧 CombatState 形态下保持安全。"
       ],
-      "updated_at": "2026-05-08",
-      "download_cn": "https://gitee.com/forNoName/sts2-pp-mod-release/releases/download/DamageMeter-v1.14.3/DamageMeter_v1.14.3.zip",
-      "download_intl": "https://github.com/xhyrzldf/sts2-pp-mod-release/releases/download/DamageMeter-v1.14.3/DamageMeter_v1.14.3.zip",
+      "updated_at": "2026-05-09",
+      "download_cn": "https://gitee.com/forNoName/sts2-pp-mod-release/releases/download/DamageMeter-v1.14.4/DamageMeter_v1.14.4.zip",
+      "download_intl": "https://github.com/xhyrzldf/sts2-pp-mod-release/releases/download/DamageMeter-v1.14.4/DamageMeter_v1.14.4.zip",
       "page": "",
-      "filename": "DamageMeter_v1.14.3.zip",
+      "filename": "DamageMeter_v1.14.4.zip",
       "channel": "stable",
-      "changelog_en": "Support STS2 v0.105.0 HP display API",
+      "changelog_en": "Bridge v0.105 CombatState interface changes",
       "changelog_detail_en": [
-        "Fixes the v0.105.0 MissingMethodException caused by Creature.ShowsInfiniteHp being replaced by HpDisplay, which could interrupt combat setup and card drawing.",
-        "Uses reflection-compatible infinite-HP detection so the same build continues to work on v0.103.2 stable and v0.105.0 beta.",
-        "Pins the build reference to the v0.103.2 refpack to avoid accidentally binding DamageMeter to the currently installed beta DLL."
+        "Fixes the STS2 v0.105.0 Creature.CombatState return-type change from CombatState to ICombatState for Doom kill and power-damage attribution paths.",
+        "Source-links the shared Sts2Compat runtime bridge into DamageMeter so one DLL continues to run on v0.103.2 stable and v0.105.0 beta.",
+        "Adds a reflection fallback for the combat Players collection, keeping assist, poison, and Doom attribution logic version-safe."
       ],
-      "sha256": "0b2486b34f623b7741cfa0cf4c89a6483d545b329861b01488da03a5db138f4f"
+      "sha256": "0e966fa3fcbba3c709a1137a9b51e20c3a4cb8aec4ca89ef76643b9435682aec"
     },
     "SpeedX": {
       "latest": "0.11.7",
@@ -64,27 +64,27 @@
       "sha256": "74f1d5c4a662521ed2a47f8400e93179bc83252ce55a4af8d2a2cc353249c292"
     },
     "Rewind": {
-      "latest": "0.26.8",
+      "latest": "0.26.10",
       "name": "皮皮倒带: Rewind",
-      "changelog": "修复 v0.105.0 下倒带选牌器加载失败",
+      "changelog": "增强 v0.105 读档继续追踪兼容性",
       "changelog_detail": [
-        "修复 v0.105.0 将 ICardSelector.GetSelectedCardReward 的返回值从 CardModel 改为 CardRewardSelection 后，Rewind 加载时报 ReflectionTypeLoadException 的问题。",
-        "新增共享的 DispatchProxy 选牌器适配层：运行时按当前游戏接口形状生成实现，同时保留 v0.103.2 兼容性。",
-        "测试服上倒带回放选牌器可重新正常安装，不再阻止模组加载。"
+        "将倒带的继续游戏/读档追踪改为运行时解析 RunManager.SetUpSavedSinglePlayer，同时覆盖 v0.103.2 的 void 签名与 v0.105.0 的 Task 返回签名，保持单 DLL 双版本可用。",
+        "重新审计 Rewind 直接触达的 STS2 方法引用；在已有选牌器与 PowerCmd 兼容桥之后，没有发现剩余的直接调用签名不匹配。",
+        "稳定服 v0.103.2 与测试服 v0.105.0 下，reload 统计和外部读档检测 patch 都会继续生效。"
       ],
-      "updated_at": "2026-05-08",
-      "download_cn": "https://gitee.com/forNoName/sts2-pp-mod-release/releases/download/Rewind-v0.26.8/Rewind_v0.26.8.zip",
-      "download_intl": "https://github.com/xhyrzldf/sts2-pp-mod-release/releases/download/Rewind-v0.26.8/Rewind_v0.26.8.zip",
+      "updated_at": "2026-05-09",
+      "download_cn": "https://gitee.com/forNoName/sts2-pp-mod-release/releases/download/Rewind-v0.26.10/Rewind_v0.26.10.zip",
+      "download_intl": "https://github.com/xhyrzldf/sts2-pp-mod-release/releases/download/Rewind-v0.26.10/Rewind_v0.26.10.zip",
       "page": "",
-      "filename": "Rewind_v0.26.8.zip",
+      "filename": "Rewind_v0.26.10.zip",
       "channel": "stable",
-      "changelog_en": "Fix replay card selector loading on STS2 v0.105.0",
+      "changelog_en": "Harden save-continue tracking for STS2 v0.105",
       "changelog_detail_en": [
-        "Fixes Rewind failing to load on v0.105.0 after ICardSelector.GetSelectedCardReward changed from returning CardModel to returning CardRewardSelection.",
-        "Adds a shared DispatchProxy-based selector adapter that implements the runtime interface shape while preserving v0.103.2 compatibility.",
-        "Rewind can again install its replay selector without a ReflectionTypeLoadException on the beta branch."
+        "Updates the Rewind continue/reload tracker to resolve RunManager.SetUpSavedSinglePlayer at runtime, covering the v0.103.2 void signature and the v0.105.0 Task-returning signature with one DLL.",
+        "Re-audits Rewind's direct STS2 method references against the v0.105.0 assembly; no remaining direct call signature mismatches were found after the existing selector and PowerCmd compatibility bridges.",
+        "Keeps the reload statistics and external-reload detection patch active on both the stable v0.103.2 branch and the v0.105.0 beta branch."
       ],
-      "sha256": "320245552b48d0950a384e34a591d6de39eea70d0ce863f067852f2f772cf13a"
+      "sha256": "3eb1d21560ae17971cbe02a23843c2ff99fe9fe62f40dc749907d460288eaf4f"
     },
     "ModConfig": {
       "latest": "0.2.3",
@@ -133,5 +133,5 @@
       ]
     }
   },
-  "updated_at": "2026-05-08"
+  "updated_at": "2026-05-09"
 }
