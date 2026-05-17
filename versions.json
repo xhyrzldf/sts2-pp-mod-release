@@ -110,28 +110,28 @@
       ]
     },
     "QuickLink": {
-      "latest": "0.9.7",
+      "latest": "0.9.8",
       "name": "皮皮快连: QuickLink",
-      "changelog": "使用固定 STS2 兼容编译基线",
+      "changelog": "恢复 v0.105 测试版战斗回退兼容性",
       "changelog_detail": [
-        "项目改用共享的 STS2 兼容编译属性，并源码链接 Sts2Compat 兼容层。",
-        "检查点保存补丁继续显式绑定 SaveRun(AbstractRoom)，避免 v0.104 新增重载导致 Harmony 歧义。",
-        "将 QuickLink 纳入 IL 静态兼容检查，方便后续 STS2 beta 更新时提前发现问题。"
+        "STS2 v0.104+ 把 RunManager.SetUpSavedMultiPlayer 从 void 改成 async Task；房主载入时 Harmony Postfix 可能会在新的 CombatStateSynchronizer 创建前就执行。",
+        "在 NGame.LoadRun 入口再次执行 QuickLink 的战斗同步绕过，此时多人存档 setup 已完整 await 完成，可避免 v0.105 房主战斗回退卡在 CombatStateSynchronizer.WaitForSync。",
+        "保持 v0.103.2 路径不变：旧版上的 SetUpSavedMultiPlayer Postfix 仍然生效；若同步器已经被禁用，LoadRun 兜底只会跳过。"
       ],
-      "updated_at": "2026-04-25",
-      "download_cn": "https://gitee.com/forNoName/sts2-pp-mod-release/releases/download/QuickLink-v0.9.7/QuickLink_v0.9.7.zip",
-      "download_intl": "https://github.com/xhyrzldf/sts2-pp-mod-release/releases/download/QuickLink-v0.9.7/QuickLink_v0.9.7.zip",
+      "updated_at": "2026-05-17",
+      "download_cn": "https://gitee.com/forNoName/sts2-pp-mod-release/releases/download/QuickLink-v0.9.8/QuickLink_v0.9.8.zip",
+      "download_intl": "https://github.com/xhyrzldf/sts2-pp-mod-release/releases/download/QuickLink-v0.9.8/QuickLink_v0.9.8.zip",
       "page": "",
-      "filename": "QuickLink_v0.9.7.zip",
+      "filename": "QuickLink_v0.9.8.zip",
       "channel": "stable",
-      "sha256": "267505f4e7a8b2fddfd8c38c120bb5515c71578147549e237bf538af7694000a",
-      "changelog_en": "Use fixed STS2 compatibility build baseline",
+      "sha256": "30843214a6c846295ec152efb1970673b218af08ec809522db19cb86e1db85a8",
+      "changelog_en": "Restore v0.105 beta combat rewind compatibility",
       "changelog_detail_en": [
-        "Switched the project to the shared STS2 compatibility build properties and source-linked Sts2Compat facade.",
-        "Kept the checkpoint save Harmony patch explicitly bound to SaveRun(AbstractRoom) to avoid v0.104 overload ambiguity.",
-        "Included QuickLink in the static IL compatibility checker for future STS2 beta updates."
+        "STS2 v0.104+ changed RunManager.SetUpSavedMultiPlayer from void to async Task; on host load, Harmony postfixes can run before the new CombatStateSynchronizer is created.",
+        "Repeat QuickLink's combat-sync bypass from NGame.LoadRun, after saved multiplayer setup has been fully awaited, so host combat rewind no longer stalls at CombatStateSynchronizer.WaitForSync on v0.105.",
+        "Keep the existing v0.103.2 path intact: the earlier SetUpSavedMultiPlayer postfix still works there, and the LoadRun safety pass is a no-op when the synchronizer is already disabled."
       ]
     }
   },
-  "updated_at": "2026-05-09"
+  "updated_at": "2026-05-17"
 }
