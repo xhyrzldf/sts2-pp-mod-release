@@ -62,25 +62,27 @@
       "sha256": "74f1d5c4a662521ed2a47f8400e93179bc83252ce55a4af8d2a2cc353249c292"
     },
     "Rewind": {
-      "latest": "0.26.11",
+      "latest": "0.26.12",
       "name": "皮皮倒带: Rewind",
-      "changelog": "恢复 v0.107 继续游戏读档追踪兼容性",
+      "changelog": "修复 v0.107.1 下一键重开无法生效",
       "changelog_detail": [
-        "扩展共享 Sts2Compat 的 RunManager setup 解析，覆盖 v0.107.0 的 SetUpSavedSingleplayer 改名，同时保留 v0.103.2 的 SetUpSavedSinglePlayer 路径。",
-        "倒带的继续游戏 / reload 统计 patch 继续运行时绑定，不再依赖单一分支的方法大小写。"
+        "将 Rewind「一键重开」的新种子生成改走共享 STS2 兼容层，不再静态绑定 SeedHelper.GetRandomSeed(int)。",
+        "同一个 DLL 同时覆盖 v0.103.2 的 SeedHelper.GetRandomSeed(int) 与 v0.107.1 的 SeedHelper.GetRandomSeed(Rng?, int) 签名。",
+        "修复 v0.107.1 下从地图历史面板或快捷键触发一键重开时，在确认对话框前就因 MissingMethodException 失效的问题。"
       ],
-      "updated_at": "2026-06-05",
-      "download_cn": "https://gitee.com/forNoName/sts2-pp-mod-release/releases/download/Rewind-v0.26.11/Rewind_v0.26.11.zip",
-      "download_intl": "https://github.com/xhyrzldf/sts2-pp-mod-release/releases/download/Rewind-v0.26.11/Rewind_v0.26.11.zip",
+      "updated_at": "2026-06-19",
+      "download_cn": "https://gitee.com/forNoName/sts2-pp-mod-release/releases/download/Rewind-v0.26.12/Rewind_v0.26.12.zip",
+      "download_intl": "https://github.com/xhyrzldf/sts2-pp-mod-release/releases/download/Rewind-v0.26.12/Rewind_v0.26.12.zip",
       "page": "",
-      "filename": "Rewind_v0.26.11.zip",
+      "filename": "Rewind_v0.26.12.zip",
       "channel": "stable",
-      "changelog_en": "Restore v0.107 save-continue tracking compatibility",
+      "changelog_en": "Fix v0.107.1 Reroll Run seed generation",
       "changelog_detail_en": [
-        "Extends the shared Sts2Compat RunManager setup resolver to cover the v0.107.0 SetUpSavedSingleplayer rename while preserving the v0.103.2 SetUpSavedSinglePlayer path.",
-        "Keeps Rewind's continue/reload statistics patch bound at runtime instead of depending on one branch's method casing."
+        "Routes Rewind's Reroll Run seed generation through the shared STS2 compatibility facade instead of binding directly to SeedHelper.GetRandomSeed(int).",
+        "Covers the v0.103.2 SeedHelper.GetRandomSeed(int) signature and the v0.107.1 SeedHelper.GetRandomSeed(Rng?, int) signature with one DLL.",
+        "Fixes the map-history Reroll Run button/hotkey failing on v0.107.1 with MissingMethodException before the confirmation dialog can start a new run."
       ],
-      "sha256": "7558eed947be6cf5cd1fc252f1c960fe2fbd32ddf0335f1158a2a8af4a4fba49"
+      "sha256": "1ed4e49a3ad07915f7bdadd5f57c4acedd33de735f9e1a0f556a748f18a7dc40"
     },
     "ModConfig": {
       "latest": "0.2.3",
