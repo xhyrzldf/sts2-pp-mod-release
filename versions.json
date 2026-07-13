@@ -127,27 +127,27 @@
       ]
     },
     "SkadaHelper": {
-      "latest": "0.8.4",
+      "latest": "0.8.5",
       "name": "皮皮军师: SkadaHelper",
-      "changelog": "内置轻量统计快照，支持完全离线使用",
+      "changelog": "修复每幕初始事件胜率标签显示不全",
       "changelog_detail": [
-        "将基于 404,569 局 v0.107 对局的 schema-v4 验证快照压缩为约 1.3 MB 并内置，首次断网启动也能显示卡牌、事件、升级、删牌和商店事实统计。",
-        "继续保留每六小时一次的 HTTPS 更新与最后可用缓存：下载成功后可替换内置基线，网络失败则始终继续使用本地数据。",
-        "解压结果限制在 16 MB 内，并在载入内存前复用严格的统计包校验；路线模型仍完全本地运行，不调用服务器。"
+        "将每幕初始事件的胜率标签从选项按钮外侧移到按钮右侧内部，在界面缩放后仍能完整显示胜率和样本量。",
+        "移除事件统计标签背后的深色底板，让事实数据直接、干净地显示在选项行右侧，不再出现多余遮罩。",
+        "新增布局契约测试，同时覆盖普通 800 像素与远古事件 1000 像素宽的选项按钮。"
       ],
       "updated_at": "2026-07-13",
-      "download_cn": "https://gitee.com/forNoName/sts2-pp-mod-release/releases/download/SkadaHelper-v0.8.4/SkadaHelper_v0.8.4.zip",
-      "download_intl": "https://github.com/xhyrzldf/sts2-pp-mod-release/releases/download/SkadaHelper-v0.8.4/SkadaHelper_v0.8.4.zip",
+      "download_cn": "https://gitee.com/forNoName/sts2-pp-mod-release/releases/download/SkadaHelper-v0.8.5/SkadaHelper_v0.8.5.zip",
+      "download_intl": "https://github.com/xhyrzldf/sts2-pp-mod-release/releases/download/SkadaHelper-v0.8.5/SkadaHelper_v0.8.5.zip",
       "page": "",
-      "filename": "SkadaHelper_v0.8.4.zip",
+      "filename": "SkadaHelper_v0.8.5.zip",
       "channel": "stable",
-      "changelog_en": "Make Lite statistics available offline",
+      "changelog_en": "Fix clipped opening-event win-rate labels",
       "changelog_detail_en": [
-        "Embeds the validated schema-v4 snapshot from 404,569 v0.107 runs as a 1.3 MB gzip resource, so factual card, event, upgrade, removal, and shop statistics work on the first offline launch.",
-        "Keeps the six-hour HTTPS refresh and last-known-good cache: a successful download can replace the bundled baseline, while network failures continue using local data.",
-        "Bounds decompression to 16 MB and reuses the strict bundle validator before publishing the embedded snapshot in memory; the route model remains fully local and requires no server call."
+        "Moves each opening-event win-rate label from outside its option button to the button's right side, keeping the full rate and sample count visible at scaled resolutions.",
+        "Removes the dark backing panel from event statistics so the factual label sits cleanly over the option row without an unnecessary mask.",
+        "Adds a layout contract covering both regular 800-pixel and ancient 1000-pixel event-option widths."
       ],
-      "sha256": "65c18c060ef6513c00909e7ff6db604a6e3e2b0da965c9daaada11bee6a5e4e1"
+      "sha256": "dcb60963f1e205e6496b1d73c50527dc0e3b6dd5c2a80dd59b24c94ab458fa63"
     }
   },
   "updated_at": "2026-07-13"
