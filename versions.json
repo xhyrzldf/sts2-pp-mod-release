@@ -23,28 +23,24 @@
       "sha256": "fabc899cd806c810b32b994aaa75e4b706a350450a75f5a29b9f1ba483731c33"
     },
     "SpeedX": {
-      "latest": "0.11.8",
+      "latest": "0.11.9",
       "name": "皮皮极速: SpeedX",
-      "changelog": "修复 v0.107.1 自动结束回合偶发失效并加固黑屏卡住防护",
+      "changelog": "兼容测试服 v0.108",
       "changelog_detail": [
-        "桥接 v0.107.1 的 EndPlayerTurnAction 语义变化：构造函数仍是 Player,int，但这个 int 已从 CombatState.RoundNumber 改成 PlayerCombatState.TurnNumber。",
-        "SpeedX 现在会在运行时选择正确的结束/撤销结束计数，同时保留 v0.103.2 兼容性，修复 v0.107.1 额外回合或多人 turn number 分歧时自动结束动作被游戏忽略的问题。",
-        "自动结束回合现在会复用游戏结束回合按钮同级别的安全窗口：必须是玩家侧、PlayerCombatState 已进入 Play 阶段、没有正在结算的卡牌/药水效果或本地动作、手牌 UI 也不能处于出牌/选牌模式。这样可以降低自动结束在瞬态战斗 UI 状态触发后造成黑屏或转场卡住的风险。",
-        "同步检查了 v0.107.1 下 SpeedX 启动、ModConfig、自动拾取、自动前进、自动索敌、跳横幅、卡牌飞行、冻帧移除、计时器/VFX 与快捷出牌补丁目标。"
+        "v0.108 把 DoomPower.IsOwnerDoomed() 改为私有；自动结束回合的致命厄运判定改为用公开成员计算同一条件（当前生命 <= 厄运层数）。",
+        "同一个 DLL 继续兼容 v0.103.2 / v0.107.1 / v0.108.0。"
       ],
-      "updated_at": "2026-06-19",
-      "download_cn": "https://gitee.com/forNoName/sts2-pp-mod-release/releases/download/SpeedX-v0.11.8/SpeedX_v0.11.8.zip",
-      "download_intl": "https://github.com/xhyrzldf/sts2-pp-mod-release/releases/download/SpeedX-v0.11.8/SpeedX_v0.11.8.zip",
+      "updated_at": "2026-07-04",
+      "download_cn": "https://gitee.com/forNoName/sts2-pp-mod-release/releases/download/SpeedX-v0.11.9/SpeedX_v0.11.9.zip",
+      "download_intl": "https://github.com/xhyrzldf/sts2-pp-mod-release/releases/download/SpeedX-v0.11.9/SpeedX_v0.11.9.zip",
       "page": "",
-      "filename": "SpeedX_v0.11.8.zip",
+      "filename": "SpeedX_v0.11.9.zip",
       "channel": "stable",
-      "sha256": "a689e6c975ec082a79cad0133f2afff75adb750ab550250a870a981cac973ffb",
-      "changelog_en": "Fix auto-end turn on STS2 v0.107.1 and harden stuck-transition guards",
+      "sha256": "a8f59d166f6e9da06252d23b630c05437811ac7343661873263e998035ab0062",
+      "changelog_en": "Compatibility with STS2 beta v0.108",
       "changelog_detail_en": [
-        "Bridges the v0.107.1 EndPlayerTurnAction semantic change: the constructor still takes Player,int, but the int is now PlayerCombatState.TurnNumber instead of CombatState.RoundNumber.",
-        "SpeedX now chooses the correct end-turn/undo counter at runtime, preserving v0.103.2 compatibility while fixing ignored auto-end actions on v0.107.1 extra-turn or multiplayer turn-number divergence.",
-        "Auto-end now mirrors the game end-turn button safety window before enqueueing: combat must be on the player side, PlayerCombatState must be in Play phase, no card/potion effect or local action may be running, and the hand UI must not be in card-play or selection mode. This reduces the risk of black-screen/stuck transitions if auto-end fires during transient combat UI states.",
-        "Existing SpeedX v0.107.1 startup, ModConfig, auto-loot, auto-proceed, auto-target, banner skip, card-flight, hit-stop, timer, VFX, and quick-play patch targets were checked against logs and current decompiled signatures."
+        "v0.108 made DoomPower.IsOwnerDoomed() private; the auto-end-turn lethal-doom check now computes the same condition (CurrentHp <= Amount) from public members.",
+        "One DLL keeps running on v0.103.2 / v0.107.1 / v0.108.0."
       ]
     },
     "RemoveMultiplayerPlayerLimit": {
@@ -64,27 +60,27 @@
       "sha256": "74f1d5c4a662521ed2a47f8400e93179bc83252ce55a4af8d2a2cc353249c292"
     },
     "Rewind": {
-      "latest": "0.26.12",
+      "latest": "0.26.13",
       "name": "皮皮倒带: Rewind",
-      "changelog": "修复 v0.107.1 下一键重开无法生效",
+      "changelog": "兼容测试服 v0.108",
       "changelog_detail": [
-        "将 Rewind「一键重开」的新种子生成改走共享 STS2 兼容层，不再静态绑定 SeedHelper.GetRandomSeed(int)。",
-        "同一个 DLL 同时覆盖 v0.103.2 的 SeedHelper.GetRandomSeed(int) 与 v0.107.1 的 SeedHelper.GetRandomSeed(Rng?, int) 签名。",
-        "修复 v0.107.1 下从地图历史面板或快捷键触发一键重开时，在确认对话框前就因 MissingMethodException 失效的问题。"
+        "v0.108 修改了 CardSelectCmd.PushSelector 的签名（新增可选参数 localOnly），导致倒带回放选卡器在 IL 层直接失配。",
+        "回放选卡器改经 GameCompat 反射调用；同一个 DLL 继续兼容 v0.103.2 / v0.107.1 / v0.108.0。",
+        "同时修复 DrawPileVisibleMovePatch：v0.108 给 CardPileCmd.Add 尾部新增 isChangingOwners 参数，固定 5 类型的 Harmony 目标定位失败导致模组初始化中断；补丁改为动态解析目标方法。"
       ],
-      "updated_at": "2026-06-19",
-      "download_cn": "https://gitee.com/forNoName/sts2-pp-mod-release/releases/download/Rewind-v0.26.12/Rewind_v0.26.12.zip",
-      "download_intl": "https://github.com/xhyrzldf/sts2-pp-mod-release/releases/download/Rewind-v0.26.12/Rewind_v0.26.12.zip",
+      "updated_at": "2026-07-04",
+      "download_cn": "https://gitee.com/forNoName/sts2-pp-mod-release/releases/download/Rewind-v0.26.13/Rewind_v0.26.13.zip",
+      "download_intl": "https://github.com/xhyrzldf/sts2-pp-mod-release/releases/download/Rewind-v0.26.13/Rewind_v0.26.13.zip",
       "page": "",
-      "filename": "Rewind_v0.26.12.zip",
+      "filename": "Rewind_v0.26.13.zip",
       "channel": "stable",
-      "changelog_en": "Fix v0.107.1 Reroll Run seed generation",
+      "changelog_en": "Compatibility with STS2 beta v0.108",
       "changelog_detail_en": [
-        "Routes Rewind's Reroll Run seed generation through the shared STS2 compatibility facade instead of binding directly to SeedHelper.GetRandomSeed(int).",
-        "Covers the v0.103.2 SeedHelper.GetRandomSeed(int) signature and the v0.107.1 SeedHelper.GetRandomSeed(Rng?, int) signature with one DLL.",
-        "Fixes the map-history Reroll Run button/hotkey failing on v0.107.1 with MissingMethodException before the confirmation dialog can start a new run."
+        "v0.108 changed CardSelectCmd.PushSelector's signature (added optional localOnly parameter), which broke the replay card selector at the IL level.",
+        "The replay selector now goes through a GameCompat reflection helper; one DLL keeps running on v0.103.2 / v0.107.1 / v0.108.0.",
+        "Also fixes DrawPileVisibleMovePatch: v0.108 appended an isChangingOwners parameter to CardPileCmd.Add, which made the fixed 5-type Harmony target unresolvable and aborted mod initialization; the patch now resolves its target dynamically."
       ],
-      "sha256": "1ed4e49a3ad07915f7bdadd5f57c4acedd33de735f9e1a0f556a748f18a7dc40"
+      "sha256": "097302b256700ebe433072b45ff1b5ec10a8c67e954772a2ad1833a46e1edc8f"
     },
     "ModConfig": {
       "latest": "0.2.3",
@@ -110,26 +106,49 @@
       ]
     },
     "QuickLink": {
-      "latest": "0.9.9",
+      "latest": "0.9.10",
       "name": "皮皮快连: QuickLink",
-      "changelog": "恢复 v0.107 多人读档 setup patch 绑定",
+      "changelog": "兼容测试服 v0.108",
       "changelog_detail": [
-        "多人存档载入 timing Harmony patch 改为运行时解析 RunManager.SetUpSavedMultiPlayer / SetUpSavedMultiplayer。",
-        "保留 v0.103.2 的 Postfix 路径，并让 v0.107.0 下的战斗同步绕过日志与安全兜底继续生效。"
+        "v0.108 移除了 JoinFlow 的无参构造函数并更改了 NetService 属性类型，导致直连重连路径失效。",
+        "JoinFlow 构造与 NetService 访问改为反射桥接两种形态；同一个 DLL 继续兼容 v0.103.2 / v0.107.1 / v0.108.0。"
       ],
-      "updated_at": "2026-06-05",
-      "download_cn": "https://gitee.com/forNoName/sts2-pp-mod-release/releases/download/QuickLink-v0.9.9/QuickLink_v0.9.9.zip",
-      "download_intl": "https://github.com/xhyrzldf/sts2-pp-mod-release/releases/download/QuickLink-v0.9.9/QuickLink_v0.9.9.zip",
+      "updated_at": "2026-07-04",
+      "download_cn": "https://gitee.com/forNoName/sts2-pp-mod-release/releases/download/QuickLink-v0.9.10/QuickLink_v0.9.10.zip",
+      "download_intl": "https://github.com/xhyrzldf/sts2-pp-mod-release/releases/download/QuickLink-v0.9.10/QuickLink_v0.9.10.zip",
       "page": "",
-      "filename": "QuickLink_v0.9.9.zip",
+      "filename": "QuickLink_v0.9.10.zip",
       "channel": "stable",
-      "sha256": "6a0c4351eda456f98cba54b69924e613d9c2d3a77ef84d61f0ed20a5a635388a",
-      "changelog_en": "Restore v0.107 multiplayer setup patch binding",
+      "sha256": "0fa3a78c999ff1430776575c34c6be1270dfdf2b5c73c2fad68df287dc62b5f4",
+      "changelog_en": "Compatibility with STS2 beta v0.108",
       "changelog_detail_en": [
-        "Changes the saved-multiplayer timing Harmony patch to resolve RunManager.SetUpSavedMultiPlayer/SetUpSavedMultiplayer at runtime.",
-        "Preserves the v0.103.2 postfix path and keeps QuickLink's v0.107.0 combat-sync bypass logging and safety pass active."
+        "v0.108 removed JoinFlow's parameterless constructor and changed the NetService property type, breaking the direct reconnect path.",
+        "JoinFlow construction and NetService access now bridge both shapes via reflection; one DLL keeps running on v0.103.2 / v0.107.1 / v0.108.0."
       ]
+    },
+    "SkadaHelper": {
+      "latest": "0.8.4",
+      "name": "皮皮军师: SkadaHelper",
+      "changelog": "内置轻量统计快照，支持完全离线使用",
+      "changelog_detail": [
+        "将基于 404,569 局 v0.107 对局的 schema-v4 验证快照压缩为约 1.3 MB 并内置，首次断网启动也能显示卡牌、事件、升级、删牌和商店事实统计。",
+        "继续保留每六小时一次的 HTTPS 更新与最后可用缓存：下载成功后可替换内置基线，网络失败则始终继续使用本地数据。",
+        "解压结果限制在 16 MB 内，并在载入内存前复用严格的统计包校验；路线模型仍完全本地运行，不调用服务器。"
+      ],
+      "updated_at": "2026-07-13",
+      "download_cn": "https://gitee.com/forNoName/sts2-pp-mod-release/releases/download/SkadaHelper-v0.8.4/SkadaHelper_v0.8.4.zip",
+      "download_intl": "https://github.com/xhyrzldf/sts2-pp-mod-release/releases/download/SkadaHelper-v0.8.4/SkadaHelper_v0.8.4.zip",
+      "page": "",
+      "filename": "SkadaHelper_v0.8.4.zip",
+      "channel": "stable",
+      "changelog_en": "Make Lite statistics available offline",
+      "changelog_detail_en": [
+        "Embeds the validated schema-v4 snapshot from 404,569 v0.107 runs as a 1.3 MB gzip resource, so factual card, event, upgrade, removal, and shop statistics work on the first offline launch.",
+        "Keeps the six-hour HTTPS refresh and last-known-good cache: a successful download can replace the bundled baseline, while network failures continue using local data.",
+        "Bounds decompression to 16 MB and reuses the strict bundle validator before publishing the embedded snapshot in memory; the route model remains fully local and requires no server call."
+      ],
+      "sha256": "65c18c060ef6513c00909e7ff6db604a6e3e2b0da965c9daaada11bee6a5e4e1"
     }
   },
-  "updated_at": "2026-06-19"
+  "updated_at": "2026-07-13"
 }
