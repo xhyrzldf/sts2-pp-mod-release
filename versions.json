@@ -133,8 +133,8 @@
         "这能避免 SkadaHelper 初始化因 MissingMethodException 中止，同时保留正式服 v0.107.1 的执行路径。"
       ],
       "updated_at": "2026-08-01",
-      "download_cn": "https://gitee.com/forNoName/sts2-pp-mod-release/releases/download/SkadaHelper-v0.8.6/SkadaHelper_v0.8.6.zip",
-      "download_intl": "https://github.com/xhyrzldf/sts2-pp-mod-release/releases/download/SkadaHelper-v0.8.6/SkadaHelper_v0.8.6.zip",
+      "download_cn": "https://gitee.com/forNoName/sts2-pp-mod-release/releases/download/SkadaHelper-v0.8.7/SkadaHelper_v0.8.7.zip",
+      "download_intl": "https://github.com/xhyrzldf/sts2-pp-mod-release/releases/download/SkadaHelper-v0.8.7/SkadaHelper_v0.8.7.zip",
       "page": "",
       "filename": "SkadaHelper_v0.8.7.zip",
       "channel": "stable",
@@ -143,7 +143,7 @@
         "v0.110.1 replaced NMapScreen._ExitTree with _Notification(int), while newer beta branches use ulong rather than uint for NMapScreen.SetMap seed. The route-cleanup Harmony patch now resolves both lifecycle and SetMap signatures at runtime.",
         "This prevents SkadaHelper initialization from aborting with MissingMethodException and preserves the v0.107.1 official path."
       ],
-      "sha256": "f092b4ead2b544f6a965b0a9aff8cdbbee2e42e955ab3669c86431b8a09a5596"
+      "sha256": "fd11317cfec2b58b58e754605f28eefb3809ec2da7e0a4cafaf68e44f794a4f3"
     }
   },
   "updated_at": "2026-07-13"
