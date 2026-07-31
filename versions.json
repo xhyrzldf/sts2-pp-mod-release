@@ -2,45 +2,45 @@
   "schema_version": 1,
   "mods": {
     "DamageMeter": {
-      "latest": "1.14.6",
+      "latest": "1.14.7",
       "name": "皮皮统计: Skada",
-      "changelog": "修复升级卡详细构成显示英文 ID",
+      "changelog": "兼容测试服 v0.109；修复毒伤/勒杀归因失效",
       "changelog_detail": [
-        "伤害、格挡、卡牌等详细构成现在会先去掉统计用的升级后缀再查游戏本地化，最后把 + 追加回本地化牌名。",
-        "修复中文界面中升级卡显示 BASH+ 等英文 ID 的问题，升级卡现在会显示为 痛击+ 这类中文牌名。"
+        "v0.109 重做了游戏随机数体系（Seed 从 uint 扩为 ulong），旧版直接读取会在开局抛异常导致进不了对局。Seed 读取改走反射兼容层，同一 DLL 继续支持 v0.103.2 / v0.107.1 / v0.109。",
+        "修复自 v0.107.1 起静默失效的毒液/勒杀伤害归因（游戏把 CombatHistoryEntry.CurrentSide 改为私有导致推断路径抛异常被吞掉）。现在所有支持版本上归因恢复正常。"
       ],
-      "updated_at": "2026-06-19",
-      "download_cn": "https://gitee.com/forNoName/sts2-pp-mod-release/releases/download/DamageMeter-v1.14.6/DamageMeter_v1.14.6.zip",
-      "download_intl": "https://github.com/xhyrzldf/sts2-pp-mod-release/releases/download/DamageMeter-v1.14.6/DamageMeter_v1.14.6.zip",
+      "updated_at": "2026-07-18",
+      "download_cn": "https://gitee.com/forNoName/sts2-pp-mod-release/releases/download/DamageMeter-v1.14.7/DamageMeter_v1.14.7.zip",
+      "download_intl": "https://github.com/xhyrzldf/sts2-pp-mod-release/releases/download/DamageMeter-v1.14.7/DamageMeter_v1.14.7.zip",
       "page": "",
-      "filename": "DamageMeter_v1.14.6.zip",
+      "filename": "DamageMeter_v1.14.7.zip",
       "channel": "stable",
-      "changelog_en": "Localize upgraded card names in Skada details",
+      "changelog_en": "Compatibility with STS2 beta v0.109; fix poison/strangle attribution",
       "changelog_detail_en": [
-        "Damage/detail breakdowns now strip the analytics upgrade suffix before looking up card localization, then append the upgrade marker back to the localized title.",
-        "Fixes Chinese UI entries such as BASH+ showing raw English IDs; upgraded cards now display with the current game locale plus the upgrade suffix."
+        "v0.109 overhauled the game's RNG (Seed widened uint→ulong): the old direct Seed read crashed run start with MissingMethodException. Seed access now goes through a reflective compat layer, so one DLL keeps running on v0.103.2 / v0.107.1 / v0.109.",
+        "Fixed poison/strangle power-damage attribution that had been silently broken since v0.107.1 (the game made CombatHistoryEntry.CurrentSide private, which killed the inference path via a swallowed MethodAccessException). Attribution works again on all supported versions."
       ],
-      "sha256": "fabc899cd806c810b32b994aaa75e4b706a350450a75f5a29b9f1ba483731c33"
+      "sha256": "ad04ef94a02ed0c9a640bdc23fda835ab694ca3cc20caf7dd6fedb2d7b9063a2"
     },
     "SpeedX": {
-      "latest": "0.11.9",
+      "latest": "0.11.11",
       "name": "皮皮极速: SpeedX",
-      "changelog": "兼容测试服 v0.108",
+      "changelog": "兼容 STS2 测试服 v0.110.1：恢复手柄模式检测",
       "changelog_detail": [
-        "v0.108 把 DoomPower.IsOwnerDoomed() 改为私有；自动结束回合的致命厄运判定改为用公开成员计算同一条件（当前生命 <= 厄运层数）。",
-        "同一个 DLL 继续兼容 v0.103.2 / v0.107.1 / v0.108.0。"
+        "v0.110.1 移除了 NControllerManager.IsUsingController，改用 InputType 枚举。旧 DLL 会反复抛出 MissingMethodException，导致伤害预览和空格快速出牌路径失效。",
+        "手柄检测现在会在运行时兼容旧 bool 属性和新枚举；同一 DLL 支持正式服 v0.107.1 与测试服 v0.110.1。"
       ],
-      "updated_at": "2026-07-04",
-      "download_cn": "https://gitee.com/forNoName/sts2-pp-mod-release/releases/download/SpeedX-v0.11.9/SpeedX_v0.11.9.zip",
-      "download_intl": "https://github.com/xhyrzldf/sts2-pp-mod-release/releases/download/SpeedX-v0.11.9/SpeedX_v0.11.9.zip",
+      "updated_at": "2026-08-01",
+      "download_cn": "https://gitee.com/forNoName/sts2-pp-mod-release/releases/download/SpeedX-v0.11.11/SpeedX_v0.11.11.zip",
+      "download_intl": "https://github.com/xhyrzldf/sts2-pp-mod-release/releases/download/SpeedX-v0.11.11/SpeedX_v0.11.11.zip",
       "page": "",
-      "filename": "SpeedX_v0.11.9.zip",
+      "filename": "SpeedX_v0.11.11.zip",
       "channel": "stable",
-      "sha256": "a8f59d166f6e9da06252d23b630c05437811ac7343661873263e998035ab0062",
-      "changelog_en": "Compatibility with STS2 beta v0.108",
+      "sha256": "775e77f8e6ae26e6239879b91e1235330ad95a28ae16e863c672eb2f0bd6d2c7",
+      "changelog_en": "Compatibility with STS2 beta v0.110.1: restore controller-mode checks",
       "changelog_detail_en": [
-        "v0.108 made DoomPower.IsOwnerDoomed() private; the auto-end-turn lethal-doom check now computes the same condition (CurrentHp <= Amount) from public members.",
-        "One DLL keeps running on v0.103.2 / v0.107.1 / v0.108.0."
+        "v0.110.1 removed NControllerManager.IsUsingController and replaced it with an InputType enum. The old direct getter threw MissingMethodException repeatedly, disabling damage preview and the space quick-play input path.",
+        "Controller detection now bridges the old bool and new enum shapes at runtime. One DLL supports official v0.107.1 and beta v0.110.1."
       ]
     },
     "RemoveMultiplayerPlayerLimit": {
@@ -60,27 +60,25 @@
       "sha256": "74f1d5c4a662521ed2a47f8400e93179bc83252ce55a4af8d2a2cc353249c292"
     },
     "Rewind": {
-      "latest": "0.26.13",
+      "latest": "0.26.16",
       "name": "皮皮倒带: Rewind",
-      "changelog": "兼容测试服 v0.108",
+      "changelog": "恢复正式服与测试服的地图检查点悬停预览",
       "changelog_detail": [
-        "v0.108 修改了 CardSelectCmd.PushSelector 的签名（新增可选参数 localOnly），导致倒带回放选卡器在 IL 层直接失配。",
-        "回放选卡器改经 GameCompat 反射调用；同一个 DLL 继续兼容 v0.103.2 / v0.107.1 / v0.108.0。",
-        "同时修复 DrawPileVisibleMovePatch：v0.108 给 CardPileCmd.Add 尾部新增 isChangingOwners 参数，固定 5 类型的 Harmony 目标定位失败导致模组初始化中断；补丁改为动态解析目标方法。"
+        "游戏将 NMapCircleVfx.Create(bool) 改为 Create(IRunState, MapCoord, bool)。检查点历史的悬停标记现在会在运行时解析并调用匹配的重载，不再只绑定单一分支。",
+        "共享兼容检查会阻止以后再次直接调用这个不稳定 API；同一 DLL 支持正式服 v0.107.1 与测试服 v0.110.1。"
       ],
-      "updated_at": "2026-07-04",
-      "download_cn": "https://gitee.com/forNoName/sts2-pp-mod-release/releases/download/Rewind-v0.26.13/Rewind_v0.26.13.zip",
-      "download_intl": "https://github.com/xhyrzldf/sts2-pp-mod-release/releases/download/Rewind-v0.26.13/Rewind_v0.26.13.zip",
+      "updated_at": "2026-08-01",
+      "download_cn": "https://gitee.com/forNoName/sts2-pp-mod-release/releases/download/Rewind-v0.26.15/Rewind_v0.26.15.zip",
+      "download_intl": "https://github.com/xhyrzldf/sts2-pp-mod-release/releases/download/Rewind-v0.26.15/Rewind_v0.26.15.zip",
       "page": "",
-      "filename": "Rewind_v0.26.13.zip",
+      "filename": "Rewind_v0.26.16.zip",
       "channel": "stable",
-      "changelog_en": "Compatibility with STS2 beta v0.108",
+      "changelog_en": "Restore map checkpoint hover previews across official and beta branches",
       "changelog_detail_en": [
-        "v0.108 changed CardSelectCmd.PushSelector's signature (added optional localOnly parameter), which broke the replay card selector at the IL level.",
-        "The replay selector now goes through a GameCompat reflection helper; one DLL keeps running on v0.103.2 / v0.107.1 / v0.108.0.",
-        "Also fixes DrawPileVisibleMovePatch: v0.108 appended an isChangingOwners parameter to CardPileCmd.Add, which made the fixed 5-type Harmony target unresolvable and aborted mod initialization; the patch now resolves its target dynamically."
+        "The game changed NMapCircleVfx.Create(bool) to Create(IRunState, MapCoord, bool). The checkpoint-history hover marker now resolves and invokes the matching runtime overload instead of binding to one branch.",
+        "The shared compatibility guard now rejects future direct calls to this unstable API; one DLL supports official v0.107.1 and beta v0.110.1."
       ],
-      "sha256": "097302b256700ebe433072b45ff1b5ec10a8c67e954772a2ad1833a46e1edc8f"
+      "sha256": "698776b99313d3291787081640a3879cb9863f90e22ca09ac076a1596c03d3d7"
     },
     "ModConfig": {
       "latest": "0.2.3",
@@ -106,48 +104,46 @@
       ]
     },
     "QuickLink": {
-      "latest": "0.9.10",
+      "latest": "0.9.11",
       "name": "皮皮快连: QuickLink",
-      "changelog": "兼容测试服 v0.108",
+      "changelog": "兼容 STS2 测试服 v0.110.1 的大厅与地图 API",
       "changelog_detail": [
-        "v0.108 移除了 JoinFlow 的无参构造函数并更改了 NetService 属性类型，导致直连重连路径失效。",
-        "JoinFlow 构造与 NetService 访问改为反射桥接两种形态；同一个 DLL 继续兼容 v0.103.2 / v0.107.1 / v0.108.0。"
+        "v0.110.1 将 RunLobby / LoadRunLobby 的 ConnectedPlayerIds 替换为 PlayerIds。房主确认、读档大厅就绪检查和战斗同步诊断现在都通过共享兼容层读取对应的运行时形态。",
+        "地图检查点悬停预览也兼容 NMapCircleVfx.Create 的重载变化；同一 DLL 支持正式服 v0.107.1 与测试服 v0.110.1。"
       ],
-      "updated_at": "2026-07-04",
+      "updated_at": "2026-08-01",
       "download_cn": "https://gitee.com/forNoName/sts2-pp-mod-release/releases/download/QuickLink-v0.9.10/QuickLink_v0.9.10.zip",
       "download_intl": "https://github.com/xhyrzldf/sts2-pp-mod-release/releases/download/QuickLink-v0.9.10/QuickLink_v0.9.10.zip",
       "page": "",
-      "filename": "QuickLink_v0.9.10.zip",
+      "filename": "QuickLink_v0.9.11.zip",
       "channel": "stable",
       "sha256": "0fa3a78c999ff1430776575c34c6be1270dfdf2b5c73c2fad68df287dc62b5f4",
-      "changelog_en": "Compatibility with STS2 beta v0.108",
+      "changelog_en": "Compatibility with STS2 beta v0.110.1 lobby and map APIs",
       "changelog_detail_en": [
-        "v0.108 removed JoinFlow's parameterless constructor and changed the NetService property type, breaking the direct reconnect path.",
-        "JoinFlow construction and NetService access now bridge both shapes via reflection; one DLL keeps running on v0.103.2 / v0.107.1 / v0.108.0."
+        "v0.110.1 replaced RunLobby/LoadRunLobby.ConnectedPlayerIds with PlayerIds. Host approval, load-lobby readiness, and combat-sync diagnostics now read either runtime shape through the shared compatibility layer.",
+        "Map checkpoint hover previews also bridge the NMapCircleVfx.Create overload change. One DLL supports official v0.107.1 and beta v0.110.1."
       ]
     },
     "SkadaHelper": {
-      "latest": "0.8.5",
+      "latest": "0.8.7",
       "name": "皮皮军师: SkadaHelper",
-      "changelog": "修复每幕初始事件胜率标签显示不全",
+      "changelog": "兼容 STS2 测试服 v0.110.1 的地图生命周期 API",
       "changelog_detail": [
-        "将每幕初始事件的胜率标签从选项按钮外侧移到按钮右侧内部，在界面缩放后仍能完整显示胜率和样本量。",
-        "移除事件统计标签背后的深色底板，让事实数据直接、干净地显示在选项行右侧，不再出现多余遮罩。",
-        "新增布局契约测试，同时覆盖普通 800 像素与远古事件 1000 像素宽的选项按钮。"
+        "v0.110.1 用 _Notification(int) 替换了 NMapScreen._ExitTree，同时较新的测试分支把 NMapScreen.SetMap 的种子参数从 uint 改为 ulong。路线清理 Harmony 补丁现在会在运行时解析生命周期方法和 SetMap 签名。",
+        "这能避免 SkadaHelper 初始化因 MissingMethodException 中止，同时保留正式服 v0.107.1 的执行路径。"
       ],
-      "updated_at": "2026-07-13",
-      "download_cn": "https://gitee.com/forNoName/sts2-pp-mod-release/releases/download/SkadaHelper-v0.8.5/SkadaHelper_v0.8.5.zip",
-      "download_intl": "https://github.com/xhyrzldf/sts2-pp-mod-release/releases/download/SkadaHelper-v0.8.5/SkadaHelper_v0.8.5.zip",
+      "updated_at": "2026-08-01",
+      "download_cn": "https://gitee.com/forNoName/sts2-pp-mod-release/releases/download/SkadaHelper-v0.8.6/SkadaHelper_v0.8.6.zip",
+      "download_intl": "https://github.com/xhyrzldf/sts2-pp-mod-release/releases/download/SkadaHelper-v0.8.6/SkadaHelper_v0.8.6.zip",
       "page": "",
-      "filename": "SkadaHelper_v0.8.5.zip",
+      "filename": "SkadaHelper_v0.8.7.zip",
       "channel": "stable",
-      "changelog_en": "Fix clipped opening-event win-rate labels",
+      "changelog_en": "Compatibility with STS2 beta v0.110.1 map lifecycle APIs",
       "changelog_detail_en": [
-        "Moves each opening-event win-rate label from outside its option button to the button's right side, keeping the full rate and sample count visible at scaled resolutions.",
-        "Removes the dark backing panel from event statistics so the factual label sits cleanly over the option row without an unnecessary mask.",
-        "Adds a layout contract covering both regular 800-pixel and ancient 1000-pixel event-option widths."
+        "v0.110.1 replaced NMapScreen._ExitTree with _Notification(int), while newer beta branches use ulong rather than uint for NMapScreen.SetMap seed. The route-cleanup Harmony patch now resolves both lifecycle and SetMap signatures at runtime.",
+        "This prevents SkadaHelper initialization from aborting with MissingMethodException and preserves the v0.107.1 official path."
       ],
-      "sha256": "dcb60963f1e205e6496b1d73c50527dc0e3b6dd5c2a80dd59b24c94ab458fa63"
+      "sha256": "f092b4ead2b544f6a965b0a9aff8cdbbee2e42e955ab3669c86431b8a09a5596"
     }
   },
   "updated_at": "2026-07-13"
