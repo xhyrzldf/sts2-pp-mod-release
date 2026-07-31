@@ -112,12 +112,12 @@
         "地图检查点悬停预览也兼容 NMapCircleVfx.Create 的重载变化；同一 DLL 支持正式服 v0.107.1 与测试服 v0.110.1。"
       ],
       "updated_at": "2026-08-01",
-      "download_cn": "https://gitee.com/forNoName/sts2-pp-mod-release/releases/download/QuickLink-v0.9.10/QuickLink_v0.9.10.zip",
-      "download_intl": "https://github.com/xhyrzldf/sts2-pp-mod-release/releases/download/QuickLink-v0.9.10/QuickLink_v0.9.10.zip",
+      "download_cn": "https://gitee.com/forNoName/sts2-pp-mod-release/releases/download/QuickLink-v0.9.11/QuickLink_v0.9.11.zip",
+      "download_intl": "https://github.com/xhyrzldf/sts2-pp-mod-release/releases/download/QuickLink-v0.9.11/QuickLink_v0.9.11.zip",
       "page": "",
       "filename": "QuickLink_v0.9.11.zip",
       "channel": "stable",
-      "sha256": "0fa3a78c999ff1430776575c34c6be1270dfdf2b5c73c2fad68df287dc62b5f4",
+      "sha256": "335d1e46500560e4a6844039021ce332afca7503535e54b89e335f2ddd23796e",
       "changelog_en": "Compatibility with STS2 beta v0.110.1 lobby and map APIs",
       "changelog_detail_en": [
         "v0.110.1 replaced RunLobby/LoadRunLobby.ConnectedPlayerIds with PlayerIds. Host approval, load-lobby readiness, and combat-sync diagnostics now read either runtime shape through the shared compatibility layer.",
