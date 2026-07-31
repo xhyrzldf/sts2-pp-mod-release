@@ -68,8 +68,8 @@
         "共享兼容检查会阻止以后再次直接调用这个不稳定 API；同一 DLL 支持正式服 v0.107.1 与测试服 v0.110.1。"
       ],
       "updated_at": "2026-08-01",
-      "download_cn": "https://gitee.com/forNoName/sts2-pp-mod-release/releases/download/Rewind-v0.26.15/Rewind_v0.26.15.zip",
-      "download_intl": "https://github.com/xhyrzldf/sts2-pp-mod-release/releases/download/Rewind-v0.26.15/Rewind_v0.26.15.zip",
+      "download_cn": "https://gitee.com/forNoName/sts2-pp-mod-release/releases/download/Rewind-v0.26.16/Rewind_v0.26.16.zip",
+      "download_intl": "https://github.com/xhyrzldf/sts2-pp-mod-release/releases/download/Rewind-v0.26.16/Rewind_v0.26.16.zip",
       "page": "",
       "filename": "Rewind_v0.26.16.zip",
       "channel": "stable",
@@ -78,7 +78,7 @@
         "The game changed NMapCircleVfx.Create(bool) to Create(IRunState, MapCoord, bool). The checkpoint-history hover marker now resolves and invokes the matching runtime overload instead of binding to one branch.",
         "The shared compatibility guard now rejects future direct calls to this unstable API; one DLL supports official v0.107.1 and beta v0.110.1."
       ],
-      "sha256": "698776b99313d3291787081640a3879cb9863f90e22ca09ac076a1596c03d3d7"
+      "sha256": "6cc53a06f3a0f14eac313cc9e3945c83f2c99a29507acbda0ef466978bd46fe8"
     },
     "ModConfig": {
       "latest": "0.2.3",
