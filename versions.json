@@ -60,25 +60,25 @@
       "sha256": "74f1d5c4a662521ed2a47f8400e93179bc83252ce55a4af8d2a2cc353249c292"
     },
     "Rewind": {
-      "latest": "0.26.16",
+      "latest": "0.26.17",
       "name": "皮皮倒带: Rewind",
-      "changelog": "恢复正式服与测试服的地图检查点悬停预览",
+      "changelog": "修复死亡后连续后悔的回合历史丢失与黑屏",
       "changelog_detail": [
-        "游戏将 NMapCircleVfx.Create(bool) 改为 Create(IRunState, MapCoord, bool)。检查点历史的悬停标记现在会在运行时解析并调用匹配的重载，不再只绑定单一分支。",
-        "共享兼容检查会阻止以后再次直接调用这个不稳定 API；同一 DLL 支持正式服 v0.107.1 与测试服 v0.110.1。"
+        "死亡界面回退后不再用不完整的重建实时回放覆盖权威回放；目标回合以前的全部回合边界和历史选牌事件都会保留，返回战斗后右键仍可选择任意已有回合。",
+        "回合历史现在强制保持严格递增且唯一。若重建仍意外失败，本场会禁用继续回退，避免半完成的回放状态污染下一次死亡；同一 DLL 支持正式服 v0.107.1 与测试服 v0.110.1。"
       ],
       "updated_at": "2026-08-01",
-      "download_cn": "https://gitee.com/forNoName/sts2-pp-mod-release/releases/download/Rewind-v0.26.16/Rewind_v0.26.16.zip",
-      "download_intl": "https://github.com/xhyrzldf/sts2-pp-mod-release/releases/download/Rewind-v0.26.16/Rewind_v0.26.16.zip",
+      "download_cn": "https://gitee.com/forNoName/sts2-pp-mod-release/releases/download/Rewind-v0.26.17/Rewind_v0.26.17.zip",
+      "download_intl": "https://github.com/xhyrzldf/sts2-pp-mod-release/releases/download/Rewind-v0.26.17/Rewind_v0.26.17.zip",
       "page": "",
-      "filename": "Rewind_v0.26.16.zip",
+      "filename": "Rewind_v0.26.17.zip",
       "channel": "stable",
-      "changelog_en": "Restore map checkpoint hover previews across official and beta branches",
+      "changelog_en": "Fix lost turn history and black screens after repeated post-defeat rewinds",
       "changelog_detail_en": [
-        "The game changed NMapCircleVfx.Create(bool) to Create(IRunState, MapCoord, bool). The checkpoint-history hover marker now resolves and invokes the matching runtime overload instead of binding to one branch.",
-        "The shared compatibility guard now rejects future direct calls to this unstable API; one DLL supports official v0.107.1 and beta v0.110.1."
+        "Post-defeat rewind no longer replaces the authoritative replay with the incomplete rebuilt live replay. It preserves every turn boundary through the target and all historical player-choice events, so right-click history remains available after returning from the game-over screen.",
+        "Turn history is now enforced as strictly increasing and unique. If a rebuild still fails unexpectedly, further rewinds are disabled for that combat instead of allowing partial replay state to poison the next defeat. One DLL supports official v0.107.1 and beta v0.110.1."
       ],
-      "sha256": "6cc53a06f3a0f14eac313cc9e3945c83f2c99a29507acbda0ef466978bd46fe8"
+      "sha256": "01953615f05daef38cfbdafc98aa96d1742d9232cf3d36da70be4b10f4dfb393"
     },
     "ModConfig": {
       "latest": "0.2.3",
