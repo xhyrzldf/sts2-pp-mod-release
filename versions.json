@@ -60,25 +60,25 @@
       "sha256": "74f1d5c4a662521ed2a47f8400e93179bc83252ce55a4af8d2a2cc353249c292"
     },
     "Rewind": {
-      "latest": "0.26.17",
+      "latest": "0.26.18",
       "name": "皮皮倒带: Rewind",
-      "changelog": "修复死亡后连续后悔的回合历史丢失与黑屏",
+      "changelog": "修复死亡后点击“后悔了”时卡牌界面递归刷新导致的卡死",
       "changelog_detail": [
-        "死亡界面回退后不再用不完整的重建实时回放覆盖权威回放；目标回合以前的全部回合边界和历史选牌事件都会保留，返回战斗后右键仍可选择任意已有回合。",
-        "回合历史现在强制保持严格递增且唯一。若重建仍意外失败，本场会禁用继续回退，避免半完成的回放状态污染下一次死亡；同一 DLL 支持正式服 v0.107.1 与测试服 v0.110.1。"
+        "类型牌匾出现 NaN / Infinity 时，异常恢复不再接触正在等待完成的出牌补间，不再重新加载当前卡牌，也不再发起整套战斗界面重同步。延迟调用队列可以排空，出牌动画仍可正常完成，死亡后回放会继续前进到目标回合，而不是在回放中途永久卡死。",
+        "现在会读回类型牌匾几何值后再报告修复成功；危险的原始布局调用仍会被跳过，正常有限值布局及选择器触发的卡牌界面重同步保持不变。同一 DLL 支持正式服 v0.107.1 与测试服 v0.110.1。"
       ],
-      "updated_at": "2026-08-01",
-      "download_cn": "https://gitee.com/forNoName/sts2-pp-mod-release/releases/download/Rewind-v0.26.17/Rewind_v0.26.17.zip",
-      "download_intl": "https://github.com/xhyrzldf/sts2-pp-mod-release/releases/download/Rewind-v0.26.17/Rewind_v0.26.17.zip",
+      "updated_at": "2026-08-02",
+      "download_cn": "https://gitee.com/forNoName/sts2-pp-mod-release/releases/download/Rewind-v0.26.18/Rewind_v0.26.18.zip",
+      "download_intl": "https://github.com/xhyrzldf/sts2-pp-mod-release/releases/download/Rewind-v0.26.18/Rewind_v0.26.18.zip",
       "page": "",
-      "filename": "Rewind_v0.26.17.zip",
+      "filename": "Rewind_v0.26.18.zip",
       "channel": "stable",
-      "changelog_en": "Fix lost turn history and black screens after repeated post-defeat rewinds",
+      "changelog_en": "Prevent post-defeat rewind hangs caused by recursive card UI repair",
       "changelog_detail_en": [
-        "Post-defeat rewind no longer replaces the authoritative replay with the incomplete rebuilt live replay. It preserves every turn boundary through the target and all historical player-choice events, so right-click history remains available after returning from the game-over screen.",
-        "Turn history is now enforced as strictly increasing and unique. If a rebuild still fails unexpectedly, further rewinds are disabled for that combat instead of allowing partial replay state to poison the next defeat. One DLL supports official v0.107.1 and beta v0.110.1."
+        "Invalid NaN/Infinity type-plaque recovery is now isolated from active play-pile tweens, no longer reloads the affected card, and no longer schedules another full combat UI resync. The deferred queue can drain and awaited play animations remain completable, so post-defeat replay continues to the requested turn instead of freezing mid-replay.",
+        "Type-plaque geometry is read back before a repair is reported as successful. Unsafe base layout is still skipped, while normal finite layouts and selector-triggered card UI resync remain unchanged. One DLL supports official v0.107.1 and beta v0.110.1."
       ],
-      "sha256": "01953615f05daef38cfbdafc98aa96d1742d9232cf3d36da70be4b10f4dfb393"
+      "sha256": "e7cb05eda1eba1c6e2ab671eda45467230cbffb6c797e939a26608772c5f360a"
     },
     "ModConfig": {
       "latest": "0.2.3",
@@ -146,5 +146,5 @@
       "sha256": "fd11317cfec2b58b58e754605f28eefb3809ec2da7e0a4cafaf68e44f794a4f3"
     }
   },
-  "updated_at": "2026-07-13"
+  "updated_at": "2026-08-02"
 }
