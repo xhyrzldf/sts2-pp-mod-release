@@ -104,26 +104,26 @@
       ]
     },
     "QuickLink": {
-      "latest": "0.9.12",
+      "latest": "0.9.13",
       "name": "皮皮快连: QuickLink",
-      "changelog": "修复 STS2 v0.110.1 多人回退失败与超时卡住",
+      "changelog": "兼容 STS2 测试服 v0.111.0 的联机握手与错误码",
       "changelog_detail": [
-        "通过兼容层读取 v0.110.1 中 ClientLoadJoinResponseMessage.playersAlreadyConnected 的新字段类型，不再生成对旧字段签名的直接引用。JoinFlow 成功后客机现在可以正常打开并自动准备载入房间，不会把同一个 MissingFieldException 重复执行 18 次。",
-        "重连、大厅等待和读档等待改用真实时间，不再受帧率影响。战斗同步绕过的生命周期与可见黑幕解耦；即使慢速载入时先解除黑幕，后台仍会继续监测恢复状态，避免主客机进入不同的同步状态。",
-        "JoinFlow 成功后的本地异常会立即停止并完整记录、回滚界面；自动准备失败会清理全部流程状态；检查点历史只在读档真正成功后裁剪；房主载入界面改为遵循存档 GameMode。兼容检查器也会识别字段元数据类型漂移。"
+        "QuickLink 现在会在运行时选择新版或旧版 NetHostGameService 与 NetClientGameService 构造函数，房主直连恢复和客机重连时都会正确携带新版游戏/模组握手信息。",
+        "房主可靠信号改为通过兼容层读取 ConnectedPeers 快照，不再绑定任一版本的属性签名。",
+        "发生变动的 NetError 改为按运行时名称解析与比较，并补充新的 LobbyJoinTimeout 重连情形。同一 DLL 同时支持正式服 v0.107.1 和测试服 v0.111.0。"
       ],
-      "updated_at": "2026-08-03",
-      "download_cn": "https://gitee.com/forNoName/sts2-pp-mod-release/releases/download/QuickLink-v0.9.12/QuickLink_v0.9.12.zip",
-      "download_intl": "https://github.com/xhyrzldf/sts2-pp-mod-release/releases/download/QuickLink-v0.9.12/QuickLink_v0.9.12.zip",
+      "updated_at": "2026-08-17",
+      "download_cn": "https://gitee.com/forNoName/sts2-pp-mod-release/releases/download/QuickLink-v0.9.13/QuickLink_v0.9.13.zip",
+      "download_intl": "https://github.com/xhyrzldf/sts2-pp-mod-release/releases/download/QuickLink-v0.9.13/QuickLink_v0.9.13.zip",
       "page": "",
-      "filename": "QuickLink_v0.9.12.zip",
+      "filename": "QuickLink_v0.9.13.zip",
       "channel": "stable",
-      "sha256": "3afd97f528b4abe113babf269d2d2575fc90becc8e295cca9003e083156e42bb",
-      "changelog_en": "Restore reliable multiplayer rewind on STS2 v0.110.1",
+      "sha256": "669de9cedcca41a367c0a61933039af911fde0f06c86e7ebbc0c2575924ae055",
+      "changelog_en": "Compatibility with the STS2 beta v0.111.0 multiplayer handshake",
       "changelog_detail_en": [
-        "Bridges the v0.110.1 ClientLoadJoinResponseMessage.playersAlreadyConnected type change without a direct field reference. A successful JoinFlow can now open and auto-ready the client load lobby instead of repeating the same local MissingFieldException 18 times.",
-        "Reconnect, lobby, and run-load deadlines now use wall-clock time rather than frame counts. Combat-sync bypass lifetime is independent from the visual mask, and recovery monitoring continues after the mask is released so host and client do not split synchronization state on slow loads.",
-        "Post-join local failures stop immediately with full diagnostics and rollback, auto-ready failures clean all flow state, checkpoint history is pruned only after the restored run is ready, and host load screens now follow the saved GameMode. The compatibility checker now rejects field metadata type drift."
+        "QuickLink now selects the versioned or legacy NetHostGameService and NetClientGameService constructors at runtime, preserving the new game/mod handshake during direct host restore and client reconnect.",
+        "Reliable host signaling now reads ConnectedPeers through a compatibility snapshot instead of binding to either version's property signature.",
+        "Moved NetError values are resolved and compared by runtime name, including the new LobbyJoinTimeout reconnect case. The same DLL supports official v0.107.1 and beta v0.111.0."
       ]
     },
     "SkadaHelper": {
@@ -148,5 +148,5 @@
       "sha256": "fd11317cfec2b58b58e754605f28eefb3809ec2da7e0a4cafaf68e44f794a4f3"
     }
   },
-  "updated_at": "2026-08-02"
+  "updated_at": "2026-08-17"
 }
