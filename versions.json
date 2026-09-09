@@ -60,25 +60,27 @@
       "sha256": "74f1d5c4a662521ed2a47f8400e93179bc83252ce55a4af8d2a2cc353249c292"
     },
     "Rewind": {
-      "latest": "0.26.18",
+      "latest": "0.26.19",
       "name": "皮皮倒带: Rewind",
-      "changelog": "修复死亡后点击“后悔了”时卡牌界面递归刷新导致的卡死",
+      "changelog": "修复知识恶魔战斗倒带误报失败、禁用倒带及回合显示错位",
       "changelog_detail": [
-        "类型牌匾出现 NaN / Infinity 时，异常恢复不再接触正在等待完成的出牌补间，不再重新加载当前卡牌，也不再发起整套战斗界面重同步。延迟调用队列可以排空，出牌动画仍可正常完成，死亡后回放会继续前进到目标回合，而不是在回放中途永久卡死。",
-        "现在会读回类型牌匾几何值后再报告修复成功；危险的原始布局调用仍会被跳过，正常有限值布局及选择器触发的卡牌界面重同步保持不变。同一 DLL 支持正式服 v0.107.1 与测试服 v0.110.1。"
+        "结束回合的动作队列排空后，继续等待怪物行动、历史选牌和目标回合初始化完成，不再提前把尚未发生的历史选牌判为遗漏。",
+        "只有抵达目标回合后才保存倒带状态；目标回合自己的待选牌仍交还玩家，真正遗漏的历史选择、战斗提前结束或回放越界仍会中止，并为回合等待增加超时保护。",
+        "按正式版 v0.107.1 与测试版 v0.111.0 的接口保持兼容；补充知识恶魔异步时序及异常边界回归用例。"
       ],
-      "updated_at": "2026-08-02",
-      "download_cn": "https://gitee.com/forNoName/sts2-pp-mod-release/releases/download/Rewind-v0.26.18/Rewind_v0.26.18.zip",
-      "download_intl": "https://github.com/xhyrzldf/sts2-pp-mod-release/releases/download/Rewind-v0.26.18/Rewind_v0.26.18.zip",
+      "updated_at": "2026-09-09",
+      "download_cn": "https://gitee.com/forNoName/sts2-pp-mod-release/releases/download/Rewind-v0.26.19/Rewind_v0.26.19.zip",
+      "download_intl": "https://github.com/xhyrzldf/sts2-pp-mod-release/releases/download/Rewind-v0.26.19/Rewind_v0.26.19.zip",
       "page": "",
-      "filename": "Rewind_v0.26.18.zip",
+      "filename": "Rewind_v0.26.19.zip",
       "channel": "stable",
-      "changelog_en": "Prevent post-defeat rewind hangs caused by recursive card UI repair",
+      "changelog_en": "Fix premature rewind failure and turn mismatch during Knowledge Demon combat",
       "changelog_detail_en": [
-        "Invalid NaN/Infinity type-plaque recovery is now isolated from active play-pile tweens, no longer reloads the affected card, and no longer schedules another full combat UI resync. The deferred queue can drain and awaited play animations remain completable, so post-defeat replay continues to the requested turn instead of freezing mid-replay.",
-        "Type-plaque geometry is read back before a repair is reported as successful. Unsafe base layout is still skipped, while normal finite layouts and selector-triggered card UI resync remain unchanged. One DLL supports official v0.107.1 and beta v0.110.1."
+        "After the end-turn action queue drains, wait for enemy moves, historical choices and target-turn setup instead of rejecting choices that the independent combat turn loop has not reached yet.",
+        "Publish rewind state only at the target boundary. Leave the target turn's own chooser live, reject genuinely unconsumed choices, ended combat or target overshoot, and bound the final turn wait with a timeout.",
+        "Preserve API compatibility with official v0.107.1 and beta v0.111.0. Add deterministic Knowledge Demon timing and failure-boundary regressions."
       ],
-      "sha256": "e7cb05eda1eba1c6e2ab671eda45467230cbffb6c797e939a26608772c5f360a"
+      "sha256": "9c5249e80f55b1da02d15f5a9dd6bdd02563c264eb5b245b52381dbd059d2f5a"
     },
     "ModConfig": {
       "latest": "0.2.3",
