@@ -129,25 +129,33 @@
       ]
     },
     "SkadaHelper": {
-      "latest": "0.8.7",
+      "latest": "0.22.2",
       "name": "皮皮军师: SkadaHelper",
-      "changelog": "兼容 STS2 测试服 v0.110.1 的地图生命周期 API",
+      "changelog": "107和111五职业卡牌与路线参考，补齐低进阶涅奥统计，新增战斗预览",
       "changelog_detail": [
-        "v0.110.1 用 _Notification(int) 替换了 NMapScreen._ExitTree，同时较新的测试分支把 NMapScreen.SetMap 的种子参数从 uint 改为 ulong。路线清理 Harmony 补丁现在会在运行时解析生命周期方法和 SetMap 签名。",
-        "这能避免 SkadaHelper 初始化因 MissingMethodException 中止，同时保留正式服 v0.107.1 的执行路径。"
+        "支持游戏 v0.107.1 和 v0.111.0，单人五职业各用对应版本的卡牌数据和路线模型；内置卡牌统计共1,484,788局（107为1,042,207局，111为442,581局），不是路线训练样本数。",
+        "选牌、升级、删牌和商店可查看评分与统计，地图提供本机计算的参考路线；111战士另有卡组体检、两张牌配合及升级提示。",
+        "进阶0–6的卡牌、路线和开局涅奥按进阶7提供参考，不改变实际难度。涅奥选项旁直接显示比例与样本量，缺少对应数据仍显示无统计；其他古人和普通事件范围不变。",
+        "111普通事件按事件及选项标识获取统计，区分缺少数据和样本不足；需要联网或已有缓存。",
+        "悬停坚毅、痛殴显示预计消耗的牌和从左数的位置，添柴显示预计生成的牌；仅预览当前状态，触发效果或队友行动可能改变结果。",
+        "抽牌堆预览默认关闭，可在ModConfig开启；平时只看顶牌，按需展开前5张，提示条可拖动并记住位置。"
       ],
-      "updated_at": "2026-08-01",
-      "download_cn": "https://gitee.com/forNoName/sts2-pp-mod-release/releases/download/SkadaHelper-v0.8.7/SkadaHelper_v0.8.7.zip",
-      "download_intl": "https://github.com/xhyrzldf/sts2-pp-mod-release/releases/download/SkadaHelper-v0.8.7/SkadaHelper_v0.8.7.zip",
-      "page": "",
-      "filename": "SkadaHelper_v0.8.7.zip",
+      "updated_at": "2026-09-16",
+      "download_cn": "https://gitee.com/forNoName/sts2-pp-mod-release/releases/download/SkadaHelper-v0.22.2/SkadaHelper_v0.22.2.zip",
+      "download_intl": "https://github.com/xhyrzldf/sts2-pp-mod-release/releases/download/SkadaHelper-v0.22.2/SkadaHelper_v0.22.2.zip",
+      "page": "https://steamcommunity.com/sharedfiles/filedetails/?id=3763804482",
+      "filename": "SkadaHelper_v0.22.2.zip",
       "channel": "stable",
-      "changelog_en": "Compatibility with STS2 beta v0.110.1 map lifecycle APIs",
+      "changelog_en": "Five-character card and route support for 107/111, low-ascension Neow statistics and combat previews",
       "changelog_detail_en": [
-        "v0.110.1 replaced NMapScreen._ExitTree with _Notification(int), while newer beta branches use ulong rather than uint for NMapScreen.SetMap seed. The route-cleanup Harmony patch now resolves both lifecycle and SetMap signatures at runtime.",
-        "This prevents SkadaHelper initialization from aborting with MissingMethodException and preserves the v0.107.1 official path."
+        "Supports STS2 v0.107.1 and v0.111.0 with version-specific card data and route models for all five solo characters. Bundled card statistics cover 1,484,788 runs (1,042,207 for 107 and 442,581 for 111), not route-training sample counts.",
+        "Card rewards, upgrades, removals and shops show ratings and statistics; the map provides locally computed route references. The 111 Ironclad also has deck checks, card-pair and upgrade hints.",
+        "A0-A6 uses A7 references for cards, routes and opening Neow options without changing actual difficulty. Neow shows rates and sample counts directly; missing exact observations remain unavailable. Other ancients and ordinary event ranges are unchanged.",
+        "111 ordinary events use event and option identifiers, distinguishing unavailable data from small samples; an internet connection or existing cache is required.",
+        "Hovering True Grit or Thrash previews the expected exhausted card and its left-to-right hand position; Stoke previews generated cards. Current-state previews may change after triggers or teammate actions.",
+        "Draw-pile preview is off by default and can be enabled in ModConfig. Show one top card normally, expand to five on demand, and drag the panel to a saved position."
       ],
-      "sha256": "fd11317cfec2b58b58e754605f28eefb3809ec2da7e0a4cafaf68e44f794a4f3"
+      "sha256": "172e1d0c077835c099c8f643fc59409204a238054716b0fffdab47fed8a4e0a0"
     }
   },
   "updated_at": "2026-08-17"
