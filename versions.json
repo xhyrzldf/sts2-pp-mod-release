@@ -23,24 +23,30 @@
       "sha256": "ad04ef94a02ed0c9a640bdc23fda835ab694ca3cc20caf7dd6fedb2d7b9063a2"
     },
     "SpeedX": {
-      "latest": "0.11.11",
+      "latest": "0.11.12",
       "name": "皮皮极速: SpeedX",
-      "changelog": "兼容 STS2 测试服 v0.110.1：恢复手柄模式检测",
+      "changelog": "降低伤害预览分配开销，修复超时保护、自动结束预测与设置保存",
       "changelog_detail": [
-        "v0.110.1 移除了 NControllerManager.IsUsingController，改用 InputType 枚举。旧 DLL 会反复抛出 MissingMethodException，导致伤害预览和空格快速出牌路径失效。",
-        "手柄检测现在会在运行时兼容旧 bool 属性和新枚举；同一 DLL 支持正式服 v0.107.1 与测试服 v0.110.1。"
+        "不再缩短等待战斗目标出现的容错超时；正常动作与视觉加速保持可用。",
+        "缓存预览颜色、节点路径和不变的显示数据；及时释放临时目标与覆盖层，恢复格挡文字颜色时保留其他覆盖。伤害仍按当前战斗状态计算。",
+        "自动结束回合仅在最终决策时进行安全预测，不再在倒计时内逐帧重算；单次预测复用监听对象，先前减伤已归零时不再误耗缓冲。",
+        "补齐快捷出牌开关的 ModConfig 持久化，避免不变设置反复触发回调，注册失败时不再误判为可用；悬浮布局按变化刷新，降低回溯统计查询频率。",
+        "新增定向回归与故障反例测试；受保护版本已完成本地实机测试并通过新日志校验。"
       ],
-      "updated_at": "2026-08-01",
-      "download_cn": "https://gitee.com/forNoName/sts2-pp-mod-release/releases/download/SpeedX-v0.11.11/SpeedX_v0.11.11.zip",
-      "download_intl": "https://github.com/xhyrzldf/sts2-pp-mod-release/releases/download/SpeedX-v0.11.11/SpeedX_v0.11.11.zip",
+      "updated_at": "2026-09-22",
+      "download_cn": "https://gitee.com/forNoName/sts2-pp-mod-release/releases/download/SpeedX-v0.11.12/SpeedX_v0.11.12.zip",
+      "download_intl": "https://github.com/xhyrzldf/sts2-pp-mod-release/releases/download/SpeedX-v0.11.12/SpeedX_v0.11.12.zip",
       "page": "",
-      "filename": "SpeedX_v0.11.11.zip",
+      "filename": "SpeedX_v0.11.12.zip",
       "channel": "stable",
-      "sha256": "775e77f8e6ae26e6239879b91e1235330ad95a28ae16e863c672eb2f0bd6d2c7",
-      "changelog_en": "Compatibility with STS2 beta v0.110.1: restore controller-mode checks",
+      "sha256": "08e958e220f7860916f8833e49f281cbe91f57fcc7af8c23b3946c2ebc84e632",
+      "changelog_en": "Reduce preview allocations and fix timeout, auto-end safety and settings persistence",
       "changelog_detail_en": [
-        "v0.110.1 removed NControllerManager.IsUsingController and replaced it with an InputType enum. The old direct getter threw MissingMethodException repeatedly, disabling damage preview and the space quick-play input path.",
-        "Controller detection now bridges the old bool and new enum shapes at runtime. One DLL supports official v0.107.1 and beta v0.110.1."
+        "Stop accelerating creature-lookup safety timeouts; normal action and visual acceleration remain available.",
+        "Cache preview colors, node paths and unchanged presentation data; release temporary targets and overlay nodes at lifecycle boundaries, and restore block text color without discarding other overrides. Damage is still computed from live state.",
+        "Run auto-end safety forecasts at the final decision rather than every countdown frame, reuse listeners within each forecast, and preserve Buffer when earlier reductions already eliminate HP loss.",
+        "Persist the quick-play toggle through ModConfig, avoid unchanged setting callbacks, and treat failed registration as unavailable. Refresh overlay layout on changes and reduce Rewind statistics polling.",
+        "Add focused regression and negative-fixture coverage. The protected build has completed local in-game testing and passed fresh-log verification."
       ]
     },
     "RemoveMultiplayerPlayerLimit": {
