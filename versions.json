@@ -2,25 +2,27 @@
   "schema_version": 1,
   "mods": {
     "DamageMeter": {
-      "latest": "1.14.7",
+      "latest": "1.16.1",
       "name": "皮皮统计: Skada",
-      "changelog": "兼容测试服 v0.109；修复毒伤/勒杀归因失效",
+      "changelog": "适配 v0.113.0 商店与地图决策采集",
       "changelog_detail": [
-        "v0.109 重做了游戏随机数体系（Seed 从 uint 扩为 ulong），旧版直接读取会在开局抛异常导致进不了对局。Seed 读取改走反射兼容层，同一 DLL 继续支持 v0.103.2 / v0.107.1 / v0.109。",
-        "修复自 v0.107.1 起静默失效的毒液/勒杀伤害归因（游戏把 CombatHistoryEntry.CurrentSide 改为私有导致推断路径抛异常被吞掉）。现在所有支持版本上归因恢复正常。"
+        "兼容新版购买入口和商品列表返回类型，避免漏挂钩或重复采集。",
+        "多人地图重复点击按真实投票判断，首领记录使用地图节点实际显示内容；保留 v0.107.1 正式版兼容。",
+        "受保护版本已通过新版游戏的伤害统计与商店操作检查；保留 v0.107.1 接口兼容。另包含此前开发的可选决策记录及用途告知，不代表真实训练数据验收或模型质量结论。"
       ],
-      "updated_at": "2026-07-18",
-      "download_cn": "https://gitee.com/forNoName/sts2-pp-mod-release/releases/download/DamageMeter-v1.14.7/DamageMeter_v1.14.7.zip",
-      "download_intl": "https://github.com/xhyrzldf/sts2-pp-mod-release/releases/download/DamageMeter-v1.14.7/DamageMeter_v1.14.7.zip",
+      "updated_at": "2026-11-13",
+      "download_cn": "https://gitee.com/forNoName/sts2-pp-mod-release/releases/download/DamageMeter-v1.16.1/DamageMeter_v1.16.1.zip",
+      "download_intl": "https://github.com/xhyrzldf/sts2-pp-mod-release/releases/download/DamageMeter-v1.16.1/DamageMeter_v1.16.1.zip",
       "page": "",
-      "filename": "DamageMeter_v1.14.7.zip",
+      "filename": "DamageMeter_v1.16.1.zip",
       "channel": "stable",
-      "changelog_en": "Compatibility with STS2 beta v0.109; fix poison/strangle attribution",
+      "changelog_en": "Adapt shop and map decision capture to v0.113.0",
       "changelog_detail_en": [
-        "v0.109 overhauled the game's RNG (Seed widened uint→ulong): the old direct Seed read crashed run start with MissingMethodException. Seed access now goes through a reflective compat layer, so one DLL keeps running on v0.103.2 / v0.107.1 / v0.109.",
-        "Fixed poison/strangle power-damage attribution that had been silently broken since v0.107.1 (the game made CombatHistoryEntry.CurrentSide private, which killed the inference path via a swallowed MethodAccessException). Attribution works again on all supported versions."
+        "Resolve the new purchase entry point and shop-list return type without missed hooks or duplicate capture.",
+        "Use actual map votes and rendered boss nodes; retain official v0.107.1 compatibility.",
+        "The protected build passed v0.113.0 damage-meter and shop smoke tests, with v0.107.1 interface compatibility retained. Includes previously developed optional decision capture and purpose notices; this is not acceptance of real training data or a model-quality claim."
       ],
-      "sha256": "ad04ef94a02ed0c9a640bdc23fda835ab694ca3cc20caf7dd6fedb2d7b9063a2"
+      "sha256": "fea70979cf9a18d9654ae41f77bda753a76257c87330c4df9f469b2181b1a230"
     },
     "SpeedX": {
       "latest": "0.11.12",
@@ -66,27 +68,27 @@
       "sha256": "74f1d5c4a662521ed2a47f8400e93179bc83252ce55a4af8d2a2cc353249c292"
     },
     "Rewind": {
-      "latest": "0.26.19",
+      "latest": "0.26.20",
       "name": "皮皮倒带: Rewind",
-      "changelog": "修复知识恶魔战斗倒带误报失败、禁用倒带及回合显示错位",
+      "changelog": "适配 v0.113.0 回放选牌、地图定位与重开",
       "changelog_detail": [
-        "结束回合的动作队列排空后，继续等待怪物行动、历史选牌和目标回合初始化完成，不再提前把尚未发生的历史选牌判为遗漏。",
-        "只有抵达目标回合后才保存倒带状态；目标回合自己的待选牌仍交还玩家，真正遗漏的历史选择、战斗提前结束或回放越界仍会中止，并为回合等待增加超时保护。",
-        "按正式版 v0.107.1 与测试版 v0.111.0 的接口保持兼容；补充知识恶魔异步时序及异常边界回归用例。"
+        "回放选牌改接新版按玩家管理的选择器栈，地图标记及自动定位跟随新版接口。",
+        "换种重开适配原生玩家参数和自定义标志，先验证接口再清理旧运行态；保留 v0.107.1 正式版兼容。",
+        "受保护版本已通过新版游戏的回合回退、历史回合恢复和节点存档恢复检查；新模式暂不开放换种重开，保留 v0.107.1 接口兼容。"
       ],
-      "updated_at": "2026-09-09",
-      "download_cn": "https://gitee.com/forNoName/sts2-pp-mod-release/releases/download/Rewind-v0.26.19/Rewind_v0.26.19.zip",
-      "download_intl": "https://github.com/xhyrzldf/sts2-pp-mod-release/releases/download/Rewind-v0.26.19/Rewind_v0.26.19.zip",
+      "updated_at": "2026-11-13",
+      "download_cn": "",
+      "download_intl": "",
       "page": "",
-      "filename": "Rewind_v0.26.19.zip",
+      "filename": "Rewind_v0.26.20.zip",
       "channel": "stable",
-      "changelog_en": "Fix premature rewind failure and turn mismatch during Knowledge Demon combat",
+      "changelog_en": "Adapt replay selection, map navigation and restart to v0.113.0",
       "changelog_detail_en": [
-        "After the end-turn action queue drains, wait for enemy moves, historical choices and target-turn setup instead of rejecting choices that the independent combat turn loop has not reached yet.",
-        "Publish rewind state only at the target boundary. Leave the target turn's own chooser live, reject genuinely unconsumed choices, ended combat or target overshoot, and bound the final turn wait with a timeout.",
-        "Preserve API compatibility with official v0.107.1 and beta v0.111.0. Add deterministic Knowledge Demon timing and failure-boundary regressions."
+        "Bridge replay selection to per-player selector stacks and adapt map marker/navigation APIs.",
+        "Prepare native player/custom-game restart arguments before cleaning the current run; retain v0.107.1.",
+        "The protected build passed v0.113.0 turn-reset, earlier-turn and checkpoint-restoration smoke tests. New-mode seeded restarts remain unavailable; v0.107.1 interface compatibility is retained."
       ],
-      "sha256": "9c5249e80f55b1da02d15f5a9dd6bdd02563c264eb5b245b52381dbd059d2f5a"
+      "sha256": "592e6c032157976efaa765af34dfa5cc96777fa181dd3c594e4f42a9d2a9bf72"
     },
     "ModConfig": {
       "latest": "0.2.3",
