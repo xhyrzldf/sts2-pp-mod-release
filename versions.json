@@ -147,8 +147,8 @@
         "受保护版本已在 v0.113.0 成功加载并运行旧模型地图评估。本次不重新训练模型，不宣称新版预测质量；旧数据仅供路线参考，不启用旧版卡牌统计。"
       ],
       "updated_at": "2026-11-13",
-      "download_cn": "",
-      "download_intl": "",
+      "download_cn": "https://gitee.com/forNoName/sts2-pp-mod-release/releases/download/SkadaHelper-v0.23.2/SkadaHelper_v0.23.2.zip",
+      "download_intl": "https://github.com/xhyrzldf/sts2-pp-mod-release/releases/download/SkadaHelper-v0.23.2/SkadaHelper_v0.23.2.zip",
       "page": "https://steamcommunity.com/sharedfiles/filedetails/?id=3763804482",
       "filename": "SkadaHelper_v0.23.2.zip",
       "channel": "stable",
