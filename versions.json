@@ -77,8 +77,8 @@
         "受保护版本已通过新版游戏的回合回退、历史回合恢复和节点存档恢复检查；新模式暂不开放换种重开，保留 v0.107.1 接口兼容。"
       ],
       "updated_at": "2026-11-13",
-      "download_cn": "",
-      "download_intl": "",
+      "download_cn": "https://gitee.com/forNoName/sts2-pp-mod-release/releases/download/Rewind-v0.26.20/Rewind_v0.26.20.zip",
+      "download_intl": "https://github.com/xhyrzldf/sts2-pp-mod-release/releases/download/Rewind-v0.26.20/Rewind_v0.26.20.zip",
       "page": "",
       "filename": "Rewind_v0.26.20.zip",
       "channel": "stable",
