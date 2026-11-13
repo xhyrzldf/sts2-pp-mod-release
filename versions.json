@@ -114,56 +114,52 @@
       ]
     },
     "QuickLink": {
-      "latest": "0.9.13",
+      "latest": "0.10.1",
       "name": "皮皮快连: QuickLink",
-      "changelog": "兼容 STS2 测试服 v0.111.0 的联机握手与错误码",
+      "changelog": "适配 v0.113.0 重连、自定义模式与地图定位",
       "changelog_detail": [
-        "QuickLink 现在会在运行时选择新版或旧版 NetHostGameService 与 NetClientGameService 构造函数，房主直连恢复和客机重连时都会正确携带新版游戏/模组握手信息。",
-        "房主可靠信号改为通过兼容层读取 ConnectedPeers 快照，不再绑定任一版本的属性签名。",
-        "发生变动的 NetError 改为按运行时名称解析与比较，并补充新的 LobbyJoinTimeout 重连情形。同一 DLL 同时支持正式服 v0.107.1 和测试服 v0.111.0。"
+        "适配新版连接初始化、角色选择和地图接口，保留 v0.107.1 正式版兼容。",
+        "自定义标志纳入联机身份核对，不再把新模式误判为旧自定义模式；新模式不开放换种重开。",
+        "受保护版本已通过 v0.113.0 启动和配置注册检查，未见该模组异常。按用户要求基于代码审核先行发布，尚未进行双人、四人联机及重连实测；v0.107.1 已通过接口兼容校验。"
       ],
-      "updated_at": "2026-08-17",
-      "download_cn": "https://gitee.com/forNoName/sts2-pp-mod-release/releases/download/QuickLink-v0.9.13/QuickLink_v0.9.13.zip",
-      "download_intl": "https://github.com/xhyrzldf/sts2-pp-mod-release/releases/download/QuickLink-v0.9.13/QuickLink_v0.9.13.zip",
+      "updated_at": "2026-11-13",
+      "download_cn": "https://gitee.com/forNoName/sts2-pp-mod-release/releases/download/QuickLink-v0.10.1/QuickLink_v0.10.1.zip",
+      "download_intl": "https://github.com/xhyrzldf/sts2-pp-mod-release/releases/download/QuickLink-v0.10.1/QuickLink_v0.10.1.zip",
       "page": "",
-      "filename": "QuickLink_v0.9.13.zip",
+      "filename": "QuickLink_v0.10.1.zip",
       "channel": "stable",
-      "sha256": "669de9cedcca41a367c0a61933039af911fde0f06c86e7ebbc0c2575924ae055",
-      "changelog_en": "Compatibility with the STS2 beta v0.111.0 multiplayer handshake",
+      "sha256": "20be1b48eaccfeb051084e0c4bf8984602fe913a1c42ae381bc32bb0eec033d8",
+      "changelog_en": "Adapt reconnection, custom-game identity and map navigation to v0.113.0",
       "changelog_detail_en": [
-        "QuickLink now selects the versioned or legacy NetHostGameService and NetClientGameService constructors at runtime, preserving the new game/mod handshake during direct host restore and client reconnect.",
-        "Reliable host signaling now reads ConnectedPeers through a compatibility snapshot instead of binding to either version's property signature.",
-        "Moved NetError values are resolved and compared by runtime name, including the new LobbyJoinTimeout reconnect case. The same DLL supports official v0.107.1 and beta v0.111.0."
+        "Adapt join initialization, character selection and map APIs while retaining v0.107.1.",
+        "Include the custom-game flag in operation identity; never confuse new modes with the former Custom enum. Keep new-mode restarts disabled.",
+        "The protected build passed v0.113.0 initialization and settings-registration checks with no mod-scoped errors. Released at the user request after code review; two/four-player sessions and reconnection remain untested. v0.107.1 passed interface compatibility checks."
       ]
     },
     "SkadaHelper": {
-      "latest": "0.22.2",
+      "latest": "0.23.2",
       "name": "皮皮军师: SkadaHelper",
-      "changelog": "107和111五职业卡牌与路线参考，补齐低进阶涅奥统计，新增战斗预览",
+      "changelog": "v0.113.0 恢复旧模型路线参考并标明来源",
       "changelog_detail": [
-        "支持游戏 v0.107.1 和 v0.111.0，单人五职业各用对应版本的卡牌数据和路线模型；内置卡牌统计共1,484,788局（107为1,042,207局，111为442,581局），不是路线训练样本数。",
-        "选牌、升级、删牌和商店可查看评分与统计，地图提供本机计算的参考路线；111战士另有卡组体检、两张牌配合及升级提示。",
-        "进阶0–6的卡牌、路线和开局涅奥按进阶7提供参考，不改变实际难度。涅奥选项旁直接显示比例与样本量，缺少对应数据仍显示无统计；其他古人和普通事件范围不变。",
-        "111普通事件按事件及选项标识获取统计，区分缺少数据和样本不足；需要联网或已有缓存。",
-        "悬停坚毅、痛殴显示预计消耗的牌和从左数的位置，添柴显示预计生成的牌；仅预览当前状态，触发效果或队友行动可能改变结果。",
-        "抽牌堆预览默认关闭，可在ModConfig开启；平时只看顶牌，按需展开前5张，提示条可拖动并记住位置。"
+        "按用户要求，游戏 v0.113.0 借用现有 v0.111 路线模型；地图显示旧模型版本，不修改模型训练来源或哈希。",
+        "路线只读取当前地图特征，不连带启用旧版卡牌统计。原有 v0.107.1 与 v0.111.0 同版本数据路径保持不变。",
+        "保留模型维度、来源、哈希及真实地图连线校验；未知版本和非标准模式不启用该参考。新版自定义局按独立标志排除。",
+        "受保护版本已在 v0.113.0 成功加载并运行旧模型地图评估。本次不重新训练模型，不宣称新版预测质量；旧数据仅供路线参考，不启用旧版卡牌统计。"
       ],
-      "updated_at": "2026-09-16",
-      "download_cn": "https://gitee.com/forNoName/sts2-pp-mod-release/releases/download/SkadaHelper-v0.22.2/SkadaHelper_v0.22.2.zip",
-      "download_intl": "https://github.com/xhyrzldf/sts2-pp-mod-release/releases/download/SkadaHelper-v0.22.2/SkadaHelper_v0.22.2.zip",
+      "updated_at": "2026-11-13",
+      "download_cn": "",
+      "download_intl": "",
       "page": "https://steamcommunity.com/sharedfiles/filedetails/?id=3763804482",
-      "filename": "SkadaHelper_v0.22.2.zip",
+      "filename": "SkadaHelper_v0.23.2.zip",
       "channel": "stable",
-      "changelog_en": "Five-character card and route support for 107/111, low-ascension Neow statistics and combat previews",
+      "changelog_en": "Restore labeled legacy-model route references on v0.113.0",
       "changelog_detail_en": [
-        "Supports STS2 v0.107.1 and v0.111.0 with version-specific card data and route models for all five solo characters. Bundled card statistics cover 1,484,788 runs (1,042,207 for 107 and 442,581 for 111), not route-training sample counts.",
-        "Card rewards, upgrades, removals and shops show ratings and statistics; the map provides locally computed route references. The 111 Ironclad also has deck checks, card-pair and upgrade hints.",
-        "A0-A6 uses A7 references for cards, routes and opening Neow options without changing actual difficulty. Neow shows rates and sample counts directly; missing exact observations remain unavailable. Other ancients and ordinary event ranges are unchanged.",
-        "111 ordinary events use event and option identifiers, distinguishing unavailable data from small samples; an internet connection or existing cache is required.",
-        "Hovering True Grit or Thrash previews the expected exhausted card and its left-to-right hand position; Stoke previews generated cards. Current-state previews may change after triggers or teammate actions.",
-        "Draw-pile preview is off by default and can be enabled in ModConfig. Show one top card normally, expand to five on demand, and drag the panel to a saved position."
+        "Use the existing v0.111 route model as an explicit user-requested reference on game v0.113.0. Label its source on the map without rewriting training provenance or model hashes.",
+        "Read live map features only; do not enable legacy card statistics. Preserve the existing same-version v0.107.1 and v0.111.0 data paths.",
+        "Retain feature, provenance, hash and real-edge validation. Reject unknown versions and non-standard modes, including custom runs identified by the new independent flag.",
+        "The protected build loaded and ran legacy-model map scoring on v0.113.0. No retraining or new-version prediction-quality claim; legacy data is route-reference only and does not enable old card statistics."
       ],
-      "sha256": "172e1d0c077835c099c8f643fc59409204a238054716b0fffdab47fed8a4e0a0"
+      "sha256": "bc8f68da3bc9cf6a6899d5a05bbd8ea5ac99b4a274f5cd6586490b8d95a10daf"
     }
   },
   "updated_at": "2026-08-17"
