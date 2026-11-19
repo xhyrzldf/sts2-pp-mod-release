@@ -68,27 +68,23 @@
       "sha256": "74f1d5c4a662521ed2a47f8400e93179bc83252ce55a4af8d2a2cc353249c292"
     },
     "Rewind": {
-      "latest": "0.26.20",
+      "latest": "0.26.21",
       "name": "皮皮倒带: Rewind",
-      "changelog": "适配 v0.113.0 回放选牌、地图定位与重开",
+      "changelog": "修复测试版倒带经过选牌时黑屏、停在旧回合的问题",
       "changelog_detail": [
-        "回放选牌改接新版按玩家管理的选择器栈，地图标记及自动定位跟随新版接口。",
-        "换种重开适配原生玩家参数和自定义标志，先验证接口再清理旧运行态；保留 v0.107.1 正式版兼容。",
-        "受保护版本已通过新版游戏的回合回退、历史回合恢复和节点存档恢复检查；新模式暂不开放换种重开，保留 v0.107.1 接口兼容。"
+        "从刚重建的单人战局绑定选牌记录，不再等待尚未就绪的本地玩家标识。无法绑定时立即报告失败，不再遮住界面等待玩家重复选牌。"
       ],
-      "updated_at": "2026-11-13",
-      "download_cn": "https://gitee.com/forNoName/sts2-pp-mod-release/releases/download/Rewind-v0.26.20/Rewind_v0.26.20.zip",
-      "download_intl": "https://github.com/xhyrzldf/sts2-pp-mod-release/releases/download/Rewind-v0.26.20/Rewind_v0.26.20.zip",
+      "updated_at": "2026-11-18",
+      "download_cn": "https://gitee.com/forNoName/sts2-pp-mod-release/releases/download/Rewind-v0.26.21/Rewind_v0.26.21.zip",
+      "download_intl": "https://github.com/xhyrzldf/sts2-pp-mod-release/releases/download/Rewind-v0.26.21/Rewind_v0.26.21.zip",
       "page": "",
-      "filename": "Rewind_v0.26.20.zip",
+      "filename": "Rewind_v0.26.21.zip",
       "channel": "stable",
-      "changelog_en": "Adapt replay selection, map navigation and restart to v0.113.0",
+      "changelog_en": "Replay historical card choices on the beta branch without reopening the selector",
       "changelog_detail_en": [
-        "Bridge replay selection to per-player selector stacks and adapt map marker/navigation APIs.",
-        "Prepare native player/custom-game restart arguments before cleaning the current run; retain v0.107.1.",
-        "The protected build passed v0.113.0 turn-reset, earlier-turn and checkpoint-restoration smoke tests. New-mode seeded restarts remain unavailable; v0.107.1 interface compatibility is retained."
+        "Bind replay choices to the rebuilt single-player session before room entry. If its selector cannot be installed, fail immediately rather than waiting behind the rewind overlay."
       ],
-      "sha256": "592e6c032157976efaa765af34dfa5cc96777fa181dd3c594e4f42a9d2a9bf72"
+      "sha256": "61fe3e608ab92a8750f7fc7ab2a087adee2f41aeda5e3c01efaa6c4d8eb7091d"
     },
     "ModConfig": {
       "latest": "0.2.4",
@@ -114,53 +110,47 @@
       ]
     },
     "QuickLink": {
-      "latest": "0.10.1",
+      "latest": "0.10.2",
       "name": "皮皮快连: QuickLink",
-      "changelog": "适配 v0.113.0 重连、自定义模式与地图定位",
+      "changelog": "修复联机投票与标准局重开，避免普通事件结算后坏档",
       "changelog_detail": [
-        "适配新版连接初始化、角色选择和地图接口，保留 v0.107.1 正式版兼容。",
-        "自定义标志纳入联机身份核对，不再把新模式误判为旧自定义模式；新模式不开放换种重开。",
-        "受保护版本已通过 v0.113.0 启动和配置注册检查，未见该模组异常。按用户要求基于代码审核先行发布，尚未进行双人、四人联机及重连实测；v0.107.1 已通过接口兼容校验。"
+        "兼容其他模组在消息后追加数据；只认当前连接玩家自己的投票。标准局换种子不再触发自定义大厅回调；新档队伍可以从首幕地图正常开局。",
+        "普通事件跳过游戏读不回的结算态，古神多句对白不再卡住。重连时按 Esc 也会通知房主；取消不会把资源加载慢误判成同步失败。房主掉线时客机会退出同步；取消和断线同时发生时只返回一次主菜单。"
       ],
-      "updated_at": "2026-11-13",
-      "download_cn": "https://gitee.com/forNoName/sts2-pp-mod-release/releases/download/QuickLink-v0.10.1/QuickLink_v0.10.1.zip",
-      "download_intl": "https://github.com/xhyrzldf/sts2-pp-mod-release/releases/download/QuickLink-v0.10.1/QuickLink_v0.10.1.zip",
+      "updated_at": "2026-11-18",
+      "download_cn": "https://gitee.com/forNoName/sts2-pp-mod-release/releases/download/QuickLink-v0.10.2/QuickLink_v0.10.2.zip",
+      "download_intl": "https://github.com/xhyrzldf/sts2-pp-mod-release/releases/download/QuickLink-v0.10.2/QuickLink_v0.10.2.zip",
       "page": "",
-      "filename": "QuickLink_v0.10.1.zip",
+      "filename": "QuickLink_v0.10.2.zip",
       "channel": "stable",
-      "sha256": "20be1b48eaccfeb051084e0c4bf8984602fe913a1c42ae381bc32bb0eec033d8",
-      "changelog_en": "Adapt reconnection, custom-game identity and map navigation to v0.113.0",
+      "sha256": "b3860a7cea4af5197e365615d2c2add005b54516462e89006d01ef3cf0798fd6",
+      "changelog_en": "Fix multiplayer voting and standard rerolls; avoid unloadable completed-event saves",
       "changelog_detail_en": [
-        "Adapt join initialization, character selection and map APIs while retaining v0.107.1.",
-        "Include the custom-game flag in operation identity; never confuse new modes with the former Custom enum. Keep new-mode restarts disabled.",
-        "The protected build passed v0.113.0 initialization and settings-registration checks with no mod-scoped errors. Released at the user request after code review; two/four-player sessions and reconnection remain untested. v0.107.1 passed interface compatibility checks."
+        "Read votes even with independent transport trailers and bind them to the connected peer. Standard rerolls no longer trigger custom-lobby callbacks, and fresh crews can start on the first map.",
+        "Skip unloadable ordinary-event snapshots and recognize multi-line Ancient dialogue. Esc also withdraws a pending rejoin. Slow asset loading does not consume the sync timeout; host loss ends the wait without restoring fake data, and overlapping menu returns share one transition."
       ]
     },
     "SkadaHelper": {
-      "latest": "0.23.2",
+      "latest": "0.23.3",
       "name": "皮皮军师: SkadaHelper",
-      "changelog": "v0.113.0 恢复旧模型路线参考并标明来源",
+      "changelog": "修复 v0.113 测试版有卡牌统计却不显示的问题",
       "changelog_detail": [
-        "按用户要求，游戏 v0.113.0 借用现有 v0.111 路线模型；地图显示旧模型版本，不修改模型训练来源或哈希。",
-        "路线只读取当前地图特征，不连带启用旧版卡牌统计。原有 v0.107.1 与 v0.111.0 同版本数据路径保持不变。",
-        "保留模型维度、来源、哈希及真实地图连线校验；未知版本和非标准模式不启用该参考。新版自定义局按独立标志排除。",
-        "受保护版本已在 v0.113.0 成功加载并运行旧模型地图评估。本次不重新训练模型，不宣称新版预测质量；旧数据仅供路线参考，不启用旧版卡牌统计。"
+        "按实际游戏版本请求并校验卡牌统计，不再把 v0.113 一律判为暂无数据。下载正文卡住会超时并尝试备用地址，不覆盖已有缓存。没有对应版本的事件统计时不冒用其他版本。",
+        "正式版普通事件使用截至 2026-10-27（UTC）的真实历史对局；选项旁单独标明样本截止日期，不与卡牌统计混用。"
       ],
-      "updated_at": "2026-11-13",
-      "download_cn": "https://gitee.com/forNoName/sts2-pp-mod-release/releases/download/SkadaHelper-v0.23.2/SkadaHelper_v0.23.2.zip",
-      "download_intl": "https://github.com/xhyrzldf/sts2-pp-mod-release/releases/download/SkadaHelper-v0.23.2/SkadaHelper_v0.23.2.zip",
+      "updated_at": "2026-11-18",
+      "download_cn": "https://gitee.com/forNoName/sts2-pp-mod-release/releases/download/SkadaHelper-v0.23.3/SkadaHelper_v0.23.3.zip",
+      "download_intl": "https://github.com/xhyrzldf/sts2-pp-mod-release/releases/download/SkadaHelper-v0.23.3/SkadaHelper_v0.23.3.zip",
       "page": "https://steamcommunity.com/sharedfiles/filedetails/?id=3763804482",
-      "filename": "SkadaHelper_v0.23.2.zip",
+      "filename": "SkadaHelper_v0.23.3.zip",
       "channel": "stable",
-      "changelog_en": "Restore labeled legacy-model route references on v0.113.0",
+      "changelog_en": "Load published card statistics for v0.113 beta patches",
       "changelog_detail_en": [
-        "Use the existing v0.111 route model as an explicit user-requested reference on game v0.113.0. Label its source on the map without rewriting training provenance or model hashes.",
-        "Read live map features only; do not enable legacy card statistics. Preserve the existing same-version v0.107.1 and v0.111.0 data paths.",
-        "Retain feature, provenance, hash and real-edge validation. Reject unknown versions and non-standard modes, including custom runs identified by the new independent flag.",
-        "The protected build loaded and ran legacy-model map scoring on v0.113.0. No retraining or new-version prediction-quality claim; legacy data is route-reference only and does not enable old card statistics."
+        "Fetch and validate the matching card statistics bundle on v0.113. Bound stalled response bodies and try the alternate origin without replacing valid cached data. Missing event statistics are not replaced with another cohort.",
+        "Standard-branch event options show historical observations through 2026-10-27 (UTC), labeled separately from card statistics."
       ],
-      "sha256": "bc8f68da3bc9cf6a6899d5a05bbd8ea5ac99b4a274f5cd6586490b8d95a10daf"
+      "sha256": "b31f5d7ba4bc5256ef624fcedc05a91aac537a557f757638cadb2bd4f7fa6ad1"
     }
   },
-  "updated_at": "2026-08-17"
+  "updated_at": "2026-11-18"
 }
